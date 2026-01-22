@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Види конденсаторів</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textContainer {
+            position: relative;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <h2>Види конденсаторів</h2>
+        <p>
+            Конденсатори бувають різних типів, які класифікують за <ins>типом діелектрика</ins> (керамічні, плівкові, електролітичні, паперові тощо), <ins>формою 
+            обкладок</ins> (циліндричні, пласкі, сферичні тощо) зміною ємності (постійні, змінні) та за <ins>призначенням</ins> (спеціальні, загального використання).
+        </p>
+        <p>
+            За <strong>видом діелектрика</strong> розрізняють такі групи конденсаторів:
+        </p>
+        <ul>
+            <li>
+                <em>Вакуумні</em> – обкладки без діелектрика розташовані у вакуумі;
+            </li>
+            <li>
+                <em>З газоподібним діелектриком</em> – повітряні, кисневі, азотні тощо. Так звані &laquo;повітряні&raquo; конденсатори є одними з найпростіших, 
+                проте їх діелектричні властивості менш потужні, ніж у рідких чи твердих діелектриків;
+            </li>
+            <li>
+                <em>З рідким діелектриком</em> – мінеральні та рослинні масла, хлоровані вуглеводні, кремнійорганічні рідини тощо. Особливістю цього виду 
+                діелектрика є низька в’язкість. Рідини легко заповнюють весь простір між обкладками, гарантуючи ефективне використання всього об’єму. 
+                Але &laquo;рідкі&raquo; конденсатори мають більшу провідність струму, ніж, наприклад, тверді, що може вплинути на його роботу, і є 
+                вразливими до температурних змін, з-за чого ємність може змінюватись;
+            </li>
+            <li>
+                <em>З твердим органічним або неорганічним діелектриком</em> – смоляні, полімерові, паперові, скляні, слюдяні, керамічні тощо. Ці речовини 
+                забезпечують стабільну діелектричну проникність і низькі втрати, здатні зберігати свої властивості в широкому діапазоні температур, 
+                стійкі до механічних впливів. Такі конденсатори є досить надійними і мають тривалий термін служби;
+            </li>
+            <li>
+                <em>Електролітичні та оксидо-напівпровідникові</em> – у таких конденсаторах одна обкладка (частіше з фольги) слугує анодом, а інша (електроліт 
+                або шар напівпровідника) – катодом. Подібна внутрішня будова надає їм полярності та забезпечує достатньо високу питому ємність у 
+                порівнянні з іншими видами. Як полярні, вони мають строго визначене підключення, порушення якого може призвести до пробою. Проте такі 
+                конденсатори працюють лише при відносно низьких напругах і мають більші діелектричні втрати, ніж інші типи.
+            </li>
+        </ul>
+        <p>
+            За <strong>можливістю зміни</strong> своєї <strong>ємності</strong> конденсатори бувають: 
+        </p>
+        <ul>
+            <li>
+                <em>Постійні</em> – основний клас конденсаторів, мають сталу ємність (не враховуючи зменшення з часом використання);
+            </li>
+            <li>
+                <em>Змінні</em> – конденсатори, які можуть змінювати свою ємність у процесі роботи. Керування може відбуватися механічно (зміна площі 
+                обкладок, відстані між ними), електричною напругою (варіконди) та температурою (термоконденсатори). Змінні конденсатори використовуються, 
+                наприклад, у радіоприймачах для налаштування частоти резонансного контуру (LC-кола);
+            </li>
+            <li>
+                <em>Конденсатори підлаштування</em> – такі конденсатори, ємність яких залишається незмінною протягом функціонування при разовому чи 
+                періодичному регулюванні. Їх використовують для вирівнювання початкових ємностей сполучених контурів та періодичного регулювання 
+                ланцюгів схем, де потрібна незначна зміна ємності.
+            </li>
+        </ul>
+        <p>
+            Форми обкладок конденсаторів бувають різними: пласкі, циліндричні, сферичні, а також рулонні. Найпоширенішими з них є пласкі 
+            (мають дві паралельні пластини) та циліндричні (рулон металевих стрічок, розділених шаром діелектрика), що нерідко використовуються в 
+            електролітичних конденсаторах. Сферичні конденсатори являють собою дві концентричні сфери, поверхні яких розділені шаром діелектрика. 
+            Рулонні є різновидом циліндричних, у своїй будові вони мають дві металеві стрічки, щільно згорнуті в рулон і розділені діелектриком. 
+            Всі рулонні конденсатори є циліндричними, але не всі циліндричні є рулонними. Іноді, циліндричні конденсатори складаються з двох 
+            концентричних металевих трубок, розділених діелектриком. Для конденсаторів кожної форми обкладок існують власні формули обчислення 
+            їх ємності. 
+        </p>
+        <p class="last">
+            У залежності від потреб, конденсатори можна умовно розділити на дві категорії: загального та спеціального призначення. Конденсатори 
+            загального призначення використовуються у більшості електронних пристроїв і не мають особливих вимог до роботи. До них традиційно відносять 
+            стандартні низьковольтні конденсатори. Решту можна назвати спеціальними. До них відносять високовольтні, імпульсні, дозиметричні, пускові 
+            та інші конденсатори.
+        </p>
+    </div>
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var container = document.getElementById('textContainer');
+
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        var ctx = canvas.getContext('2d');
+        var drawing = false; // малювання на канві активне
+        var lines = [];
+        var drawEnabled = false; // режим малювання, керуючи з форми
+        var currentTool = 'pen';
+        var currentColor = 'blue';
+        var currentWidth = 6;
+        var currentAlpha = 1;
+
+        function setDrawingEnabled(value) {
+            drawEnabled = value;
+            canvas.style.pointerEvents = value ? 'auto' : 'none';
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            if (tool === 'pen') {
+                currentAlpha = 1;
+            } else if (tool === 'marker') {
+                currentAlpha = 0.5;
+            } else if (tool === 'laser') {
+                currentAlpha = 1;
+            }
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setLineWidth(width) {
+            currentWidth = width;
+        }
+
+        function clearCanvas() {
+            lines = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // ===== Обробка рухів миші =====
+        canvas.addEventListener('mousedown', function (e) {
+            if (!drawEnabled) return;
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines.push({ color: currentColor, width: currentWidth, alpha: currentAlpha, points: [point] });
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (!drawing || !drawEnabled) return;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines[lines.length - 1].points.push(point);
+            redraw();
+        });
+
+        canvas.addEventListener('mouseup', function () { drawing = false; });
+        canvas.addEventListener('mouseleave', function () { drawing = false; });
+
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.globalAlpha = line.alpha;
+                ctx.lineWidth = line.width;
+                ctx.moveTo(line.points[0].x, line.points[0].y);
+                for (var j = 1; j < line.points.length; j++) {
+                    ctx.lineTo(line.points[j].x, line.points[j].y);
+                }
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+    </script>
+</body>
+</html>

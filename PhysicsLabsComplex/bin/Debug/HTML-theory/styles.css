@@ -1,0 +1,71 @@
+body {
+    background-color: #98A7AE;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14pt;
+}
+div {
+    width: 90%;
+    margin: 5px auto;
+    background-color: #E0E6E5;
+    padding: 0 20px;
+    text-align: justify;
+    border-radius: 10px;
+}
+h2 {
+    padding-top: 15px;
+}
+p {
+    text-indent: 30px;
+}
+.caption {
+    text-align: center;
+    color: gray;
+    font-style: italic;
+    margin-top: 3px;
+}
+.formula {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    transition: transform 0.3s ease-in-out;
+}
+.formula img {
+    max-height: 100%;
+    width: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.formula:hover {
+    transform: scale(1.05);
+}
+.photo {
+    float: right;
+    width: 40%;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; 
+    transition: transform 0.4s ease-in-out;  
+}
+.photo:hover img {
+    transform: scale(1.03); 
+}
+.photo figure {
+    text-align: center;
+}
+.photo figcaption {
+    color: gray;
+    font-style: italic;
+    margin-top: 5px;
+}
+.last {
+    padding-bottom: 10px;
+}
+ul {
+    margin-left: 40px;
+}
+li {
+    margin: 15px 0;
+}

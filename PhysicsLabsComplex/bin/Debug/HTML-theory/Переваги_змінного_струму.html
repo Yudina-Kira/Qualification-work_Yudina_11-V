@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переваги</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textContainer {
+            position: relative;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <h2>Переваги змінного струму</h2>
+        <p>
+            У сучасних електроприладах і лініях електропередач переважно використовується змінний струм. Це зумовлено його високою
+            ефективністю під час передавання електричної енергії: він природно генерується на електростанціях без складних
+            перетворень, легко змінює свої параметри (напругу та силу струму), а його ККД може досягати приблизно 99%.
+        </p>
+        <p>
+            Основна перевага змінного струму полягає в його здатності періодично змінювати напругу та напрямок протікання. Енергія
+            передається завдяки електромагнітним коливанням його електронів. Електрони здійснюють зворотно-поступальні рухи навколо
+            положення рівноваги, створюючи змінні електричні та магнітні поля, які поширюються вздовж провідника і переносять
+            енергію. Для наочності цей процес можна порівняти з поздовжніми хвилями в пружині: енергія рухається в напрямку
+            коливань, тоді як сама речовина залишається майже нерухомою. Завдяки такому способу передачі енергії, витрати на
+            подолання опору зводяться до мінімуму, провідник нагрівається не значно, і потужність електричного струму практично
+            повністю зберігається.
+        </p>
+        <p>
+            На відміну від змінного, постійний струм тече лише в один бік. У цьому випадку, енергія переноситься безпосередньо
+            електронами внаслідок їх лінійного руху. Тому, джерело струму витрачає додаткову енергію на безперервне подолання
+            електронами опору провідника. Це призводить до зростання теплових витрат та зменшення ефективної потужності струму.
+            Крім того, зміна параметрів постійного струму потребує використання складних і коштовних перетворювачів, що не є вигідним.
+        </p>
+        <p>
+            Ще однією перевагою змінного струму перед постійним є простота його генерації. На електростанціях обертання котушки в
+            магнітному полі генератора створює чистий синусоїдальний струм без додаткових перетворень. Трансформатори, які
+            широко застосовуються для передавання електроенергії на великі відстані, також працюють саме на змінних
+            електромагнітних полях, що в подальшому дає змогу легко змінювати напругу.
+        </p>
+        <p>
+            Постійний струм є більш вимогливим у створенні. Для його генерації потрібні спеціальні колектори або випрямлячі, що є
+            важчим, дорожчим та менш надійним.
+        </p>
+        <p class="last">
+            Отже, використання змінного струму, у побуті чи у промислових масштабах, є енергетично вигідним і технологічно
+            доцільним завдяки його високому ККД, зручності перетворення параметрів та простоті генерації.
+        </p>
+        <canvas id="drawCanvas"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var container = document.getElementById('textContainer');
+
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        var ctx = canvas.getContext('2d');
+        var drawing = false; // малювання на канві активне
+        var lines = [];
+        var drawEnabled = false; // режим малювання, керуючи з форми
+        var currentTool = 'pen';
+        var currentColor = 'blue';
+        var currentWidth = 6;
+        var currentAlpha = 1;
+
+        function setDrawingEnabled(value) {
+            drawEnabled = value;
+            canvas.style.pointerEvents = value ? 'auto' : 'none';
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            if (tool === 'pen') {
+                currentAlpha = 1;
+            } else if (tool === 'marker') {
+                currentAlpha = 0.5;
+            } else if (tool === 'laser') {
+                currentAlpha = 1;
+            }
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setLineWidth(width) {
+            currentWidth = width;
+        }
+
+        function clearCanvas() {
+            lines = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // ===== Обробка рухів миші =====
+        canvas.addEventListener('mousedown', function (e) {
+            if (!drawEnabled) return;
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines.push({ color: currentColor, width: currentWidth, alpha: currentAlpha, points: [point] });
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (!drawing || !drawEnabled) return;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines[lines.length - 1].points.push(point);
+            redraw();
+        });
+
+        canvas.addEventListener('mouseup', function () { drawing = false; });
+        canvas.addEventListener('mouseleave', function () { drawing = false; });
+
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.globalAlpha = line.alpha;
+                ctx.lineWidth = line.width;
+                ctx.moveTo(line.points[0].x, line.points[0].y);
+                for (var j = 1; j < line.points.length; j++) {
+                    ctx.lineTo(line.points[j].x, line.points[j].y);
+                }
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+    </script>
+</body>
+</html>

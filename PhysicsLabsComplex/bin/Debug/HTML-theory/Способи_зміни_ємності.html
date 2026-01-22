@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Способи зміни ємності</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textContainer {
+            position: relative;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <h2>Способи збільшення та зменшення загальної ємності</h2>
+        <p>
+            Від способу з’єднання конденсаторів у колі залежить загальна ємність всього контуру. Для отримання більших ємностей конденсатори з’єднують 
+            паралельно. При цьому, напруга між обкладками всіх конденсаторів є однаковою. 
+        </p>
+        <div class="photo">
+            <img src="Фото/Рисунок 2-5-1.png" alt="Електричне коло з паралельно з'єднаних конденсаторів">
+            <p class="caption">Рисунок 2.5.1</p>
+        </div>
+        <p>
+            Загальна ємність батареї паралельно з’єднаних конденсаторів (рис. 2.5.1) дорівнює сумі ємностей всіх конденсаторів, з яких вона складається:
+        </p>
+        <div class="formula">
+            <img src="Формулы/20.png" alt="Формула загальної ємності паралельно з'єднаних конденсаторів">
+        </div>
+        <p>
+            Якщо у всіх паралельно з’єднаних конденсаторів однакова відстань між обкладками та діелектрики мають ідентичні властивості, то ці 
+            конденсатори можна представити у вигляді одного великого конденсатора, поділеного на фрагменти меншої площі.
+        </p>
+        <p>
+            При послідовному з’єднанні конденсаторів заряди всіх конденсаторів однакові, оскільки від джерела струму вони поступають тільки на зовнішні 
+            електроди, а на внутрішніх вони з’являються лише завдяки розділенню зарядів, які до цього нейтралізували одне одного.
+        </p>
+        <div class="photo">
+            <img src="Фото/Рисунок 2-5-2.png" alt="Електричне коло з послідовно з'єднаних конденсаторів">
+            <p class="caption">Рисунок 2.5.2</p>
+        </div>
+        <p>
+            Загальна ємність батареї послідовно з’єднаних конденсаторів (рис. 2.5.2) дорівнює:
+        </p>
+        <div class="formula">
+            <img src="Формулы/21.png" alt="Формула загальної ємності послідовно з'єднаних конденсаторів">
+        </div>
+        <p>
+            Ця ємність завжди менше мінімальної ємності конденсаторів, з яких складається батарея. Однак, за послідовного з’єднання знижується 
+            вірогідність пробою конденсаторів, так як на кожен конденсатор припадає лише частина різниці потенціалів джерела напруги.
+        </p>
+        <p class="last">
+            Якщо площа обкладок всіх послідовно з’єднаних конденсаторів є однаковою, то ці конденсатори можна представити у вигляді одного великого 
+            конденсатора, між обкладками якого знаходиться стопка з пластин діелектрика всіх конденсаторів, з яких він складається.
+        </p>
+    </div>
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var container = document.getElementById('textContainer');
+
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        var ctx = canvas.getContext('2d');
+        var drawing = false; // малювання на канві активне
+        var lines = [];
+        var drawEnabled = false; // режим малювання, керуючи з форми
+        var currentTool = 'pen';
+        var currentColor = 'blue';
+        var currentWidth = 6;
+        var currentAlpha = 1;
+
+        function setDrawingEnabled(value) {
+            drawEnabled = value;
+            canvas.style.pointerEvents = value ? 'auto' : 'none';
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            if (tool === 'pen') {
+                currentAlpha = 1;
+            } else if (tool === 'marker') {
+                currentAlpha = 0.5;
+            } else if (tool === 'laser') {
+                currentAlpha = 1;
+            }
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setLineWidth(width) {
+            currentWidth = width;
+        }
+
+        function clearCanvas() {
+            lines = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // ===== Обробка рухів миші =====
+        canvas.addEventListener('mousedown', function (e) {
+            if (!drawEnabled) return;
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines.push({ color: currentColor, width: currentWidth, alpha: currentAlpha, points: [point] });
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (!drawing || !drawEnabled) return;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines[lines.length - 1].points.push(point);
+            redraw();
+        });
+
+        canvas.addEventListener('mouseup', function () { drawing = false; });
+        canvas.addEventListener('mouseleave', function () { drawing = false; });
+
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.globalAlpha = line.alpha;
+                ctx.lineWidth = line.width;
+                ctx.moveTo(line.points[0].x, line.points[0].y);
+                for (var j = 1; j < line.points.length; j++) {
+                    ctx.lineTo(line.points[j].x, line.points[j].y);
+                }
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загальне визначення</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textContainer {
+            position: relative;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <h2>Загальне визначення змінного струму та його характеристики</h2>
+        <p>
+            <strong>Змінний струм</strong> – це електричний струм, значення та напрямок якого з часом неперервно змінюються. На відміну від постійного 
+            струму, який тече в одному напрямку зі сталою силою, змінний періодично змінює свій напрямок і величину.
+        </p>    
+        <p>
+            Його поведінку можна описати за допомогою виразу:
+        </p>
+        <div class="formula">
+            <img src="Формулы/1.png" alt="Формула миттєвого значення змінного струму">
+        </div>
+        <p>
+            де <i>I<sub>max</sub></i> – амплітуда коливань, <i>ω</i> – кутова частота, <i>φ</i> – початкова фаза.
+        </p>
+        <p>
+            Ця формула відображає періодичний характер змінного струму та показує, як його значення змінюється з плином часу.
+        </p>
+        <p>
+            Змінний струм характеризується амплітудою, частотою, фазою та періодом. Через зміну напрямку протікання одну з його 
+            півхвиль умовно вважають додатною, а іншу – від’ємною, що дозволяє зручно описувати його коливальний характер.
+        </p>
+        <div class="photo">
+            <img src="Фото/Рисунок 1-1-1.png" alt="Синусоїдальний змінний струм">
+            <p class="caption">Рисунок 1.1.1</p>
+        </div>
+        <p>
+            На рисунку 1.1.1 зображено графік струму, який проходить повний цикл своїх змін через кожні рівні проміжки часу <i>T</i>. 
+            Час <i>T</i>, протягом якого періодичний змінний струм проходить повний цикл своїх змін і повертається до початкового значення, 
+            називається <strong>періодом змінного струму</strong>. Якщо струм через рівні проміжки часу повторює повний цикл змін, його називають 
+            <strong>періодичним змінним струмом</strong>. Одним із найпоширеніших видів періодичного струму є <strong>синусоїдальний струм</strong>, значення якого 
+            змінюється за гармонічним законом – тобто описується функціями синуса або косинуса.
+        </p>
+        <p>
+            Величина, обернено пропорційна до періоду, називається <strong>частотою змінного струму</strong>. Вона описує, скільки 
+            повних циклів коливань здійснюється за одиницю часу, і виражається у Гц: 
+        </p>
+        <div class="formula">
+            <img src="Формулы/2.png" alt="Формула частоти змінного струму, її розмірність">
+        </div>
+        <p>
+            Згідно з графіком на рисунку 1.1.1, частота поданого змінного струму буде дорівнювати 1 Гц, оскільки за період <i>T</i> він 
+            виконує одне повне коливання.
+        </p>
+        <p>
+            <strong>Амплітуда змінного струму</strong> – максимальне значення сили змінного струму (у позитивному або негативному 
+            напрямках), якого він досягає під час свого періодичного коливання. На рисунку 1.1.1 амплітуда позначена величиною <i>I<sub>m</sub></i>. 
+        </p>
+        <p>
+            <strong>Фаза змінного струму</strong> – це фізична величина, яка характеризує зсув коливань відносно деякого початкового 
+            моменту часу. Вона позначається символом <i>φ</i> і вимірюється в градусах або радіанах. 
+        </p>
+        <p>
+            Тісно пов’язана з фазою величина – <strong>кутова частота</strong>. Вона описує, як швидко змінюється фаза струму з часом, 
+            і визначається за формулою:
+        </p>
+        <div class="formula">
+            <img src="Формулы/3.png" alt="Формула кутової частоти змінного струму">
+        </div>
+        <p>
+            де <i>ω</i> – кутова частота, <i>f</i> – частота коливань, <i>T</i> – період коливань.
+        </p>
+        <p>
+            Кутова частота вимірюється в радіанах на секунду (рад/с) і відображає, на скільки радіанів змінюється фаза за одну секунду.
+        </p>
+        <p>
+            У формулі для визначення миттєвого значення сили струму <br>
+            <div class="formula">
+                <img src="Формулы/4.png" alt="Формула миттєвого значення змінного струму">
+            </div> <br>
+            вираз <i>ωt+φ</i> називають <strong>фазою коливання в момент часу <i>t</i></strong>. Тут <i>ωt</i> показує, як фаза 
+            змінюється з плином часу, а <i>φ</i> задає її початкове значення.
+        </p>
+        <p>
+            Таким чином, кутова частота визначає швидкість зміни фази, а початкова фаза – положення коливання на початку спостереження.
+        </p>
+        <p class="last">
+            <strong>Напрям змінного струму</strong> зазначається при вимірюванні сили струму: оскільки це скалярна величина, її 
+            значення може бути як додатним, так і від’ємним, причому знак визначається саме напрямком струму в колі. 
+        </p>
+        <canvas id="drawCanvas"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var container = document.getElementById('textContainer');
+
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        var ctx = canvas.getContext('2d');
+        var drawing = false; // малювання на канві активне
+        var lines = [];
+        var drawEnabled = false; // режим малювання, керуючи з форми
+        var currentTool = 'pen';
+        var currentColor = 'blue';
+        var currentWidth = 6;
+        var currentAlpha = 1;
+
+        function setDrawingEnabled(value) {
+            drawEnabled = value;
+            canvas.style.pointerEvents = value ? 'auto' : 'none';
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            if (tool === 'pen') {
+                currentAlpha = 1;
+            } else if (tool === 'marker') {
+                currentAlpha = 0.5;
+            } else if (tool === 'laser') {
+                currentAlpha = 1;
+            }
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setLineWidth(width) {
+            currentWidth = width;
+        }
+
+        function clearCanvas() {
+            lines = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // ===== Обробка рухів миші =====
+        canvas.addEventListener('mousedown', function (e) {
+            if (!drawEnabled) return;
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines.push({ color: currentColor, width: currentWidth, alpha: currentAlpha, points: [point] });
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (!drawing || !drawEnabled) return;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines[lines.length - 1].points.push(point);
+            redraw();
+        });
+
+        canvas.addEventListener('mouseup', function () { drawing = false; });
+        canvas.addEventListener('mouseleave', function () { drawing = false; });
+
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.globalAlpha = line.alpha;
+                ctx.lineWidth = line.width;
+                ctx.moveTo(line.points[0].x, line.points[0].y);
+                for (var j = 1; j < line.points.length; j++) {
+                    ctx.lineTo(line.points[j].x, line.points[j].y);
+                }
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+    </script>
+</body>
+</html>

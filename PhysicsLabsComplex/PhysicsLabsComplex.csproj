@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PhysicsLabsComplex</RootNamespace>
+    <AssemblyName>PhysicsLabsComplex</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnimationButton.cs" />
+    <Compile Include="AnimationChart.cs" />
+    <Compile Include="AnimationToggle.cs" />
+    <Compile Include="AnimatorButton.cs" />
+    <Compile Include="AnimatorChart.cs" />
+    <Compile Include="AnimatorToggle.cs" />
+    <Compile Include="Cards.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Clues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clues.Designer.cs">
+      <DependentUpon>Clues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crosswords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crosswords.Designer.cs">
+      <DependentUpon>Crosswords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrosswordsRules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrosswordsRules.Designer.cs">
+      <DependentUpon>CrosswordsRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CursorSetting.cs" />
+    <Compile Include="Drawer.cs" />
+    <Compile Include="DrawingModeHelper.cs" />
+    <Compile Include="DvmProtocol.cs" />
+    <Compile Include="GamesExit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GamesExit.Designer.cs">
+      <DependentUpon>GamesExit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridHelper.cs" />
+    <Compile Include="ImageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageView.Designer.cs">
+      <DependentUpon>ImageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabInterfaceHelper.cs" />
+    <Compile Include="LabsExit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LabsExit.Designer.cs">
+      <DependentUpon>LabsExit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabsInstructions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LabsInstructions.Designer.cs">
+      <DependentUpon>LabsInstructions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lab_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lab_1.Designer.cs">
+      <DependentUpon>Lab_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lab_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lab_2.Designer.cs">
+      <DependentUpon>Lab_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lab_3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lab_3.Designer.cs">
+      <DependentUpon>Lab_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListOfGames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListOfGames.Designer.cs">
+      <DependentUpon>ListOfGames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListOfLabs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListOfLabs.Designer.cs">
+      <DependentUpon>ListOfLabs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buttons.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MemoryCards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemoryCards.Designer.cs">
+      <DependentUpon>MemoryCards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemoryCardsFinished.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemoryCardsFinished.Designer.cs">
+      <DependentUpon>MemoryCardsFinished.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemoryCardsRules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemoryCardsRules.Designer.cs">
+      <DependentUpon>MemoryCardsRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="Title.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Title.Designer.cs">
+      <DependentUpon>Title.cs</DependentUpon>
+    </Compile>
+    <Compile Include="History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="History.Designer.cs">
+      <DependentUpon>History.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Theory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Theory.Designer.cs">
+      <DependentUpon>Theory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToggleSwitch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Clues.resx">
+      <DependentUpon>Clues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crosswords.resx">
+      <DependentUpon>Crosswords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrosswordsRules.resx">
+      <DependentUpon>CrosswordsRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GamesExit.resx">
+      <DependentUpon>GamesExit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="History.resx">
+      <DependentUpon>History.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageView.resx">
+      <DependentUpon>ImageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabsExit.resx">
+      <DependentUpon>LabsExit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabsInstructions.resx">
+      <DependentUpon>LabsInstructions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lab_1.resx">
+      <DependentUpon>Lab_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lab_2.resx">
+      <DependentUpon>Lab_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lab_3.resx">
+      <DependentUpon>Lab_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListOfGames.resx">
+      <DependentUpon>ListOfGames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListOfLabs.resx">
+      <DependentUpon>ListOfLabs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemoryCards.resx">
+      <DependentUpon>MemoryCards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemoryCardsFinished.resx">
+      <DependentUpon>MemoryCardsFinished.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemoryCardsRules.resx">
+      <DependentUpon>MemoryCardsRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.Clues.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.Crosswords.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.GamesExit.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.History.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.LabsExit.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.Lab_1.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.Lab_2.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.Lab_3.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.ListOfGames.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.ListOfLabs.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.Menu.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.Theory.resources" />
+    <EmbeddedResource Include="obj\Debug\PhysicsLabsComplex.Title.resources" />
+    <EmbeddedResource Include="Theory.resx">
+      <DependentUpon>Theory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Title.resx">
+      <DependentUpon>Title.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="bin\Debug\drawing.json" />
+    <None Include="bin\Debug\PhysicsLabsComplex.exe.config" />
+    <None Include="bin\Debug\PhysicsLabsComplex.exe.zip" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\PhysicsLabsComplex.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\PhysicsLabsComplex.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\PhysicsLabsComplex.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\PhysicsLabsComplex.csproj.SuggestedBindingRedirects.cache" />
+    <None Include="obj\Debug\PhysicsLabsComplex.exe.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Фон титульника.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3249740-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Andreas_Cunaeus_discovering_the_Leyden_jar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Рисунок 1-3-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Рисунок 1-1-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-10-27 160127.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Crosswords\crossword1.txt" />
+    <Content Include="bin\Debug\HTML-theory\styles.css" />
+    <Content Include="bin\Debug\HTML-theory\Імпульсний_струм.html" />
+    <Content Include="bin\Debug\HTML-theory\Багатофазний_змінний_струм.html" />
+    <Content Include="bin\Debug\HTML-theory\Види_конденсаторів.html" />
+    <Content Include="bin\Debug\HTML-theory\Діюче_значення_змінного_струму.html" />
+    <Content Include="bin\Debug\HTML-theory\Загальне_визначення.html" />
+    <Content Include="bin\Debug\HTML-theory\Зарядка_і_розрядка_конденсатора.html" />
+    <Content Include="bin\Debug\HTML-theory\Конденсатор.html" />
+    <Content Include="bin\Debug\HTML-theory\Переваги_змінного_струму.html" />
+    <Content Include="bin\Debug\HTML-theory\Способи_зміни_ємності.html" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\1.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\10.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\11.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\12.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\13.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\14.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\15-1.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\15-2.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\15-3.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\16.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\17.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\18.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\19.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\2.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\20.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\21.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\3.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\4.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\5.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\6.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\7.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\8.png" />
+    <Content Include="bin\Debug\HTML-theory\Формулы\9.png" />
+    <Content Include="bin\Debug\HTML-theory\Фото\Рисунок 1-1-1.png" />
+    <Content Include="bin\Debug\HTML-theory\Фото\Рисунок 1-3-1.png" />
+    <Content Include="bin\Debug\HTML-theory\Фото\Рисунок 2-1-1.jpg" />
+    <Content Include="bin\Debug\HTML-theory\Фото\Рисунок 2-1-2-edited2.png" />
+    <Content Include="bin\Debug\HTML-theory\Фото\Рисунок 2-1-3.gif" />
+    <Content Include="bin\Debug\HTML-theory\Фото\Рисунок 2-2-1.jpg" />
+    <Content Include="bin\Debug\HTML-theory\Фото\Рисунок 2-5-1.png" />
+    <Content Include="bin\Debug\HTML-theory\Фото\Рисунок 2-5-2.png" />
+    <Content Include="bin\Debug\HTML-theory\Фото\Рисунок 3-1-1.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\C-flat.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\C-flat_answer.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\C-general.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\C-general_answer.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\C-specific.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\C-specific_answer.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\D.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\D_answer.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\I-effect.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\I-effect_answer.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\I-moment.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\I-moment_answer.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\U%28t%29-charge.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\U%28t%29-charge_answer.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\U%28t%29-discharge.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\U%28t%29-discharge_answer.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\U-effect.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\U-effect_answer.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\W.png" />
+    <Content Include="bin\Debug\MemoryCards\Formulas-level\W_answer.png" />
+    <Content Include="bin\Debug\PhysicsLabsComplex.exe" />
+    <Content Include="bin\Debug\PhysicsLabsComplex.pdb" />
+    <Content Include="bin\Debug\Resources\3249740-1.png" />
+    <Content Include="bin\Debug\Resources\Andreas_Cunaeus_discovering_the_Leyden_jar.png" />
+    <Content Include="bin\Debug\Resources\Screenshot 2025-10-27 160127.png" />
+    <Content Include="bin\Debug\Resources\Рисунок 1-1-1.png" />
+    <Content Include="bin\Debug\Resources\Рисунок 1-3-1.png" />
+    <Content Include="bin\Debug\Resources\Фон титульника.png" />
+    <Content Include="bin\Debug\SavedGraphics\Lab-1\Lab-1_model.txt" />
+    <Content Include="Crosswords\crossword1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\styles.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Імпульсний_струм.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Багатофазний_змінний_струм.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Види_конденсаторів.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Діюче_значення_змінного_струму.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Загальне_визначення.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Зарядка_і_розрядка_конденсатора.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Конденсатор.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Переваги_змінного_струму.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Способи_зміни_ємності.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\10.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\11.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\12.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\13.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\14.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\15-1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\15-2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\15-3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\16.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\17.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\18.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\19.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\20.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\21.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Формулы\9.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 1-1-1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 1-3-1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 2-1-1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 2-1-2-edited2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 2-1-3.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 2-2-1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 2-3-1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 2-3-2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 2-5-1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 2-5-2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 3-1-1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\C-flat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\C-flat_answer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\C-general.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\C-general_answer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\C-specific.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\C-specific_answer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\D.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\D_answer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\I-effect.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\I-effect_answer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\I-moment.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\I-moment_answer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\U%28t%29-charge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\U%28t%29-charge_answer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\U%28t%29-discharge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\U%28t%29-discharge_answer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\U-effect.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\U-effect_answer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\W.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemoryCards\Formulas-level\W_answer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="obj\Debug\PhysicsLabsComplex.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\PhysicsLabsComplex.exe" />
+    <Content Include="obj\Debug\PhysicsLabsComplex.pdb" />
+    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <None Include="Resources\Іконка збільшення.jpg" />
+    <None Include="Resources\Іконка збільшення_.jpg" />
+    <None Include="Resources\RC-коло лаба2.png" />
+    <None Include="Resources\Screenshot 2025-12-11 002931.png" />
+    <None Include="Resources\Screenshot 2025-12-11 113133.png" />
+    <None Include="Resources\Screenshot 2025-12-11 173505.png" />
+    <None Include="Resources\photo_2025-12-11_17-48-58.jpg" />
+    <None Include="Resources\pngegg.png" />
+    <None Include="Resources\Screenshot 2026-01-17 173420.png" />
+    <None Include="Resources\Screenshot 2026-01-17 193810.png" />
+    <None Include="Resources\Screenshot 2026-01-17 200217.png" />
+    <None Include="Resources\666666.png" />
+    <None Include="Resources\1111111111111.png" />
+    <None Include="Resources\432.png" />
+    <Content Include="Resources\Зарядка-розрядка лаба1 експеримент.png" />
+    <None Include="Resources\Иконка книги-fotor-bg-remover-20260111174715.png" />
+    <Content Include="Resources\Схема-лаб-1.jpg" />
+    <None Include="Resources\RC-коло лаба2 експеримент_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CharrsLib\ChartsLib.csproj">
+      <Project>{b0068abc-3f85-460b-b0b8-6a64af237c7e}</Project>
+      <Name>ChartsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LabDataLib\LabDataLib.csproj">
+      <Project>{e44dd33e-73bd-4a4b-b558-e7428c020e06}</Project>
+      <Name>LabDataLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotesLib\NotesLib.csproj">
+      <Project>{84f397cc-2b1f-4272-a3e3-8306efce5075}</Project>
+      <Name>NotesLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

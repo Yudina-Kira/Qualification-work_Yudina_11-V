@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Імпульсний струм</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textContainer {
+            position: relative;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <h2>Імпульсний струм</h2>
+        <p>
+            <strong>Імпульсний струм</strong> – це змінний струм, який подається у вигляді коротких періодичних імпульсів (сплесків),
+            між якими є проміжки часу, коли струм відсутній або дуже малий, і протікає лише в один бік. Окрім стандартних
+            характеристик змінного струму (амплітуди, періоду та частоти), імпульсний струм має декілька додаткових – форма імпульсу,
+            його тривалість та коефіцієнт заповнення.
+        </p>
+        <div class="photo">
+            <img src="Фото/Рисунок 2-1-1.jpg" alt="Візуальне зображення різних видів імпульсів">
+            <p class="caption">Рисунок 2.1.1. Види імпульсів</p>
+        </div>
+        <p>
+            Форма імпульсів може бути найрізноманітнішою: прямокутною, трикутною, трапецієподібною, синусоїдальною, експоненційною
+            тощо (рис 2.1.1). Спостерігати її візуально можна, наприклад, на екрані осцилографа.
+        </p>
+        <p>
+            В загальному випадку, у формі імпульсу розрізняють такі складові (рис. 2.1.2): <strong>передній фронт</strong> –
+            початковий підйом від мінімального значення (<i>T<sub>f</sub></i>), <strong>вершина</strong> – відносно горизонтальна
+            ділянка максимального значення напруги або сили струму, та <strong>задній фронт</strong> – ділянка зменшення значення
+            з максимального до мінімального (<i>T<sub>d</sub></i>).
+        </p>
+        <div class="photo">
+            <img src="Фото/Рисунок 2-1-2-edited2.png" alt="Схематичний малюнок реального прямокутного імпульсу">
+            <p class="caption">Рисунок 2.1.2. <i>U<sub>0</sub></i> – мінімальна напруга, <i>U<sub>1</sub></i> – максимальна напруга</p>
+        </div>
+        <p>
+            Хоча імпульси бувають достатньо різноманітних форм, часто на практиці їх контури бувають нечіткими, що може призвести
+            до серйозних помилок у вимірах та розрахунках. На рисунку 2.1.2 якраз зображений імпульс, наближений до реального.
+            Його початок (передній фронт) є достатньо чітко вираженим, а от спад (задній фронт) є плавним. Тому, задля зменшення
+            похибки, умовно виникли декілька правил поділу форми імпульсу на його складові (рис. 2.1.2):
+        </p>
+        <ol>
+            <li>
+                Початок та кінець імпульсу фіксуються на рівні 10% від максимального значення напруги (0,1(<i>U<sub>1</sub></i>-<i>U<sub>0</sub></i>));
+            </li>
+            <li>
+                Амплітудою вважається ділянка імпульсу на рівні 90-100% від максимального значення (від 0,9(<i>U<sub>1</sub></i>-<i>U<sub>0</sub></i>) до <i>U<sub>1</sub></i>);
+            </li>
+            <li>
+                Передній та задній фронти знаходяться у проміжках зростання та спадання відповідно від рівня 0,1(<i>U<sub>1</sub></i>-<i>U<sub>0</sub></i>) до рівня від 0,9(<i>U<sub>1</sub></i>-<i>U<sub>0</sub></i>).
+            </li>
+        </ol>
+        <p>
+            При розгляді імпульсів ідеальної форми (найчастіше теоретичних), які мають чіткі контури, обумовлені правила опускаються
+            і всі виміри виконуються за крайніми точками мінімального та максимального значень.
+        </p>
+        <p>
+            В деяких галузях достатньо важливою є <strong>крутизна фронту</strong> <i>S<sub>ф</sub></i> – швидкість зростання напруги
+            чи сили струму. Обчислюється за формулою:
+        </p>
+        <div class="formula">
+            <img src="Формулы/8.png" alt="Формула крутизни фронту">
+        </div>
+        <p>
+            де <i>S<sub>ф</sub></i> – крутизна фронту, <i>U<sub>1</sub></i> – максимальна напруга, <i>T<sub>f</sub></i> – час
+            зростання напруги (передній фронт). Перша формула – для реальних імпульсів, друга – для ідеальних.
+        </p>
+        <p>
+            Наступна характеристика імпульсу – його тривалість. <strong>Тривалість імпульсу</strong> <i>τ</i> – це час, протягом
+            якого тече струм. Існують різні способи вимірювання в залежності від форми імпульсу та очікуваних результатів:
+        </p>
+        <ol>
+            <li>
+                На рівні 50% від максимального значення напруги – стандартний спосіб вимірювання для багатьох форм імпульсів;
+            </li>
+            <li>
+                На рівні 10% від максимального значення напруги – підходить лише для деяких складних форм імпульсів, наприклад,
+                для експоненціальної. Такий вид імпульсу має плавні фронти та довгий хвіст затухання, тому тривалість на рівні 50%
+                може сильно недооцінювати реальний час впливу;
+            </li>
+            <li>
+                За основою – спрощений спосіб. Використовується для трикутної, прямокутної, пилкоподібної, синусоїдальної форм,
+                які зазвичай мають достатньо чіткі контури. Також такий спосіб є зручним для навчання, може для наочності
+                застосовуватися у шкільних задачах та демонстраціях.
+            </li>
+        </ol>
+        <div class="photo">
+            <img style="border-radius: 0;" src="Фото/Рисунок 2-1-3.gif" alt="Демонстрація зміни графіку імпульсного струму в залежності від значення коефіцієнту заповнення">
+            <p class="caption">Рисунок 2.1.3. Імпульсний сигнал з різним коефіцієнтом заповнення D</p>
+        </div>
+        <p>
+            <strong>Коефіцієнт заповнення</strong> – безрозмірна величина, яка показує відношення тривалості імпульсу до періоду
+            його повторення. Він коливається від 0 до 1, частіше записують у відсотках. Виходячи з означення, коефіцієнт заповнення
+            описується виразом:
+        </p>
+        <div class="formula">
+            <img src="Формулы/9.png" alt="Формула коефіцієнту заповнення">
+        </div>
+        <p>
+            де <i>D</i> – коефіцієнт заповнення, <i>τ</i> – тривалість імпульсу, <i>T</i> – період імпульсу, <i>ν</i> – частота імпульсів.
+        </p>
+        <p class="last">
+            Існує обернена до коефіцієнту заповнення величина <strong>прогальність</strong>. Вона є менш зручною, так як коливається
+            від 1 до нескінченності, навпроти коефіцієнту. Але у деяких галузях (наприклад радіолокації) прогальність описує
+            відношення максимальної потужності в імпульсі до середньої потужності джерела і є важливим показником роботи імпульсних
+            радіоелектронних систем.
+        </p>
+        <canvas id="drawCanvas"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var container = document.getElementById('textContainer');
+
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        var ctx = canvas.getContext('2d');
+        var drawing = false; // малювання на канві активне
+        var lines = [];
+        var drawEnabled = false; // режим малювання, керуючи з форми
+        var currentTool = 'pen';
+        var currentColor = 'blue';
+        var currentWidth = 6;
+        var currentAlpha = 1;
+
+        function setDrawingEnabled(value) {
+            drawEnabled = value;
+            canvas.style.pointerEvents = value ? 'auto' : 'none';
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            if (tool === 'pen') {
+                currentAlpha = 1;
+            } else if (tool === 'marker') {
+                currentAlpha = 0.5;
+            } else if (tool === 'laser') {
+                currentAlpha = 1;
+            }
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setLineWidth(width) {
+            currentWidth = width;
+        }
+
+        function clearCanvas() {
+            lines = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // ===== Обробка рухів миші =====
+        canvas.addEventListener('mousedown', function (e) {
+            if (!drawEnabled) return;
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines.push({ color: currentColor, width: currentWidth, alpha: currentAlpha, points: [point] });
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (!drawing || !drawEnabled) return;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines[lines.length - 1].points.push(point);
+            redraw();
+        });
+
+        canvas.addEventListener('mouseup', function () { drawing = false; });
+        canvas.addEventListener('mouseleave', function () { drawing = false; });
+
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.globalAlpha = line.alpha;
+                ctx.lineWidth = line.width;
+                ctx.moveTo(line.points[0].x, line.points[0].y);
+                for (var j = 1; j < line.points.length; j++) {
+                    ctx.lineTo(line.points[j].x, line.points[j].y);
+                }
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+    </script>
+</body>
+</html>

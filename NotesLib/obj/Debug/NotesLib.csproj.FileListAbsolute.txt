@@ -1,0 +1,6 @@
+D:\Users\Kira\11 класс хззз\Программирование\выпуск\Graduation-work_Yudina_11-V\NotesLib\bin\Debug\NotesLib.dll
+D:\Users\Kira\11 класс хззз\Программирование\выпуск\Graduation-work_Yudina_11-V\NotesLib\bin\Debug\NotesLib.pdb
+D:\Users\Kira\11 класс хззз\Программирование\выпуск\Graduation-work_Yudina_11-V\NotesLib\obj\Debug\NotesLib.csproj.AssemblyReference.cache
+D:\Users\Kira\11 класс хззз\Программирование\выпуск\Graduation-work_Yudina_11-V\NotesLib\obj\Debug\NotesLib.csproj.CoreCompileInputs.cache
+D:\Users\Kira\11 класс хззз\Программирование\выпуск\Graduation-work_Yudina_11-V\NotesLib\obj\Debug\NotesLib.dll
+D:\Users\Kira\11 класс хззз\Программирование\выпуск\Graduation-work_Yudina_11-V\NotesLib\obj\Debug\NotesLib.pdb

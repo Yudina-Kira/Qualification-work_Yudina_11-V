@@ -1,0 +1,347 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|d:\\users\\kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0432\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\graduation-work_yudina_11-v (1)\\graduation-work_yudina_11-v\\physicslabscomplex\\lab_2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\lab_2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0068ABC-3F85-460B-B0B8-6A64AF237C7E}|CharrsLib\\ChartsLib.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\charrslib\\chartanimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0068ABC-3F85-460B-B0B8-6A64AF237C7E}|CharrsLib\\ChartsLib.csproj|solutionrelative:charrslib\\chartanimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\lab_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\lab_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\lab_3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\lab_3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\title.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\title.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\title.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\title.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0068ABC-3F85-460B-B0B8-6A64AF237C7E}|CharrsLib\\ChartsLib.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\charrslib\\settingschart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0068ABC-3F85-460B-B0B8-6A64AF237C7E}|CharrsLib\\ChartsLib.csproj|solutionrelative:charrslib\\settingschart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\listoflabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\listoflabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\listoflabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\listoflabs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\lab_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\lab_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\menu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\menu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\title.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\title.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\cards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\cards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\buttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\buttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\lab_1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\lab_1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\lab_2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\lab_2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\lab_3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\lab_3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\physicslabscomplex\\labinterfacehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{941E562F-BCA6-42CA-A988-C8F4AF63D4F1}|PhysicsLabsComplex\\PhysicsLabsComplex.csproj|solutionrelative:physicslabscomplex\\labinterfacehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0068ABC-3F85-460B-B0B8-6A64AF237C7E}|CharrsLib\\ChartsLib.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\charrslib\\datacalculating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0068ABC-3F85-460B-B0B8-6A64AF237C7E}|CharrsLib\\ChartsLib.csproj|solutionrelative:charrslib\\datacalculating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0068ABC-3F85-460B-B0B8-6A64AF237C7E}|CharrsLib\\ChartsLib.csproj|D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\charrslib\\graphicsbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0068ABC-3F85-460B-B0B8-6A64AF237C7E}|CharrsLib\\ChartsLib.csproj|solutionrelative:charrslib\\graphicsbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 65,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Title.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Title.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Title.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Title.cs",
+              "RelativeToolTip": "PhysicsLabsComplex\\Title.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-22T14:11:11.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Menu.Designer.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Menu.Designer.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Menu.Designer.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Menu.Designer.cs",
+              "RelativeToolTip": "PhysicsLabsComplex\\Menu.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-22T12:20:10.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Buttons.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Buttons.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Buttons.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Buttons.cs",
+              "RelativeToolTip": "PhysicsLabsComplex\\Buttons.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-22T11:52:05.184Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Title.cs [Design]",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Title.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Title.cs",
+              "ToolTip": "C:\\Users\\Kira\\Downloads\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Title.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-22T11:12:29.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Lab_1.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_1.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Lab_1.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_1.cs",
+              "RelativeToolTip": "PhysicsLabsComplex\\Lab_1.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAkwCICAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-18T23:25:44.618Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Lab_2.cs [Design]",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_2.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Lab_2.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_2.cs [Design]",
+              "RelativeToolTip": "PhysicsLabsComplex\\Lab_2.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-18T23:46:42.306Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ListOfLabs.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\ListOfLabs.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\ListOfLabs.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\ListOfLabs.cs",
+              "RelativeToolTip": "PhysicsLabsComplex\\ListOfLabs.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAjwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T11:54:17.239Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Title.Designer.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Title.Designer.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Title.Designer.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Title.Designer.cs",
+              "RelativeToolTip": "PhysicsLabsComplex\\Title.Designer.cs",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAwwLUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-22T11:44:48.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ListOfLabs.cs [Design]",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\ListOfLabs.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\ListOfLabs.cs",
+              "ToolTip": "C:\\Users\\Kira\\Downloads\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\ListOfLabs.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T11:53:33.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Cards.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Cards.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Cards.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Cards.cs",
+              "RelativeToolTip": "PhysicsLabsComplex\\Cards.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-22T12:15:05.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Lab_1.Designer.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_1.Designer.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Lab_1.Designer.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_1.Designer.cs",
+              "RelativeToolTip": "PhysicsLabsComplex\\Lab_1.Designer.cs",
+              "ViewState": "AgIAAP0AAAAAAAAAAAAUwBABAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-22T11:48:37.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DataCalculating.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\CharrsLib\\DataCalculating.cs",
+              "RelativeDocumentMoniker": "CharrsLib\\DataCalculating.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\CharrsLib\\DataCalculating.cs",
+              "RelativeToolTip": "CharrsLib\\DataCalculating.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:16:09.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Lab_2.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_2.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Lab_2.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_2.cs",
+              "RelativeToolTip": "PhysicsLabsComplex\\Lab_2.cs",
+              "ViewState": "AgIAANcBAAAAAAAAAADgv+cBAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-18T23:58:55.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "GraphicsBuilder.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\CharrsLib\\GraphicsBuilder.cs",
+              "RelativeDocumentMoniker": "CharrsLib\\GraphicsBuilder.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\CharrsLib\\GraphicsBuilder.cs",
+              "RelativeToolTip": "CharrsLib\\GraphicsBuilder.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:18:45.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Lab_3.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_3.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Lab_3.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_3.cs",
+              "RelativeToolTip": "PhysicsLabsComplex\\Lab_3.cs",
+              "ViewState": "AgIAABMBAAAAAAAAAAApwCABAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T10:08:43.762Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Lab_1.cs [Design]",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_1.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Lab_1.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_1.cs [Design]",
+              "RelativeToolTip": "PhysicsLabsComplex\\Lab_1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-18T23:17:06.907Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "LabInterfaceHelper.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\LabInterfaceHelper.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\LabInterfaceHelper.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\LabInterfaceHelper.cs",
+              "RelativeToolTip": "PhysicsLabsComplex\\LabInterfaceHelper.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAYwEkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-18T23:28:06.386Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Lab_3.cs [Design]",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_3.cs",
+              "RelativeDocumentMoniker": "PhysicsLabsComplex\\Lab_3.cs",
+              "ToolTip": "C:\\Users\\Kira\\Downloads\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\PhysicsLabsComplex\\Lab_3.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T00:57:19.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SettingsChart.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\CharrsLib\\SettingsChart.cs",
+              "RelativeDocumentMoniker": "CharrsLib\\SettingsChart.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\CharrsLib\\SettingsChart.cs",
+              "RelativeToolTip": "CharrsLib\\SettingsChart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T13:37:27.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChartAnimator.cs",
+              "DocumentMoniker": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\CharrsLib\\ChartAnimator.cs",
+              "RelativeDocumentMoniker": "CharrsLib\\ChartAnimator.cs",
+              "ToolTip": "D:\\Users\\Kira\\11 \u043A\u043B\u0430\u0441\u0441 \u0445\u0437\u0437\u0437\\\u0412\u044B\u043F\u0443\u0441\u043A\u043D\u0430\u044F \u043D\u043E\u0432\u0430\u044F\\Graduation-work_Yudina_11-V (1)\\Graduation-work_Yudina_11-V\\CharrsLib\\ChartAnimator.cs",
+              "RelativeToolTip": "CharrsLib\\ChartAnimator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T11:03:53.459Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

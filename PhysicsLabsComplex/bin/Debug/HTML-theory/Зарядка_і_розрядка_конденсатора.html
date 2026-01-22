@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Процеси зарядки і розрядки конденсатора</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textContainer {
+            position: relative;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <h2>Процеси зарядки і розрядки конденсатора</h2>
+        <p>
+            <strong>Зарядка конденсатора</strong> – це процес накопичення заряду на його обкладках під час подання деякої напруги. 
+        </p>
+        <p>
+            Якщо під’єднати електричне коло, що складається з резистора та конденсатора, до джерела постійної напруги, у колі почне текти струм. 
+            Спочатку струм має максимальне значення, проте за долі секунди починає зменшуватися. Це пояснюється тим, що напруга на конденсаторі 
+            поступово зростає і наближається до напруги джерела – у цей час конденсатор накопичує заряд на своїх обкладках. Процес зарядки відбувається 
+            за експоненційним законом:
+        </p>
+        <div class="formula">
+            <img src="Формулы/17.png" alt="Формула напруги, яка зростає згідно з експоненційним законом">
+        </div>
+        <p>
+            де <i>U<sub>0</sub></i> – подана напруга, <i>R</i> – опір резистора, <i>C</i> – ємність конденсатора.
+        </p>
+        <p>
+            Добуток RC називають <strong>постійною часу</strong> <i>τ</i>. Саме за такий період напруга на конденсаторі досягає значення приблизно 63% 
+            максимального значення. Для досягнення майже повного зарядження (≈ 99%) потрібно близько 5<i>τ</i>.
+        </p>
+        <p>
+            Заряд на обкладках конденсатора також зростає за експоненційним законом, поки не досягне свого максимального значення, яке виражається за формулою:
+        </p>
+        <div class="formula">
+            <img src="Формулы/18.png" alt="Формула максимального заряду на обкладках конденсатора">
+        </div>
+        <p>
+            <strong>Розрядка конденсатора</strong> – це процес віддачі конденсатором накопиченого заряду після припинення роботи джерела напруги. 
+        </p>
+        <p>
+            Коли джерело вимикається, напруга і струм у колі зникають, а конденсатор починає розряджатися через резистор. Напруга на його обкладках 
+            зменшується за експоненційним законом:
+        </p>
+        <div class="formula">
+            <img src="Формулы/19.png" alt="Формула напруги, яка спадає згідно з експоненційним законом">
+        </div>
+        <p>
+            Струм і заряд також спадають за цим же законом, поки не досягнуть нуля.
+        </p>
+        <p class="last">
+            Тривалість процесу розрядки, як і зарядка, визначається через постійну часу <i>τ</i> = <i>RC</i>. Повна (практична) розрядка також 
+            відбувається за час 5<i>τ</i>, коли напруга падає до менше ніж 1% від початкової.
+        </p>
+    </div>
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var container = document.getElementById('textContainer');
+
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        var ctx = canvas.getContext('2d');
+        var drawing = false; // малювання на канві активне
+        var lines = [];
+        var drawEnabled = false; // режим малювання, керуючи з форми
+        var currentTool = 'pen';
+        var currentColor = 'blue';
+        var currentWidth = 6;
+        var currentAlpha = 1;
+
+        function setDrawingEnabled(value) {
+            drawEnabled = value;
+            canvas.style.pointerEvents = value ? 'auto' : 'none';
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            if (tool === 'pen') {
+                currentAlpha = 1;
+            } else if (tool === 'marker') {
+                currentAlpha = 0.5;
+            } else if (tool === 'laser') {
+                currentAlpha = 1;
+            }
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setLineWidth(width) {
+            currentWidth = width;
+        }
+
+        function clearCanvas() {
+            lines = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // ===== Обробка рухів миші =====
+        canvas.addEventListener('mousedown', function (e) {
+            if (!drawEnabled) return;
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines.push({ color: currentColor, width: currentWidth, alpha: currentAlpha, points: [point] });
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (!drawing || !drawEnabled) return;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines[lines.length - 1].points.push(point);
+            redraw();
+        });
+
+        canvas.addEventListener('mouseup', function () { drawing = false; });
+        canvas.addEventListener('mouseleave', function () { drawing = false; });
+
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.globalAlpha = line.alpha;
+                ctx.lineWidth = line.width;
+                ctx.moveTo(line.points[0].x, line.points[0].y);
+                for (var j = 1; j < line.points.length; j++) {
+                    ctx.lineTo(line.points[j].x, line.points[j].y);
+                }
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+    </script>
+</body>
+</html>
