@@ -118,26 +118,56 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Screenshot 2026-01-17 200217" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Screenshot 2026-01-17 200217.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Схема лаб-3 експ1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Схема лаб-3 експ1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="photo_2025-12-11_17-48-58" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\photo_2025-12-11_17-48-58.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Схема-лаб-11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Схема-лаб-1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="666666" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\666666.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="3249740-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3249740-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RC-коло лаба2 експеримент_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RC-коло лаба2 експеримент_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Фон титульника" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Фон титульника.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pngegg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pngegg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Іконка збільшення_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Іконка збільшення_.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Screenshot 2026-01-17 200217" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Screenshot 2026-01-17 200217.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RC-коло лаба2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RC-коло лаба2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Screenshot 2026-01-17 173420" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Screenshot 2026-01-17 173420.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1111111111111" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1111111111111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Схема лаб-3 мод" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Схема лаб-3 мод.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Screenshot 2026-01-17 193810" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Screenshot 2026-01-17 193810.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow-back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow-back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Andreas_Cunaeus_discovering_the_Leyden_jar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Andreas_Cunaeus_discovering_the_Leyden_jar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Схема лаб-3 експ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Схема лаб-3 експ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Рисунок 1-3-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Рисунок 1-3-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="432" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\432.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Screenshot 2025-10-27 160127" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Screenshot 2025-10-27 160127.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Іконка збільшення" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Іконка збільшення.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,44 +175,17 @@
   <data name="Иконка книги-fotor-bg-remover-20260111174715" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Иконка книги-fotor-bg-remover-20260111174715.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pngegg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pngegg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="666666" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\666666.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Рисунок 1-3-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Рисунок 1-3-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Зарядка-розрядка лаба1 експеримент" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Зарядка-розрядка лаба1 експеримент.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Screenshot 2025-10-27 160127" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Screenshot 2025-10-27 160127.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Схема-лаб-11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Схема-лаб-1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1111111111111" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1111111111111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Рисунок 1-1-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Рисунок 1-1-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Andreas_Cunaeus_discovering_the_Leyden_jar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Andreas_Cunaeus_discovering_the_Leyden_jar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Screenshot 2026-01-17 173420" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Screenshot 2026-01-17 173420.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="3249740-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3249740-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Схема-лаб-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Схема-лаб-1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Screenshot 2025-12-11 113133" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Screenshot 2025-12-11 113133.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="photo_2025-12-11_17-48-58" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo_2025-12-11_17-48-58.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RC-коло лаба2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RC-коло лаба2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Screenshot 2025-12-11 173505" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Screenshot 2025-12-11 173505.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,10 +193,19 @@
   <data name="Screenshot 2025-12-11 002931" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Screenshot 2025-12-11 002931.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrow-back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow-back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Рисунок 1-1-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Рисунок 1-1-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="432" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\432.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Фон титульника" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Фон титульника.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Screenshot 2025-12-11 113133" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Screenshot 2025-12-11 113133.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Іконка збільшення_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Іконка збільшення_.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Untitled140" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Untitled140.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

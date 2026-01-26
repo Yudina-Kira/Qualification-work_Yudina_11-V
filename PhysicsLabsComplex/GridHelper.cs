@@ -34,7 +34,7 @@ namespace PhysicsLabsComplex
                 switch (col.Name)
                 {
                     case "R":
-                        col.HeaderText = "Опір, Ом";
+                        col.HeaderText = "Опір, кОм";
                         break;
 
                     case "C":

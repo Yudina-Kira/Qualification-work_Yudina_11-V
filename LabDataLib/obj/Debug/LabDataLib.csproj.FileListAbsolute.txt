@@ -4,3 +4,9 @@ D:\Users\Kira\11 класс хззз\Программирование\выпус
 D:\Users\Kira\11 класс хззз\Программирование\выпуск\Graduation-work_Yudina_11-V\LabDataLib\obj\Debug\LabDataLib.csproj.CoreCompileInputs.cache
 D:\Users\Kira\11 класс хззз\Программирование\выпуск\Graduation-work_Yudina_11-V\LabDataLib\obj\Debug\LabDataLib.dll
 D:\Users\Kira\11 класс хззз\Программирование\выпуск\Graduation-work_Yudina_11-V\LabDataLib\obj\Debug\LabDataLib.pdb
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\LabDataLib\bin\Debug\LabDataLib.dll
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\LabDataLib\bin\Debug\LabDataLib.pdb
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\LabDataLib\obj\Debug\LabDataLib.csproj.AssemblyReference.cache
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\LabDataLib\obj\Debug\LabDataLib.csproj.CoreCompileInputs.cache
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\LabDataLib\obj\Debug\LabDataLib.dll
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\LabDataLib\obj\Debug\LabDataLib.pdb

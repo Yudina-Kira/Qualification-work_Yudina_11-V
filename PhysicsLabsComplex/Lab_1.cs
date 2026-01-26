@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
+using static ChartsLib.ChartAnimator;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PhysicsLabsComplex
@@ -26,12 +27,12 @@ namespace PhysicsLabsComplex
     {
         private SettingsChart chartManager;
         private LabInterfaceHelper interfaceHelper;
+        private ChartAnimator chartAnimator;
 
         private const int labNumber = 1;
         private int tabPageIndex = 0;
 
         private Series chargeAndDischarge, uGenerator;
-        private Axis activeAxisY;
 
         private double r, c, u, T, D;
         private double tau, uCharged, pulseDuration;
@@ -49,9 +50,6 @@ namespace PhysicsLabsComplex
         private readonly string basePath = AppDomain.CurrentDomain.BaseDirectory;
         DataTable dataTable;
 
-        //AnimatorChart animator;
-        //AnimationChart animData;
-
         public Lab_1()
         {
             InitializeComponent();
@@ -67,11 +65,14 @@ namespace PhysicsLabsComplex
             chargeAndDischarge = new Series();
             uGenerator = new Series();
 
+            chartAnimator = new ChartAnimator(chargeAndDischarge, uGenerator);
+
             chartManager.ConfigureAxes("Час", "Напруга", 0, 0, "мс", "В");
 
             chart1.MouseWheel += ScaleChartByMouseWheel;
 
             toolTip1.SetToolTip(pictureBox1, "Ознайомтеся з інструкцією до лабораторної роботи та порядком її виконання");
+            toolTip1.SetToolTip(chart1, "Затисніть Ctrl для розтягування по вертикалі,\r\nЗатисніть Shift для розтягування по горизонталі\r\n");
 
             CursorSetting.SetHandCursor(panel3);
             CursorSetting.SetHandCursor(pictureBox1);
@@ -102,21 +103,23 @@ namespace PhysicsLabsComplex
         {
             graphicsExisting = false;
 
-            bool anyChecked = false;
             {
-                foreach (Control ctrl in groupBox1.Controls)
+                bool anyChecked = false;
                 {
-                    if (ctrl is RadioButton rb && rb.Checked)
+                    foreach (Control ctrl in groupBox1.Controls)
                     {
-                        anyChecked = true;
-                        break;
+                        if (ctrl is RadioButton rb && rb.Checked)
+                        {
+                            anyChecked = true;
+                            break;
+                        }
                     }
-                }
 
-                if (!anyChecked)
-                {
-                    MessageBox.Show("Оберіть графік для побудови", "Помилка");
-                    return;
+                    if (!anyChecked)
+                    {
+                        MessageBox.Show("Оберіть графік для побудови", "Помилка");
+                        return;
+                    }
                 }
             }
 
@@ -214,15 +217,23 @@ namespace PhysicsLabsComplex
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            //if (checkBox1.Checked)
-            //{
-            //    animData = new AnimationChart(r, c, u);
-            //    animator = new AnimatorChart(chart1, animData, maxPoints: 100);
-            //}
-            //else
-            //{
-            //    animator = null; 
-            //}
+            if (!checkBox1.Checked)
+            {
+                chartAnimator.StopAnimation();
+                return;
+            }
+
+            double currentXMax = chart1.ChartAreas[0].AxisX.Maximum;
+            chartAnimator.ConfigureChargeDischarge(0.0005, currentXMax, u, tau, D, T);
+
+            if (radioButton1.Checked)
+                chartAnimator.StartAnimation(LabMode.ChargeDischarge, AnimationMode.Charge);
+            
+            if (radioButton2.Checked)
+                chartAnimator.StartAnimation(LabMode.ChargeDischarge, AnimationMode.Discharge);
+            
+            if (radioButton3.Checked)
+                chartAnimator.StartAnimation(LabMode.ChargeDischarge, AnimationMode.ChargeDischarge);
         }
 
         #endregion
@@ -333,15 +344,9 @@ namespace PhysicsLabsComplex
 
                 dvm.Close();
             }
-
-            //DataWorking.AppendData(1, DataWorking.DataKind.Model, parameters);
-            //DataTable data = DataWorking.LoadData(labNumber, DataWorking.DataKind.Experiment);
-            //dataGridView1.DataSource = data;
-
         }
 
         // Graph building
-        //примечание: проверить соответствие ch1, ch2
         private void button4_Click(object sender, EventArgs e)
         {
             //////////////////////
@@ -358,21 +363,23 @@ namespace PhysicsLabsComplex
 
             graphicsExisting = false;
 
-            bool anyChecked = false;
             {
-                foreach (Control ctrl in groupBox5.Controls)
+                bool anyChecked = false;
                 {
-                    if (ctrl is RadioButton rb && rb.Checked)
+                    foreach (Control ctrl in groupBox5.Controls)
                     {
-                        anyChecked = true;
-                        break;
+                        if (ctrl is RadioButton rb && rb.Checked)
+                        {
+                            anyChecked = true;
+                            break;
+                        }
                     }
-                }
 
-                if (!anyChecked)
-                {
-                    MessageBox.Show("Оберіть графік для побудови", "Помилка");
-                    return;
+                    if (!anyChecked)
+                    {
+                        MessageBox.Show("Оберіть графік для побудови", "Помилка");
+                        return;
+                    }
                 }
             }
 
@@ -394,7 +401,6 @@ namespace PhysicsLabsComplex
             };
 
             currentChartMode = ChartMode.Experiment;
-            //chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeGenerator);
             interfaceHelper.SetSeriesSelector(comboBox1);
 
             chargeAndDischarge.Points.Clear();
@@ -406,20 +412,25 @@ namespace PhysicsLabsComplex
             if (radioButton5.Checked)
             {
                 GraphicsBuilder.BuildExperiment(chargeAndDischarge, ch1);
+                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeSingle);
             }
             else if (radioButton6.Checked)
             {
                 GraphicsBuilder.BuildExperiment(uGenerator, ch2);
+                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.GeneratorSingle);
             }
             else if (radioButton4.Checked)
             {
+                chartManager.ConfigureAxes("Час", "Напруга", 0, 0, "мс", "В", "В");
                 GraphicsBuilder.BuildExperiment(chargeAndDischarge, ch1, uGenerator, ch2);
+                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeGenerator);
             }
-            
+
             chart1.Series.Add(chargeAndDischarge);
             chart1.Series.Add(uGenerator);
 
             chartManager.ResetAxes();
+            chartManager.ApplyStaticGrid();
 
             graphicsExisting = true;
 
@@ -539,6 +550,9 @@ namespace PhysicsLabsComplex
             if (!graphicsExisting)
                 return;
 
+            if (!IsScalingAllowed())
+                return;
+
             ResetZoom();
         }
 
@@ -616,20 +630,6 @@ namespace PhysicsLabsComplex
             }
         }
 
-        ////////////////////////////////////////////////////////////////////////////////////////
-        private void radioButton3_CheckedChanged(object sender, EventArgs e) 
-        {
-            if (radioButton3.Checked)
-            {
-                checkBox1.Enabled = true;
-            }
-            else
-            {
-                checkBox1.Enabled = false;
-                checkBox1.Checked = false;
-            }
-        }
-
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             chartManager.ClearChartArea();
@@ -650,11 +650,18 @@ namespace PhysicsLabsComplex
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             if (tabPageIndex == 0)
+            {
                 toolTip1.SetToolTip(pictureBox1, "Ознайомтеся з інструкцією до лабораторної роботи та порядком її виконання");
+                toolTip1.SetToolTip(chart1, "Затисніть Ctrl для розтягування по вертикалі,\r\nЗатисніть Shift для розтягування по горизонталі\r\n");
+            }
 
-            if (tabPageIndex == 1) GridHelper.HideArrayColumns(dataGridView1);
+            if (tabPageIndex == 1)
+            {
+                GridHelper.HideArrayColumns(dataGridView1);
+                toolTip1.SetToolTip(chart1, null);
+            }
+                
             GridHelper.SetUpColumnHeaders(dataGridView1);
-            
         }
 
         private void panel3_Click(object sender, EventArgs e)

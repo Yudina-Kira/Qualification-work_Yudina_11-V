@@ -40,8 +40,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.cards1 = new PhysicsLabsComplex.Cards();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -80,9 +78,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.connectStatus = new PhysicsLabsComplex.Cards();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataStatus = new PhysicsLabsComplex.Cards();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -90,11 +86,13 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.видалитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видалитиВсіЗаписиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cards1 = new PhysicsLabsComplex.Cards();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.connectStatus = new PhysicsLabsComplex.Cards();
+            this.dataStatus = new PhysicsLabsComplex.Cards();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.cards1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -106,6 +104,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.cards1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -205,28 +205,6 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "U:";
             // 
-            // cards1
-            // 
-            this.cards1.BackColor = System.Drawing.Color.Transparent;
-            this.cards1.Controls.Add(this.pictureBox1);
-            this.cards1.Location = new System.Drawing.Point(439, 21);
-            this.cards1.Name = "cards1";
-            this.cards1.RoundingEnable = false;
-            this.cards1.Size = new System.Drawing.Size(70, 70);
-            this.cards1.TabIndex = 16;
-            this.cards1.TextHover = null;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Иконка_книги_fotor_bg_remover_20260111174715;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.checkBox1);
@@ -278,7 +256,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "1";
+            this.textBox1.Text = "10";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
@@ -295,9 +273,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(165, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 20);
+            this.label2.Size = new System.Drawing.Size(43, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Ом";
+            this.label2.Text = "кОм";
             // 
             // textBox2
             // 
@@ -560,9 +538,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(170, 38);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(34, 20);
+            this.label16.Size = new System.Drawing.Size(43, 20);
             this.label16.TabIndex = 2;
-            this.label16.Text = "Ом";
+            this.label16.Text = "кОм";
             // 
             // textBox9
             // 
@@ -624,17 +602,6 @@
             this.panel2.Size = new System.Drawing.Size(510, 227);
             this.panel2.TabIndex = 16;
             // 
-            // connectStatus
-            // 
-            this.connectStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(142)))));
-            this.connectStatus.Location = new System.Drawing.Point(379, 54);
-            this.connectStatus.Name = "connectStatus";
-            this.connectStatus.Rounding = 100;
-            this.connectStatus.RoundingEnable = true;
-            this.connectStatus.Size = new System.Drawing.Size(30, 30);
-            this.connectStatus.TabIndex = 17;
-            this.connectStatus.TextHover = null;
-            // 
             // panel3
             // 
             this.panel3.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Іконка_збільшення_;
@@ -644,17 +611,6 @@
             this.panel3.Size = new System.Drawing.Size(30, 30);
             this.panel3.TabIndex = 17;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // dataStatus
-            // 
-            this.dataStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(142)))));
-            this.dataStatus.Location = new System.Drawing.Point(214, 609);
-            this.dataStatus.Name = "dataStatus";
-            this.dataStatus.Rounding = 100;
-            this.dataStatus.RoundingEnable = true;
-            this.dataStatus.Size = new System.Drawing.Size(40, 40);
-            this.dataStatus.TabIndex = 18;
-            this.dataStatus.TextHover = null;
             // 
             // chart1
             // 
@@ -679,6 +635,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(564, 616);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -702,7 +659,7 @@
             this.видалитиToolStripMenuItem,
             this.видалитиВсіЗаписиToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(225, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(225, 84);
             // 
             // видалитиToolStripMenuItem
             // 
@@ -716,6 +673,51 @@
             this.видалитиВсіЗаписиToolStripMenuItem.Name = "видалитиВсіЗаписиToolStripMenuItem";
             this.видалитиВсіЗаписиToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.видалитиВсіЗаписиToolStripMenuItem.Text = "Видалити всі записи";
+            this.видалитиВсіЗаписиToolStripMenuItem.Click += new System.EventHandler(this.видалитиВсіЗаписиToolStripMenuItem_Click);
+            // 
+            // cards1
+            // 
+            this.cards1.BackColor = System.Drawing.Color.Transparent;
+            this.cards1.Controls.Add(this.pictureBox1);
+            this.cards1.Location = new System.Drawing.Point(439, 21);
+            this.cards1.Name = "cards1";
+            this.cards1.RoundingEnable = false;
+            this.cards1.Size = new System.Drawing.Size(70, 70);
+            this.cards1.TabIndex = 16;
+            this.cards1.TextHover = null;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Иконка_книги_fotor_bg_remover_20260111174715;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // connectStatus
+            // 
+            this.connectStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(142)))));
+            this.connectStatus.Location = new System.Drawing.Point(379, 54);
+            this.connectStatus.Name = "connectStatus";
+            this.connectStatus.Rounding = 100;
+            this.connectStatus.RoundingEnable = true;
+            this.connectStatus.Size = new System.Drawing.Size(30, 30);
+            this.connectStatus.TabIndex = 17;
+            this.connectStatus.TextHover = null;
+            // 
+            // dataStatus
+            // 
+            this.dataStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(142)))));
+            this.dataStatus.Location = new System.Drawing.Point(214, 609);
+            this.dataStatus.Name = "dataStatus";
+            this.dataStatus.Rounding = 100;
+            this.dataStatus.RoundingEnable = true;
+            this.dataStatus.Size = new System.Drawing.Size(40, 40);
+            this.dataStatus.TabIndex = 18;
+            this.dataStatus.TextHover = null;
             // 
             // Lab_2
             // 
@@ -738,8 +740,6 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.cards1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -757,6 +757,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.cards1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

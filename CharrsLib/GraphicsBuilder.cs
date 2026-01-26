@@ -77,22 +77,22 @@ namespace ChartsLib
 
         #region --- Lab 2 ---
 
-        public static void BuildUtRC(Series Ut, double u0, double omega, double xMax, double phi = 0, double steps = 1000)
+        public static void BuildUtRC(Series Ut, double u0, double omega, double phi, double xMax, double phi0 = 0, double steps = 1000)
         {
             for (int i = 0; i < steps; i++)
             {
                 double t = i * xMax / steps;
-                double value = DataCalculating.UtRC(u0, omega, t, phi);
+                double value = DataCalculating.UtRC(u0, omega, t, phi, phi0);
                 Ut.Points.AddXY(t, value);
             }
         }
 
-        public static void BuildItRC(Series It, double i0, double omega, double xMax, double phi = 0, double steps = 1000)
+        public static void BuildItRC(Series It, double i0, double omega, double xMax, double phi0 = 0, double steps = 1000)
         {
             for (int i = 0; i < steps; i++)
             {
                 double t = i * xMax / steps;
-                double value = DataCalculating.ItRC(i0, omega, t, phi);
+                double value = DataCalculating.ItRC(i0, omega, t, phi0);
                 It.Points.AddXY(t, value);
             }
         }
@@ -101,22 +101,22 @@ namespace ChartsLib
 
         #region --- Lab 3 ---
 
-        public static void BuildUtRL(Series Ut, double u0, double omega, double xMax, double phi = 0, double steps = 1000)
+        public static void BuildUtRL(Series Ut, double u0, double omega, double xMax, double phi0 = 0, double steps = 1000)
         {
             for (int i = 0; i < steps; i++)
             {
                 double t = i * xMax / steps;
-                double value = DataCalculating.UtRL(u0, omega, t, phi);
+                double value = DataCalculating.UtRL(u0, omega, t, phi0);
                 Ut.Points.AddXY(t, value);
             }
         }
 
-        public static void BuildItRL(Series It, double i0, double omega, double xMax, double phi = 0, double steps = 1000)
+        public static void BuildItRL(Series It, double i0, double omega, double phi, double xMax, double phi0 = 0, double steps = 1000)
         {
             for (int i = 0; i < steps; i++)
             {
                 double t = i * xMax / steps;
-                double value = DataCalculating.ItRL(i0, omega, t, phi);
+                double value = DataCalculating.ItRL(i0, omega, t, phi, phi0);
                 It.Points.AddXY(t, value);
             }
         }

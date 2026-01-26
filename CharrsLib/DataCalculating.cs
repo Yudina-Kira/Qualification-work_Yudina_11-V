@@ -20,12 +20,12 @@ namespace ChartsLib
 
         public static double Discharge(double u, double t, double tau) => u * Math.Exp(-t / tau);
 
-        public static double UtRC(double u, double omega, double t, double phi) => u * Math.Sin(omega * t + phi - (Math.PI / 2));
+        public static double UtRC(double u, double omega, double t, double phi, double phi0) => u * Math.Sin(omega * t + phi0 + phi);
 
-        public static double ItRC(double i, double omega, double t, double phi) => i * Math.Sin(omega * t + phi);
+        public static double ItRC(double i, double omega, double t, double phi0) => i * Math.Sin(omega * t + phi0);
 
-        public static double UtRL(double u, double omega, double t, double phi) => u * Math.Sin(omega * t + phi);
+        public static double UtRL(double u, double omega, double t, double phi0) => u * Math.Sin(omega * t + phi0);
 
-        public static double ItRL(double i, double omega, double t, double phi) => i * Math.Sin(omega * t + phi - (Math.PI / 2));
+        public static double ItRL(double i, double omega, double t, double phi, double phi0) => i * Math.Sin(omega * t + phi0 + phi);
     }
 }

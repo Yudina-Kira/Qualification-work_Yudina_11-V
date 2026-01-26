@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using static ChartsLib.ChartAnimator;
+using static PhysicsLabsComplex.Lab_1;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
@@ -33,10 +34,10 @@ namespace PhysicsLabsComplex
         private int tabPageIndex = 0;
 
         private Series Ut, It;
-        private Axis activeAxisY;
+        //private Axis activeAxisY;
 
         private double r, c, uMax, f;
-        private double omega, iMax, x0Max;
+        private double omega, iMax, x0Max, phi;
 
         private ChartMode currentChartMode = ChartMode.None;
 
@@ -72,6 +73,7 @@ namespace PhysicsLabsComplex
             chart1.MouseWheel += ScaleChartByMouseWheel;
 
             toolTip1.SetToolTip(pictureBox1, "Ознайомтеся з інструкцією до лабораторної роботи та порядком її виконання");
+            toolTip1.SetToolTip(chart1, "Затисніть Ctrl для розтягування по вертикалі,\r\nЗатисніть Shift для розтягування по горизонталі\r\n");
 
             CursorSetting.SetHandCursor(panel3);
             CursorSetting.SetHandCursor(pictureBox1);
@@ -122,7 +124,7 @@ namespace PhysicsLabsComplex
                 }
             }
 
-            r = double.Parse(textBox1.Text); //Ом
+            r = double.Parse(textBox1.Text); //кОм
             c = double.Parse(textBox2.Text); //мкФ
             uMax = double.Parse(textBox3.Text); //В
             f = double.Parse(textBox4.Text); //Гц
@@ -136,7 +138,7 @@ namespace PhysicsLabsComplex
             };
 
             {
-                Console.WriteLine("r = " + r + " Ом");
+                Console.WriteLine("r = " + r + " кОм");
                 Console.WriteLine("c = " + c + " мкФ");
                 Console.WriteLine("u = " + uMax + " В");
                 Console.WriteLine("f = " + f + " Гц");
@@ -144,7 +146,9 @@ namespace PhysicsLabsComplex
                 Console.WriteLine("After normalising");
 
                 //Normalising
+                r = UnitsToSI.KiloToBase(r); //Ом
                 c = UnitsToSI.MicroToBase(c); //Ф
+                Console.WriteLine("r = " + r + " Ом");
                 Console.WriteLine("c = " + c + " Ф");
             }
             
@@ -152,11 +156,13 @@ namespace PhysicsLabsComplex
             omega = 2 * Math.PI * f; //кутова частота
             iMax = uMax / r; //за законом ома
             x0Max = 1 / f * 5; //кліькість періодів для початкової побудови
+            phi = -(Math.Atan(omega * r * c));
 
             {
                 Console.WriteLine("Normal consts");
                 Console.WriteLine($"omega = 2 * pi * f = {omega} радіан");
                 Console.WriteLine($"iMax = uMax / r = {iMax}");
+                Console.WriteLine($"phi = {phi} рад = {phi * 180 / Math.PI}°");
             }
 
             currentChartMode = ChartMode.Model;
@@ -167,12 +173,9 @@ namespace PhysicsLabsComplex
             chartManager.ConfigureSeries(It, SettingsChart.SeriesMode.ItModel);
             chart1.Series.Clear();
 
-            /////////////////////////////////////
-            chartAnimator.Configure(0.0005, x0Max, uMax, iMax, omega);
-
             if (radioButton1.Checked)
             {
-                GraphicsBuilder.BuildUtRC(Ut, uMax, omega, x0Max);
+                GraphicsBuilder.BuildUtRC(Ut, uMax, omega, phi, x0Max);
                 chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleUt);
                 interfaceHelper.SetSeriesSelector(comboBox1);
             }
@@ -184,11 +187,12 @@ namespace PhysicsLabsComplex
             }
             else if (radioButton3.Checked)
             {
-                GraphicsBuilder.BuildUtRC(Ut, uMax, omega, x0Max);
+                GraphicsBuilder.BuildUtRC(Ut, uMax, omega, phi, x0Max);
                 GraphicsBuilder.BuildItRC(It, iMax, omega, x0Max);
 
                 double yMin = -(Math.Max(uMax, iMax) + 10);
                 chartManager.ConfigureAxes("Час", "Напруга", 0, yMin, "мс", "В", "В");
+
                 chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.UtIt);
                 interfaceHelper.SetSeriesSelector(comboBox1, new string[] { "IN1", "IN2" });
             }
@@ -212,6 +216,27 @@ namespace PhysicsLabsComplex
 
             string parametersValues = GridHelper.GetModelParametersToString(parameters);
             GridHelper.SelectCurrentExperiment(dataGridView1, parametersValues);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox1.Checked)
+            {
+                chartAnimator.StopAnimation();
+                return;
+            }
+
+            double currentXMax = chart1.ChartAreas[0].AxisX.Maximum;
+            chartAnimator.Configure(0.00025, currentXMax, uMax, iMax, omega, phi);
+
+            if (radioButton1.Checked)
+                chartAnimator.StartAnimation(LabMode.RC, AnimationMode.Ut);
+
+            if (radioButton2.Checked)
+                chartAnimator.StartAnimation(LabMode.RC, AnimationMode.It);
+
+            if (radioButton3.Checked)
+                chartAnimator.StartAnimation(LabMode.RC, AnimationMode.UtIt);
         }
 
         #endregion
@@ -342,25 +367,27 @@ namespace PhysicsLabsComplex
 
             graphicsExisting = false;
 
-            bool anyChecked = false;
             {
-                foreach (Control ctrl in groupBox4.Controls)
+                bool anyChecked = false;
                 {
-                    if (ctrl is RadioButton rb && rb.Checked)
+                    foreach (Control ctrl in groupBox4.Controls)
                     {
-                        anyChecked = true;
-                        break;
+                        if (ctrl is RadioButton rb && rb.Checked)
+                        {
+                            anyChecked = true;
+                            break;
+                        }
                     }
-                }
 
-                if (!anyChecked)
-                {
-                    MessageBox.Show("Оберіть графік для побудови", "Помилка");
-                    return;
+                    if (!anyChecked)
+                    {
+                        MessageBox.Show("Оберіть графік для побудови", "Помилка");
+                        return;
+                    }
                 }
             }
 
-            r = double.Parse(textBox8.Text); //Ом
+            r = double.Parse(textBox8.Text); //кОм
             c = double.Parse(textBox9.Text); //мкФ
             uMax = double.Parse(textBox7.Text); //В
             f = double.Parse(textBox6.Text); //Гц
@@ -387,20 +414,25 @@ namespace PhysicsLabsComplex
             if (radioButton5.Checked)
             {
                 GraphicsBuilder.BuildExperiment(Ut, ch1);
+                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleUt);
             }
             else if (radioButton6.Checked)
             {
                 GraphicsBuilder.BuildExperiment(It, ch2);
+                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleIt);
             }
             else if (radioButton4.Checked)
             {
+                chartManager.ConfigureAxes("Час", "Напруга", 0, 0, "мс", "В", "В");
                 GraphicsBuilder.BuildExperiment(Ut, ch1, It, ch2);
+                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.UtIt);
             }
 
             chart1.Series.Add(Ut);
             chart1.Series.Add(It);
 
             chartManager.ResetAxes();
+            chartManager.ApplyStaticGrid();
 
             graphicsExisting = true;
 
@@ -417,31 +449,7 @@ namespace PhysicsLabsComplex
 
         #endregion
 
-        #region --- Work with data base ---
-
-
-
-        #endregion
-
-        #region --- Working with chart ????????????????????????????? --- 
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!checkBox1.Checked)
-            {
-                chartAnimator.StopAnimation();
-                return;
-            }
-
-            if (radioButton1.Checked)
-                chartAnimator.StartAnimation(LabMode.RC, AnimationMode.Ut);
-
-            if (radioButton2.Checked)
-                chartAnimator.StartAnimation(LabMode.RC, AnimationMode.It);
-
-            if (radioButton3.Checked)
-                chartAnimator.StartAnimation(LabMode.RC, AnimationMode.UtIt);
-        }
+        #region --- Work with chart ????????????????????????????? --- 
 
         private enum ChartMode
         {
@@ -485,7 +493,7 @@ namespace PhysicsLabsComplex
 
             if (Control.ModifierKeys == Keys.Control)
             {
-                chartManager.ZoomActiveAxisY(e.Delta, activeAxisY);
+                //chartManager.ZoomActiveAxisY(e.Delta, activeAxisY);
             }
             else if (Control.ModifierKeys == Keys.Shift)
             {
@@ -503,7 +511,7 @@ namespace PhysicsLabsComplex
 
             if (radioButton1.Checked)
             {
-                GraphicsBuilder.BuildUtRC(Ut, uMax, omega, newXMax);
+                GraphicsBuilder.BuildUtRC(Ut, uMax, omega, phi, newXMax);
             }
             else if (radioButton2.Checked)
             {
@@ -511,7 +519,7 @@ namespace PhysicsLabsComplex
             }
             else if (radioButton3.Checked)
             {
-                GraphicsBuilder.BuildUtRC(Ut, uMax, omega, newXMax);
+                GraphicsBuilder.BuildUtRC(Ut, uMax, omega, phi, newXMax);
                 GraphicsBuilder.BuildItRC(It, iMax, omega, newXMax);
             }
         }
@@ -524,11 +532,11 @@ namespace PhysicsLabsComplex
             switch (comboBox1.SelectedItem.ToString())
             {
                 case "U(t)":
-                    activeAxisY = area.AxisY;
+                    //activeAxisY = area.AxisY;
                     break;
 
                 case "I(t)":
-                    activeAxisY = area.AxisY2;
+                    //activeAxisY = area.AxisY2;
                     break;
             }
         }
@@ -536,6 +544,9 @@ namespace PhysicsLabsComplex
         private void chart1_DoubleClick(object sender, EventArgs e)
         {
             if (!graphicsExisting)
+                return;
+
+            if (!IsScalingAllowed())
                 return;
 
             ResetZoom();
@@ -566,17 +577,58 @@ namespace PhysicsLabsComplex
             {
                 int rowIndex = dataGridView1.CurrentRow.Index;
                 dataTable.Rows[rowIndex].Delete();
-                List<string> newLines = GridHelper.ToFileLines(dataTable);
+                dataTable.AcceptChanges();
 
+                if (dataTable.Rows.Count == 0)
+                {
+                    DataWorking.DataKind currentKind = GridHelper.GetTabKind(tabPageIndex);
+                    DataWorking.DeleteFile(labNumber, currentKind);
+
+                    dataGridView1.DataSource = null;
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Columns.Clear();
+
+                    MessageBox.Show(
+                        "Всі записи про параметри моделювання видалено",
+                        "Видалення успішне",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    return;
+                }
+                else
+                {
+                    List<string> newLines = GridHelper.ToFileLines(dataTable);
+
+                    DataWorking.DataKind currentKind = GridHelper.GetTabKind(tabPageIndex);
+                    DataWorking.SaveFile(labNumber, currentKind, newLines);
+
+                    MessageBox.Show("Інформацію про параметри моделювання видалено", "Видалення успішне", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void видалитиВсіЗаписиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Ви точно хочете видалити всі записи про параметри моделювань?\n Цю дію не можна буде відмінити.", "Видалення всіх записів", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
                 DataWorking.DataKind currentKind = GridHelper.GetTabKind(tabPageIndex);
-                DataWorking.SaveFile(labNumber, currentKind, newLines);
-                MessageBox.Show("Інформацію про параметри моделювання видалено", "Видалення успішне", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataWorking.DeleteFile(labNumber, currentKind);
+
+                dataTable.Clear();
+                dataGridView1.DataSource = null;
+                dataGridView1.Rows.Clear();
+                dataGridView1.Columns.Clear();
+
+                MessageBox.Show("Всі записи про параметри моделювань видалено", "Видалення успішне", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             chartManager.ClearChartArea();
+
             graphicsExisting = false;
 
             dataGridView1.DataSource = null;
@@ -593,11 +645,19 @@ namespace PhysicsLabsComplex
             dataGridView1.DataSource = dataTable;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (tabPageIndex == 1) GridHelper.HideArrayColumns(dataGridView1);
-            GridHelper.SetUpColumnHeaders(dataGridView1);
-
             if (tabPageIndex == 0)
+            {
                 toolTip1.SetToolTip(pictureBox1, "Ознайомтеся з інструкцією до лабораторної роботи та порядком її виконання");
+                toolTip1.SetToolTip(chart1, "Затисніть Ctrl для розтягування по вертикалі,\r\nЗатисніть Shift для розтягування по горизонталі\r\n");
+            }
+
+            if (tabPageIndex == 1)
+            {
+                GridHelper.HideArrayColumns(dataGridView1);
+                toolTip1.SetToolTip(chart1, null);
+            }
+
+            GridHelper.SetUpColumnHeaders(dataGridView1);
         }
 
         private void panel3_Click(object sender, EventArgs e)

@@ -48,10 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnimationButton.cs" />
-    <Compile Include="AnimationChart.cs" />
     <Compile Include="AnimationToggle.cs" />
     <Compile Include="AnimatorButton.cs" />
-    <Compile Include="AnimatorChart.cs" />
     <Compile Include="AnimatorToggle.cs" />
     <Compile Include="Cards.cs">
       <SubType>Component</SubType>
@@ -599,8 +597,12 @@
     <None Include="Resources\666666.png" />
     <None Include="Resources\1111111111111.png" />
     <None Include="Resources\432.png" />
+    <None Include="Resources\Untitled140.png" />
     <Content Include="Resources\Зарядка-розрядка лаба1 експеримент.png" />
     <None Include="Resources\Иконка книги-fotor-bg-remover-20260111174715.png" />
+    <None Include="Resources\Схема лаб-3 мод.png" />
+    <None Include="Resources\Схема лаб-3 експ.png" />
+    <None Include="Resources\Схема лаб-3 експ1.png" />
     <Content Include="Resources\Схема-лаб-1.jpg" />
     <None Include="Resources\RC-коло лаба2 експеримент_.png" />
   </ItemGroup>

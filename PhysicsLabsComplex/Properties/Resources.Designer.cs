@@ -233,6 +233,16 @@ namespace PhysicsLabsComplex.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Untitled140 {
+            get {
+                object obj = ResourceManager.GetObject("Untitled140", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Зарядка_розрядка_лаба1_експеримент {
             get {
                 object obj = ResourceManager.GetObject("Зарядка-розрядка лаба1 експеримент", resourceCulture);
@@ -306,6 +316,36 @@ namespace PhysicsLabsComplex.Properties {
         internal static System.Drawing.Bitmap Схема_лаб_11 {
             get {
                 object obj = ResourceManager.GetObject("Схема-лаб-11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Схема_лаб_3_експ {
+            get {
+                object obj = ResourceManager.GetObject("Схема лаб-3 експ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Схема_лаб_3_експ1 {
+            get {
+                object obj = ResourceManager.GetObject("Схема лаб-3 експ1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Схема_лаб_3_мод {
+            get {
+                object obj = ResourceManager.GetObject("Схема лаб-3 мод", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

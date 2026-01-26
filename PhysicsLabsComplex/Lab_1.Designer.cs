@@ -35,81 +35,81 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.видалитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видалитиВсіЗаписиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataStatus = new PhysicsLabsComplex.Cards();
-            this.button4 = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.connectStatus = new PhysicsLabsComplex.Cards();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.button4 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.connectStatus = new PhysicsLabsComplex.Cards();
+            this.dataStatus = new PhysicsLabsComplex.Cards();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,6 +117,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(564, 616);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -150,6 +151,18 @@
             // timer1
             // 
             this.timer1.Interval = 5;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Иконка_книги_fotor_bg_remover_20260111174715;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(439, 30);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Ознайомтеся з інструкцією до лабораторної роботи та порядком її виконання");
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // contextMenuStrip1
             // 
@@ -200,70 +213,194 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Експеримент";
             // 
-            // dataStatus
+            // groupBox7
             // 
-            this.dataStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(142)))));
-            this.dataStatus.Location = new System.Drawing.Point(214, 660);
-            this.dataStatus.Name = "dataStatus";
-            this.dataStatus.Rounding = 100;
-            this.dataStatus.RoundingEnable = true;
-            this.dataStatus.Size = new System.Drawing.Size(40, 40);
-            this.dataStatus.TabIndex = 25;
-            this.dataStatus.TextHover = null;
+            this.groupBox7.Controls.Add(this.textBox6);
+            this.groupBox7.Controls.Add(this.label12);
+            this.groupBox7.Controls.Add(this.label15);
+            this.groupBox7.Controls.Add(this.textBox7);
+            this.groupBox7.Controls.Add(this.label16);
+            this.groupBox7.Controls.Add(this.label17);
+            this.groupBox7.Controls.Add(this.textBox9);
+            this.groupBox7.Controls.Add(this.label18);
+            this.groupBox7.Controls.Add(this.label19);
+            this.groupBox7.Location = new System.Drawing.Point(279, 321);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(242, 184);
+            this.groupBox7.TabIndex = 28;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Параметри генератора";
             // 
-            // button4
+            // textBox6
             // 
-            this.button4.Location = new System.Drawing.Point(279, 655);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(242, 50);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Побудувати";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.textBox6.Location = new System.Drawing.Point(76, 138);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 26);
+            this.textBox6.TabIndex = 21;
+            this.textBox6.Text = "50";
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // groupBox5
+            // label12
             // 
-            this.groupBox5.Controls.Add(this.radioButton4);
-            this.groupBox5.Controls.Add(this.radioButton5);
-            this.groupBox5.Controls.Add(this.radioButton6);
-            this.groupBox5.Location = new System.Drawing.Point(11, 511);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(510, 133);
-            this.groupBox5.TabIndex = 26;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Вибір графіку";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(182, 141);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(24, 20);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "%";
             // 
-            // radioButton6
+            // label15
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(16, 89);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(237, 24);
-            this.radioButton6.TabIndex = 15;
-            this.radioButton6.Text = "Побудувати графік з IN2";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(43, 141);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(27, 20);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "D:";
             // 
-            // radioButton5
+            // textBox7
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(16, 40);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(237, 24);
-            this.radioButton5.TabIndex = 14;
-            this.radioButton5.Text = "Побудувати графік з IN1";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.textBox7.Location = new System.Drawing.Point(76, 87);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 26);
+            this.textBox7.TabIndex = 18;
+            this.textBox7.Text = "20";
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // radioButton4
+            // label16
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Checked = true;
-            this.radioButton4.Location = new System.Drawing.Point(284, 40);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(206, 24);
-            this.radioButton4.TabIndex = 16;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Побудувати IN1 + IN2";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(182, 90);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(30, 20);
+            this.label16.TabIndex = 20;
+            this.label16.Text = "мс";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(46, 90);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(24, 20);
+            this.label17.TabIndex = 19;
+            this.label17.Text = "T:";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(76, 36);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 26);
+            this.textBox9.TabIndex = 15;
+            this.textBox9.Text = "5";
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(182, 39);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(21, 20);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "В";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(44, 39);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(26, 20);
+            this.label19.TabIndex = 16;
+            this.label19.Text = "U:";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.textBox10);
+            this.groupBox8.Controls.Add(this.label20);
+            this.groupBox8.Controls.Add(this.label21);
+            this.groupBox8.Controls.Add(this.textBox11);
+            this.groupBox8.Controls.Add(this.label22);
+            this.groupBox8.Controls.Add(this.label23);
+            this.groupBox8.Location = new System.Drawing.Point(11, 321);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(243, 184);
+            this.groupBox8.TabIndex = 27;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Параметри ел. кола";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(69, 59);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 26);
+            this.textBox10.TabIndex = 0;
+            this.textBox10.Text = "200";
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(37, 62);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(26, 20);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "R:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(175, 62);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(34, 20);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "Ом";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(69, 110);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 26);
+            this.textBox11.TabIndex = 3;
+            this.textBox11.Text = "10";
+            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(37, 113);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(26, 20);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "C:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(175, 113);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(46, 20);
+            this.label23.TabIndex = 5;
+            this.label23.Text = "мкФ";
+            // 
+            // button3
+            // 
+            this.button3.Enabled = false;
+            this.button3.Location = new System.Drawing.Point(11, 655);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(195, 50);
+            this.button3.TabIndex = 24;
+            this.button3.Text = "Отримати дані";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(11, 255);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(510, 50);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Перевірити з\'єднання з модулем";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel2
             // 
@@ -287,205 +424,59 @@
             this.panel3.TabIndex = 17;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
             // 
-            // connectStatus
+            // groupBox5
             // 
-            this.connectStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(142)))));
-            this.connectStatus.Location = new System.Drawing.Point(379, 54);
-            this.connectStatus.Name = "connectStatus";
-            this.connectStatus.Rounding = 100;
-            this.connectStatus.RoundingEnable = true;
-            this.connectStatus.Size = new System.Drawing.Size(30, 30);
-            this.connectStatus.TabIndex = 17;
-            this.connectStatus.TextHover = null;
+            this.groupBox5.Controls.Add(this.radioButton4);
+            this.groupBox5.Controls.Add(this.radioButton5);
+            this.groupBox5.Controls.Add(this.radioButton6);
+            this.groupBox5.Location = new System.Drawing.Point(11, 511);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(510, 133);
+            this.groupBox5.TabIndex = 26;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Вибір графіку";
             // 
-            // button2
+            // radioButton4
             // 
-            this.button2.Location = new System.Drawing.Point(11, 255);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(510, 50);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Перевірити з\'єднання з модулем";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Checked = true;
+            this.radioButton4.Location = new System.Drawing.Point(284, 40);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(206, 24);
+            this.radioButton4.TabIndex = 16;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Побудувати IN1 + IN2";
+            this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // radioButton5
             // 
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(11, 655);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(195, 50);
-            this.button3.TabIndex = 24;
-            this.button3.Text = "Отримати дані";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(16, 40);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(237, 24);
+            this.radioButton5.TabIndex = 14;
+            this.radioButton5.Text = "Побудувати графік з IN1";
+            this.radioButton5.UseVisualStyleBackColor = true;
             // 
-            // groupBox8
+            // radioButton6
             // 
-            this.groupBox8.Controls.Add(this.textBox10);
-            this.groupBox8.Controls.Add(this.label20);
-            this.groupBox8.Controls.Add(this.label21);
-            this.groupBox8.Controls.Add(this.textBox11);
-            this.groupBox8.Controls.Add(this.label22);
-            this.groupBox8.Controls.Add(this.label23);
-            this.groupBox8.Location = new System.Drawing.Point(11, 321);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(243, 184);
-            this.groupBox8.TabIndex = 27;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Параметри ел. кола";
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(16, 89);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(237, 24);
+            this.radioButton6.TabIndex = 15;
+            this.radioButton6.Text = "Побудувати графік з IN2";
+            this.radioButton6.UseVisualStyleBackColor = true;
             // 
-            // label23
+            // button4
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(175, 113);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(46, 20);
-            this.label23.TabIndex = 5;
-            this.label23.Text = "мкФ";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(37, 113);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(26, 20);
-            this.label22.TabIndex = 4;
-            this.label22.Text = "C:";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(69, 110);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 26);
-            this.textBox11.TabIndex = 3;
-            this.textBox11.Text = "10";
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(175, 62);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(34, 20);
-            this.label21.TabIndex = 2;
-            this.label21.Text = "Ом";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(37, 62);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(26, 20);
-            this.label20.TabIndex = 1;
-            this.label20.Text = "R:";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(69, 59);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 26);
-            this.textBox10.TabIndex = 0;
-            this.textBox10.Text = "200";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.textBox6);
-            this.groupBox7.Controls.Add(this.label12);
-            this.groupBox7.Controls.Add(this.label15);
-            this.groupBox7.Controls.Add(this.textBox7);
-            this.groupBox7.Controls.Add(this.label16);
-            this.groupBox7.Controls.Add(this.label17);
-            this.groupBox7.Controls.Add(this.textBox9);
-            this.groupBox7.Controls.Add(this.label18);
-            this.groupBox7.Controls.Add(this.label19);
-            this.groupBox7.Location = new System.Drawing.Point(279, 321);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(242, 184);
-            this.groupBox7.TabIndex = 28;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Параметри генератора";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(44, 39);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(26, 20);
-            this.label19.TabIndex = 16;
-            this.label19.Text = "U:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(182, 39);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(21, 20);
-            this.label18.TabIndex = 17;
-            this.label18.Text = "В";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(76, 36);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 26);
-            this.textBox9.TabIndex = 15;
-            this.textBox9.Text = "5";
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(46, 90);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(24, 20);
-            this.label17.TabIndex = 19;
-            this.label17.Text = "T:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(182, 90);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(30, 20);
-            this.label16.TabIndex = 20;
-            this.label16.Text = "мс";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(76, 87);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 26);
-            this.textBox7.TabIndex = 18;
-            this.textBox7.Text = "20";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(43, 141);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(27, 20);
-            this.label15.TabIndex = 22;
-            this.label15.Text = "D:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(182, 141);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(24, 20);
-            this.label12.TabIndex = 23;
-            this.label12.Text = "%";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(76, 138);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 26);
-            this.textBox6.TabIndex = 21;
-            this.textBox6.Text = "50";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.button4.Location = new System.Drawing.Point(279, 655);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(242, 50);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "Побудувати";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // tabPage1
             // 
@@ -496,181 +487,12 @@
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(532, 748);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Моделювання";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(355, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 50);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Побудувати";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Location = new System.Drawing.Point(24, 485);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(485, 179);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Вибір графіку";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(19, 86);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(278, 24);
-            this.radioButton2.TabIndex = 11;
-            this.radioButton2.Text = "Побудувати графік розрядки";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(19, 37);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(268, 24);
-            this.radioButton1.TabIndex = 10;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Побудувати графік зарядки";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(19, 135);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(428, 24);
-            this.radioButton3.TabIndex = 12;
-            this.radioButton3.Text = "Побудувати єдиний графік зарядки і розрядки";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(24, 295);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(230, 184);
-            this.groupBox2.TabIndex = 14;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Параметри ел. кола";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(168, 112);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "мкФ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 112);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 20);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "C:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(62, 109);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "10";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(168, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Ом";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "R:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(62, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "200";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Схема_лаб_11;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(24, 30);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(292, 214);
-            this.panel1.TabIndex = 15;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Иконка_книги_fotor_bg_remover_20260111174715;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(439, 30);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.checkBox1);
-            this.groupBox4.Location = new System.Drawing.Point(24, 670);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(485, 62);
-            this.groupBox4.TabIndex = 19;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Анімація";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Enabled = false;
-            this.checkBox1.Location = new System.Drawing.Point(19, 25);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(192, 24);
-            this.checkBox1.TabIndex = 13;
-            this.checkBox1.Text = "Динамічний графік";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // groupBox6
             // 
@@ -690,68 +512,14 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Параметри генератора";
             // 
-            // label6
+            // textBox5
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 39);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 20);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "U:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(173, 39);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(21, 20);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "В";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(67, 36);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 26);
-            this.textBox3.TabIndex = 15;
-            this.textBox3.Text = "5";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(37, 90);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(24, 20);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "T:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(173, 90);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 20);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "мс";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(67, 87);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 26);
-            this.textBox4.TabIndex = 18;
-            this.textBox4.Text = "20";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(34, 141);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(27, 20);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "D:";
+            this.textBox5.Location = new System.Drawing.Point(67, 138);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 26);
+            this.textBox5.TabIndex = 21;
+            this.textBox5.Text = "50";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
@@ -762,14 +530,222 @@
             this.label9.TabIndex = 23;
             this.label9.Text = "%";
             // 
-            // textBox5
+            // label10
             // 
-            this.textBox5.Location = new System.Drawing.Point(67, 138);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 26);
-            this.textBox5.TabIndex = 21;
-            this.textBox5.Text = "50";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(34, 141);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(27, 20);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "D:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(67, 87);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 26);
+            this.textBox4.TabIndex = 18;
+            this.textBox4.Text = "20";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(173, 90);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 20);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "мс";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(37, 90);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(24, 20);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "T:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(67, 36);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 26);
+            this.textBox3.TabIndex = 15;
+            this.textBox3.Text = "5";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(173, 39);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(21, 20);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "В";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(35, 39);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(26, 20);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "U:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.checkBox1);
+            this.groupBox4.Location = new System.Drawing.Point(24, 670);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(485, 62);
+            this.groupBox4.TabIndex = 19;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Анімація";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(19, 25);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(192, 24);
+            this.checkBox1.TabIndex = 13;
+            this.checkBox1.Text = "Динамічний графік";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Untitled140;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(131, 21);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(260, 260);
+            this.panel1.TabIndex = 15;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(24, 295);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(230, 184);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Параметри ел. кола";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(62, 58);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "200";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(26, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "R:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(168, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Ом";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(62, 109);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 26);
+            this.textBox2.TabIndex = 3;
+            this.textBox2.Text = "10";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 20);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "C:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(168, 112);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "мкФ";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Location = new System.Drawing.Point(24, 485);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(485, 179);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Вибір графіку";
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(19, 135);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(428, 24);
+            this.radioButton3.TabIndex = 12;
+            this.radioButton3.Text = "Побудувати єдиний графік зарядки і розрядки";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(19, 37);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(268, 24);
+            this.radioButton1.TabIndex = 10;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Побудувати графік зарядки";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(19, 86);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(278, 24);
+            this.radioButton2.TabIndex = 11;
+            this.radioButton2.Text = "Побудувати графік розрядки";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(318, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 50);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Побудувати";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabControl1
             // 
@@ -782,6 +758,28 @@
             this.tabControl1.Size = new System.Drawing.Size(540, 781);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // connectStatus
+            // 
+            this.connectStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(142)))));
+            this.connectStatus.Location = new System.Drawing.Point(379, 54);
+            this.connectStatus.Name = "connectStatus";
+            this.connectStatus.Rounding = 100;
+            this.connectStatus.RoundingEnable = true;
+            this.connectStatus.Size = new System.Drawing.Size(30, 30);
+            this.connectStatus.TabIndex = 17;
+            this.connectStatus.TextHover = null;
+            // 
+            // dataStatus
+            // 
+            this.dataStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(142)))));
+            this.dataStatus.Location = new System.Drawing.Point(214, 660);
+            this.dataStatus.Name = "dataStatus";
+            this.dataStatus.Rounding = 100;
+            this.dataStatus.RoundingEnable = true;
+            this.dataStatus.Size = new System.Drawing.Size(40, 40);
+            this.dataStatus.TabIndex = 25;
+            this.dataStatus.TextHover = null;
             // 
             // Lab_1
             // 
@@ -802,25 +800,25 @@
             this.Load += new System.EventHandler(this.Lab_1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.tabPage1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -84,13 +84,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.label19 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.видалитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.видалитиВсіЗаписиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -104,10 +102,8 @@
             this.groupBox4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -295,18 +291,18 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(27, 89);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 20);
+            this.label4.Size = new System.Drawing.Size(24, 20);
             this.label4.TabIndex = 4;
-            this.label4.Text = "C:";
+            this.label4.Text = "L:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(165, 89);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 20);
+            this.label3.Size = new System.Drawing.Size(41, 20);
             this.label3.TabIndex = 5;
-            this.label3.Text = "мкФ";
+            this.label3.Text = "мГн";
             // 
             // groupBox1
             // 
@@ -365,7 +361,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Схема_лаб_11;
+            this.panel1.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Схема_лаб_3_мод;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(115, 21);
             this.panel1.Name = "panel1";
@@ -398,6 +394,7 @@
             this.button4.TabIndex = 25;
             this.button4.Text = "Побудувати";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -408,6 +405,7 @@
             this.button3.TabIndex = 26;
             this.button3.Text = "Отримати дані";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataStatus
             // 
@@ -545,18 +543,18 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(32, 89);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(26, 20);
+            this.label17.Size = new System.Drawing.Size(24, 20);
             this.label17.TabIndex = 4;
-            this.label17.Text = "C:";
+            this.label17.Text = "L:";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(170, 89);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(46, 20);
+            this.label18.Size = new System.Drawing.Size(50, 20);
             this.label18.TabIndex = 5;
-            this.label18.Text = "мкФ";
+            this.label18.Text = "мкГн";
             // 
             // groupBox4
             // 
@@ -610,11 +608,12 @@
             this.button2.TabIndex = 19;
             this.button2.Text = "Перевірити з\'єднання з модулем";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.RC_коло_лаба2_експеримент_;
+            this.panel2.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Схема_лаб_3_експ1;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.connectStatus);
             this.panel2.Controls.Add(this.panel3);
@@ -642,72 +641,26 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(30, 30);
             this.panel3.TabIndex = 17;
+            this.panel3.Click += new System.EventHandler(this.panel3_Click);
             // 
             // chart1
             // 
-            chartArea1.AxisX.LabelStyle.Enabled = false;
-            chartArea1.AxisX2.LabelStyle.Enabled = false;
-            chartArea1.AxisY.LabelStyle.Enabled = false;
-            chartArea1.AxisY2.LabelStyle.Enabled = false;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea3.AxisX.LabelStyle.Enabled = false;
+            chartArea3.AxisX2.LabelStyle.Enabled = false;
+            chartArea3.AxisY.LabelStyle.Enabled = false;
+            chartArea3.AxisY2.LabelStyle.Enabled = false;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.Location = new System.Drawing.Point(564, 12);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(848, 593);
             this.chart1.TabIndex = 3;
             this.chart1.Text = "chart1";
             this.chart1.DoubleClick += new System.EventHandler(this.chart1_DoubleClick);
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.groupBox8.Controls.Add(this.label24);
-            this.groupBox8.Controls.Add(this.trackBar2);
-            this.groupBox8.Controls.Add(this.trackBar1);
-            this.groupBox8.Controls.Add(this.label19);
-            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox8.Location = new System.Drawing.Point(564, 616);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(313, 177);
-            this.groupBox8.TabIndex = 18;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Масштаб";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(38, 101);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(15, 20);
-            this.label24.TabIndex = 22;
-            this.label24.Text = "-";
-            // 
-            // trackBar2
-            // 
-            this.trackBar2.Location = new System.Drawing.Point(89, 101);
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(187, 56);
-            this.trackBar2.TabIndex = 20;
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(89, 40);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(187, 56);
-            this.trackBar1.TabIndex = 19;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(38, 40);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(25, 20);
-            this.label19.TabIndex = 16;
-            this.label19.Text = "X:";
             // 
             // comboBox1
             // 
@@ -720,12 +673,36 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(889, 616);
+            this.dataGridView1.Location = new System.Drawing.Point(564, 616);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(523, 177);
+            this.dataGridView1.Size = new System.Drawing.Size(848, 177);
             this.dataGridView1.TabIndex = 19;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.видалитиToolStripMenuItem,
+            this.видалитиВсіЗаписиToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(225, 56);
+            // 
+            // видалитиToolStripMenuItem
+            // 
+            this.видалитиToolStripMenuItem.Name = "видалитиToolStripMenuItem";
+            this.видалитиToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.видалитиToolStripMenuItem.Text = "Видалити рядок";
+            this.видалитиToolStripMenuItem.Click += new System.EventHandler(this.видалитиToolStripMenuItem_Click);
+            // 
+            // видалитиВсіЗаписиToolStripMenuItem
+            // 
+            this.видалитиВсіЗаписиToolStripMenuItem.Name = "видалитиВсіЗаписиToolStripMenuItem";
+            this.видалитиВсіЗаписиToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.видалитиВсіЗаписиToolStripMenuItem.Text = "Видалити всі записи";
+            this.видалитиВсіЗаписиToolStripMenuItem.Click += new System.EventHandler(this.видалитиВсіЗаписиToolStripMenuItem_Click);
             // 
             // Lab_3
             // 
@@ -735,7 +712,6 @@
             this.ClientSize = new System.Drawing.Size(1424, 805);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -765,11 +741,8 @@
             this.groupBox4.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -797,12 +770,7 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TrackBar trackBar2;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel2;
         private Cards connectStatus;
@@ -836,5 +804,8 @@
         private System.Windows.Forms.Button button3;
         private Cards dataStatus;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem видалитиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem видалитиВсіЗаписиToolStripMenuItem;
     }
 }

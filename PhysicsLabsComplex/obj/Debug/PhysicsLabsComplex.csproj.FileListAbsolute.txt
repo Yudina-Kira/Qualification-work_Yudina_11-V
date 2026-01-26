@@ -261,3 +261,104 @@ C:\Users\Kira\Downloads\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_1
 C:\Users\Kira\Downloads\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsL.2CE24B84.Up2Date
 C:\Users\Kira\Downloads\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.exe
 C:\Users\Kira\Downloads\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.pdb
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\Crosswords\crossword1.txt
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\styles.css
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Імпульсний_струм.html
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Багатофазний_змінний_струм.html
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Види_конденсаторів.html
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Діюче_значення_змінного_струму.html
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Загальне_визначення.html
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Зарядка_і_розрядка_конденсатора.html
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Конденсатор.html
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Переваги_змінного_струму.html
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Способи_зміни_ємності.html
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\1.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\10.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\11.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\12.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\13.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\14.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\15-1.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\15-2.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\15-3.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\16.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\17.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\18.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\19.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\2.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\20.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\21.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\3.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\4.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\5.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\6.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\7.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\8.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Формулы\9.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Фото\Рисунок 1-1-1.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Фото\Рисунок 1-3-1.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Фото\Рисунок 2-1-1.jpg
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Фото\Рисунок 2-1-2-edited2.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Фото\Рисунок 2-1-3.gif
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Фото\Рисунок 2-2-1.jpg
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Фото\Рисунок 2-3-1.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Фото\Рисунок 2-3-2.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Фото\Рисунок 2-5-1.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Фото\Рисунок 2-5-2.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\HTML-theory\Фото\Рисунок 3-1-1.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\C-flat.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\C-flat_answer.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\C-general.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\C-general_answer.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\C-specific.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\C-specific_answer.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\D.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\D_answer.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\I-effect.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\I-effect_answer.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\I-moment.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\I-moment_answer.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\U(t)-charge.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\U(t)-charge_answer.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\U(t)-discharge.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\U(t)-discharge_answer.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\U-effect.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\U-effect_answer.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\W.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\MemoryCards\Formulas-level\W_answer.png
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\PhysicsLabsComplex.exe.config
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\PhysicsLabsComplex.exe
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\PhysicsLabsComplex.pdb
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\ChartsLib.dll
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\LabDataLib.dll
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\NotesLib.dll
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\ChartsLib.pdb
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\LabDataLib.pdb
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\bin\Debug\NotesLib.pdb
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.csproj.AssemblyReference.cache
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.exe.config
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.Clues.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.Crosswords.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.CrosswordsRules.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.GamesExit.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.History.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.ImageView.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.LabsExit.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.LabsInstructions.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.Lab_1.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.Lab_2.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.Lab_3.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.ListOfGames.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.ListOfLabs.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.MemoryCards.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.MemoryCardsFinished.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.MemoryCardsRules.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.Theory.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.Title.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.Properties.Resources.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.Menu.resources
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.csproj.GenerateResource.cache
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.csproj.CoreCompileInputs.cache
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsL.2CE24B84.Up2Date
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.exe
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.pdb

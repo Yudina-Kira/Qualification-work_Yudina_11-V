@@ -233,8 +233,8 @@ namespace ChartsLib
             {
                 case AnnotationsMode.ChargeDischargeSingle:
 
-                    yAnnotation.ForeColor = Color.GreenYellow;
-                    SetLinesColor(Color.GreenYellow, yLine, supYLine, subYLine);
+                    yAnnotation.ForeColor = Color.SkyBlue;
+                    SetLinesColor(Color.SkyBlue, yLine, supYLine, subYLine);
 
                     addyAnnotation.ForeColor = Color.Transparent;
                     SetLinesColor(Color.Transparent, addYLine, addSupYLine, addSubYLine);
@@ -253,8 +253,8 @@ namespace ChartsLib
 
                 case AnnotationsMode.ChargeDischargeGenerator:
 
-                    yAnnotation.ForeColor = Color.LimeGreen;
-                    SetLinesColor(Color.LimeGreen, yLine, supYLine, subYLine);
+                    yAnnotation.ForeColor = Color.SkyBlue;
+                    SetLinesColor(Color.SkyBlue, yLine, supYLine, subYLine);
 
                     addyAnnotation.ForeColor = Color.Red;
                     SetLinesColor(Color.Red, addYLine, addSupYLine, addSubYLine);
@@ -387,6 +387,9 @@ namespace ChartsLib
         {
             chartArea.AxisX.IsStartedFromZero = false;
             chartArea.AxisX.Crossing = (chartArea.AxisY.Minimum + chartArea.AxisY.Maximum) / 2;
+
+            chartArea.AxisX.LineWidth = 3;
+            chartArea.AxisY.LineColor = Color.LimeGreen;
         }
 
         public void SetAxisLimits(double xMin, double xMax, double yMin, double yMax)
@@ -410,6 +413,13 @@ namespace ChartsLib
             chartArea.AxisY.Interval = GetNiceInterval(yRange, divisions);
 
             UpdateAnnotations();
+        }
+
+        public void ApplyStaticGrid()
+        {
+            xAnnotation.Text = $"2 {xUnit} / 1 под.";
+            yAnnotation.Text = $"1 {yUnit} / 1 под.";
+            addyAnnotation.Text = $"1 {addyUnit} / 1 под.";
         }
 
         public void ZoomAxisX(double delta, double factor = 0.1)

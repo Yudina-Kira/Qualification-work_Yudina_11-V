@@ -1,15 +1,20 @@
 ﻿using ChartsLib;
+using DvmProtocolConsole;
+using LabDataLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static ChartsLib.ChartAnimator;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PhysicsLabsComplex
@@ -18,6 +23,7 @@ namespace PhysicsLabsComplex
     {
         private SettingsChart chartManager;
         private LabInterfaceHelper interfaceHelper;
+        private ChartAnimator chartAnimator;
 
         private const int labNumber = 3;
         private int tabPageIndex = 0;
@@ -25,10 +31,10 @@ namespace PhysicsLabsComplex
         private Series Ut, It;
         //private Axis activeAxisY;
 
-        private double r, c, uMax, f;
-        private double omega, iMax, x0Max;
+        private double r, l, uMax, f;
+        private double omega, iMax, x0Max, phi;
 
-        private double stepGr;
+        private ChartMode currentChartMode = ChartMode.None;
 
         private bool graphicsExisting = false;
 
@@ -40,102 +46,14 @@ namespace PhysicsLabsComplex
         private readonly string basePath = AppDomain.CurrentDomain.BaseDirectory;
         DataTable dataTable;
 
-        #region -- Graphics Animations --
-
-        Timer animTimer = new Timer();
-
-        int utIndex = 0;
-        int itIndex = 0;
-        int uitIndex = 0;
-        double dt = 0.0025;
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked)
-            {
-                if (radioButton1.Checked) StartUtAnimation();
-                if (radioButton2.Checked) StartItAnimation();
-                if (radioButton3.Checked) StartUItAnimation();
-            }
-            else StopAnyAnimation();
-        }
-
-        private void StartUtAnimation()
-        {
-            Ut.Points.Clear();
-            utIndex = 0;
-            animTimer.Start();
-        }
-
-        private void StartItAnimation()
-        {
-            It.Points.Clear();
-            itIndex = 0;
-            animTimer.Start();
-        }
-
-        private void StartUItAnimation()
-        {
-            Ut.Points.Clear();
-            It.Points.Clear();
-            uitIndex = 0;
-            animTimer.Start();
-        }
-
-        private void StopAnyAnimation()
-        {
-            animTimer.Stop();
-        }
-
-        private void AnimateGraphics(object sender, EventArgs e)
-        {
-            if (radioButton1.Checked)
-            {
-                double t = utIndex * dt;
-                double U = uMax * Math.Sin(omega * t);
-
-                Ut.Points.AddXY(t, U);
-
-                utIndex++;
-
-                if (utIndex > 1000) animTimer.Stop();
-            }
-            if (radioButton2.Checked)
-            {
-                stepGr = Math.Abs(uMax * Math.Sin(-(Math.PI / 2)) - uMax * Math.Sin(omega * dt - (Math.PI / 2)));
-
-                chart1.ChartAreas[0].AxisX.Interval = stepGr;
-
-                double t = itIndex * dt;
-                double I = iMax * Math.Sin(omega * t - (Math.PI / 2));
-
-                It.Points.AddXY(t, I);
-
-                itIndex++;
-
-                if (itIndex > 1000) animTimer.Stop();
-            }
-            if (radioButton3.Checked)
-            {
-                double t = uitIndex * dt;
-                double U = uMax * Math.Sin(omega * t);
-                double I = iMax * Math.Sin(omega * t - (Math.PI / 2));
-
-                Ut.Points.AddXY(t, U);
-                It.Points.AddXY(t, I);
-
-                uitIndex++;
-
-                if (uitIndex > 1000) animTimer.Stop();
-            }
-        }
-
-        #endregion
-
         public Lab_3()
         {
             InitializeComponent();
-            
+
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
             chartManager = new SettingsChart(chart1);
             interfaceHelper = new LabInterfaceHelper(toolTip1, this);
 
@@ -143,22 +61,34 @@ namespace PhysicsLabsComplex
             Ut = new Series();
             It = new Series();
 
+            chartAnimator = new ChartAnimator(Ut, It);
+
             chart1.MouseWheel += ScaleChartByMouseWheel;
 
             toolTip1.SetToolTip(pictureBox1, "Ознайомтеся з інструкцією до лабораторної роботи та порядком її виконання");
+            toolTip1.SetToolTip(chart1, "Затисніть Ctrl для розтягування по вертикалі,\r\nЗатисніть Shift для розтягування по горизонталі\r\n");
 
-            animTimer.Interval = 20;
-            animTimer.Tick += AnimateGraphics;
-
-            //CursorSetting.SetHandCursor(panel3);
+            CursorSetting.SetHandCursor(panel3);
             CursorSetting.SetHandCursor(pictureBox1);
 
-            //dataGridView1.ContextMenuStrip = contextMenuStrip1;
+            dataGridView1.ContextMenuStrip = contextMenuStrip1;
         }
 
         private void Lab_3_Load(object sender, EventArgs e)
         {
+            DataWorking.Initialize(basePath);
 
+            var kind = GridHelper.GetTabKind(tabPageIndex);
+            if (kind == DataWorking.DataKind.None) return;
+
+            dataTable = DataWorking.LoadData(labNumber, kind);
+            GridHelper.AddExperimentNumberColumn(dataTable);
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            GridHelper.SetUpColumnHeaders(dataGridView1);
+            dataGridView1.ClearSelection();
+
+            comboBox1.Visible = false;
         }
 
         #region --- Modeling page ---
@@ -187,33 +117,48 @@ namespace PhysicsLabsComplex
                 }
             }
 
-            r = double.Parse(textBox1.Text); //Ом
-            c = double.Parse(textBox2.Text); //мкФ
+            r = double.Parse(textBox1.Text); //кОм
+            l = double.Parse(textBox2.Text); //мкФ
             uMax = double.Parse(textBox3.Text); //В
             f = double.Parse(textBox4.Text); //Гц
 
+            var parameters = new Dictionary<string, double>
             {
-                Console.WriteLine("r = " + r + " Ом");
-                Console.WriteLine("c = " + c + " мкФ");
+                { "R", r },
+                { "L", l },
+                { "Umax", uMax },
+                { "f", f },
+            };
+
+            {
+                Console.WriteLine("r = " + r + " кОм");
+                Console.WriteLine("l = " + l + " мГн");
                 Console.WriteLine("u = " + uMax + " В");
                 Console.WriteLine("f = " + f + " Гц");
 
                 Console.WriteLine("After normalising");
 
                 //Normalising
-                c = UnitsToSI.MicroToBase(c); //Ф
-                Console.WriteLine("c = " + c + " Ф");
+                r = UnitsToSI.KiloToBase(r); //Ом
+                l = UnitsToSI.MilliToBase(l); //Гн
+                Console.WriteLine("r = " + r + " Ом");
+                Console.WriteLine("l = " + l + " Гн");
             }
 
+            //Consts
             omega = 2 * Math.PI * f; //кутова частота
             iMax = uMax / r; //за законом ома
             x0Max = 1 / f * 5; //кліькість періодів для початкової побудови
+            phi = Math.Atan(omega * l / r);
 
             {
                 Console.WriteLine("Normal consts");
                 Console.WriteLine($"omega = 2 * pi * f = {omega} радіан");
                 Console.WriteLine($"iMax = uMax / r = {iMax}");
+                Console.WriteLine($"phi = {phi} рад = {phi * 180 / Math.PI}°");
             }
+
+            currentChartMode = ChartMode.Model;
 
             Ut.Points.Clear();
             It.Points.Clear();
@@ -223,30 +168,26 @@ namespace PhysicsLabsComplex
 
             if (radioButton1.Checked)
             {
-                chartManager.ConfigureAxes("Час", "Напруга", 0, -uMax, "мс", "В");
-                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleUt);
-                //interfaceHelper.SetOneOption(comboBox1, label24, "Y:");
                 GraphicsBuilder.BuildUtRL(Ut, uMax, omega, x0Max);
-                Console.WriteLine(string.Join(" ", Ut.Points));
+                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleUt);
+                interfaceHelper.SetSeriesSelector(comboBox1);
             }
             else if (radioButton2.Checked)
             {
-                chartManager.ConfigureAxes("Час", "Струм", 0, -uMax, "мс", "В");
+                GraphicsBuilder.BuildItRL(It, iMax, omega, phi, x0Max);
                 chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleIt);
-                //interfaceHelper.SetOneOption(comboBox1, label24, "Y:");
-                GraphicsBuilder.BuildItRL(It, iMax, omega, x0Max);
+                interfaceHelper.SetSeriesSelector(comboBox1);
             }
             else if (radioButton3.Checked)
             {
-                var area = chart1.ChartAreas[0];
-                area.AxisY.Minimum = -uMax;
-                area.AxisY.Maximum = uMax;
+                GraphicsBuilder.BuildUtRC(Ut, uMax, omega, phi, x0Max);
+                GraphicsBuilder.BuildItRC(It, iMax, omega, x0Max);
 
-                chartManager.ConfigureAxes("Час", "Струм", 0, -uMax, "мс", "В", "А");
+                double yMin = -(Math.Max(uMax, iMax) + 10);
+                chartManager.ConfigureAxes("Час", "Напруга", 0, yMin, "мс", "В", "В");
+
                 chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.UtIt);
-                //interfaceHelper.SetTwoOptions(comboBox1, label24, new string[] { "U(t)", "I(t)" });
-                GraphicsBuilder.BuildUtRL(Ut, uMax, omega, x0Max);
-                GraphicsBuilder.BuildItRL(It, iMax, omega, x0Max);
+                interfaceHelper.SetSeriesSelector(comboBox1, new string[] { "IN1", "IN2" });
             }
 
             chart1.Series.Add(Ut);
@@ -259,51 +200,300 @@ namespace PhysicsLabsComplex
 
             graphicsExisting = true;
 
+            DataWorking.AppendData(labNumber, DataWorking.DataKind.Model, parameters);
+            dataTable = DataWorking.LoadData(labNumber, DataWorking.DataKind.Model);
+            GridHelper.AddExperimentNumberColumn(dataTable);
+            dataGridView1.DataSource = dataTable;
 
+            GridHelper.SetUpColumnHeaders(dataGridView1);
+
+            string parametersValues = GridHelper.GetModelParametersToString(parameters);
+            GridHelper.SelectCurrentExperiment(dataGridView1, parametersValues);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox1.Checked)
+            {
+                chartAnimator.StopAnimation();
+                return;
+            }
+
+            double currentXMax = chart1.ChartAreas[0].AxisX.Maximum;
+            chartAnimator.Configure(0.00025, currentXMax, uMax, iMax, omega, phi);
+
+            if (radioButton1.Checked)
+                chartAnimator.StartAnimation(LabMode.RL, AnimationMode.Ut);
+
+            if (radioButton2.Checked)
+                chartAnimator.StartAnimation(LabMode.RL, AnimationMode.It);
+
+            if (radioButton3.Checked)
+                chartAnimator.StartAnimation(LabMode.RL, AnimationMode.UtIt);
         }
 
         #endregion
 
         #region --- Experiment page ---
 
-        #endregion
+        // Checking connection 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var portName = "COM5";
 
-        #region --- Work with data base ---
+            Console.WriteLine($"Відкриваю порт {portName}...");
+
+            interfaceHelper.SetIndicator(connectStatus, Color.Gold, "Очікування з'єднання...");
+
+            using (var dvm = new DvmProtocol())
+            {
+                try
+                {
+                    dvm.Open(portName);
+                    Console.WriteLine("Порт відкрито.");
+
+                    interfaceHelper.SetIndicator(connectStatus, Color.LimeGreen, "З'єднання встановлено!");
+
+                    bool sent = dvm.SendSimpleCmd(0x84);
+                    if (!sent)
+                    {
+                        Console.WriteLine("Не вдалося відправити команду.");
+
+                        interfaceHelper.SetIndicator(connectStatus, Color.Red, "Пристрій не відповідає");
+                        interfaceHelper.ShowTimedTooltip(connectStatus, "Не вдалося відправити команду");
+
+                        button3.Enabled = false;
+
+                        return;
+                    }
+
+                    Console.WriteLine("Команда відправлена. Очікую відповіді...");
+
+                    bool run = true;
+                    while (run)
+                    {
+                        bool ok = dvm.ReadFrame(out type, out payload);
+
+                        if (!ok)
+                        {
+                            Thread.Sleep(100);
+                            continue;
+                        }
+
+                        Console.WriteLine("\n=== Відповідь отримано ===");
+                        Console.WriteLine("Тип: 0x" + type.ToString("X2"));
+                        Console.WriteLine("Розмір payload: " + (payload != null ? payload.Length : 0));
+                        if (payload != null && payload.Length > 0)
+                        {
+                            Console.WriteLine("Дані (hex): " + BitConverter.ToString(payload));
+                        }
+                        else
+                        {
+                            Console.WriteLine("Payload порожній.");
+                        }
+
+                        Console.WriteLine("====================\n");
+
+                        interfaceHelper.SetIndicator(connectStatus, Color.LimeGreen, "Пристрій відповідає нормально ✔️");
+                        interfaceHelper.ShowTimedTooltip(connectStatus, "Давай розпочинати працювати!");
+
+                        run = false;
+
+                        button3.Enabled = true;
+
+                        dvm.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Помилка: " + ex.Message);
+
+                    interfaceHelper.SetIndicator(connectStatus, Color.Red, "Помилка з'єднання ❌");
+                    interfaceHelper.ShowTimedTooltip(connectStatus, "Сталась неочікувана помилка");
+
+                    button3.Enabled = false;
+                }
+            }
+        }
+
+        // Data receiving and processing
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (var dvm = new DvmProtocol("COM5"))
+            {
+                if (dvm.StartSingleAndWaitForData(dvm, out var payload))
+                {
+                    Console.WriteLine("Отримав DATA!");
+                    Console.WriteLine($"Payload size: {payload.Length}");
+                    dvm.SeparateChannels(payload, out ch1, out ch2);
+                    button4.Enabled = true;
+                    interfaceHelper.SetIndicator(dataStatus, Color.LimeGreen, "Дані отримані, готові до обробки ✔️");
+                    interfaceHelper.ShowTimedTooltip(dataStatus, "Дані отримані, готові до обробки ✔️");
+
+                }
+                else
+                {
+                    Console.WriteLine("Не вдалось отримати дані 0x10.");
+                    button4.Enabled = false;
+                    interfaceHelper.SetIndicator(dataStatus, Color.Red, "Помилка отримання даних ❌");
+                    interfaceHelper.ShowTimedTooltip(dataStatus, "Не вдалось отримати дані ❌");
+                }
+
+                dvm.Close();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ///////////////////////////////
+            {
+                ch1 = new ushort[64];
+                ch2 = new ushort[64];
+
+                for (int i = 0; i < 64; i++)
+                {
+                    ch1[i] = (ushort)(i);
+                    ch2[i] = (ushort)(i + 1);
+                }
+            }
+
+            graphicsExisting = false;
+
+            {
+                bool anyChecked = false;
+                {
+                    foreach (Control ctrl in groupBox4.Controls)
+                    {
+                        if (ctrl is RadioButton rb && rb.Checked)
+                        {
+                            anyChecked = true;
+                            break;
+                        }
+                    }
+
+                    if (!anyChecked)
+                    {
+                        MessageBox.Show("Оберіть графік для побудови", "Помилка");
+                        return;
+                    }
+                }
+            }
+
+            r = double.Parse(textBox8.Text); //кОм
+            l = double.Parse(textBox9.Text); //мГн
+            uMax = double.Parse(textBox7.Text); //В
+            f = double.Parse(textBox6.Text); //Гц
+
+            var parameters = new Dictionary<string, string>
+            {
+                { "R", r.ToString(CultureInfo.InvariantCulture) },
+                { "L", l.ToString(CultureInfo.InvariantCulture) },
+                { "Umax", uMax.ToString(CultureInfo.InvariantCulture) },
+                { "f", f.ToString(CultureInfo.InvariantCulture) },
+                { "ch1", string.Join(" ", ch1) },
+                { "ch2", string.Join(" ", ch2) }
+            };
+
+            currentChartMode = ChartMode.Experiment;
+            interfaceHelper.SetSeriesSelector(comboBox1);
+
+            Ut.Points.Clear();
+            It.Points.Clear();
+            chartManager.ConfigureSeries(Ut, SettingsChart.SeriesMode.UtExp);
+            chartManager.ConfigureSeries(It, SettingsChart.SeriesMode.ItExp);
+            chart1.Series.Clear();
+
+            if (radioButton5.Checked)
+            {
+                GraphicsBuilder.BuildExperiment(Ut, ch1);
+                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleUt);
+            }
+            else if (radioButton6.Checked)
+            {
+                GraphicsBuilder.BuildExperiment(It, ch2);
+                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleIt);
+            }
+            else if (radioButton4.Checked)
+            {
+                chartManager.ConfigureAxes("Час", "Напруга", 0, 0, "мс", "В", "В");
+                GraphicsBuilder.BuildExperiment(Ut, ch1, It, ch2);
+                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.UtIt);
+            }
+
+            chart1.Series.Add(Ut);
+            chart1.Series.Add(It);
+
+            chartManager.ResetAxes();
+            chartManager.ApplyStaticGrid();
+
+            graphicsExisting = true;
+
+            DataWorking.AppendData(labNumber, DataWorking.DataKind.Experiment, parameters);
+            dataTable = DataWorking.LoadData(labNumber, DataWorking.DataKind.Experiment);
+            GridHelper.AddExperimentNumberColumn(dataTable);
+            dataGridView1.DataSource = dataTable;
+
+            GridHelper.SetUpColumnHeaders(dataGridView1);
+
+            string parametersValues = GridHelper.GetExperimentParametersToString(parameters);
+            GridHelper.SelectCurrentExperiment(dataGridView1, parametersValues);
+        }
 
         #endregion
 
         #region --- Work with chart --- 
+
+        private enum ChartMode
+        {
+            None,
+            Model,
+            Experiment
+        }
+
+        private bool IsScalingAllowed()
+        {
+            if (!graphicsExisting)
+                return false;
+
+            if (currentChartMode == ChartMode.Experiment)
+                return false;
+
+            if (chart1.Series.All(s => s.Points.Count == 0))
+                return false;
+
+            return true;
+        }
 
         private void ResetZoom()
         {
             double cycles = 5;
             double xMax = (1 / f) * cycles;
 
-            chartManager.SetAxisLimits(0, xMax, -uMax, uMax);
+            double y = Math.Max(uMax, iMax) + 10;
+            chartManager.SetAxisLimits(0, xMax, -y, y);
             chartManager.ApplyNiceGrid();
             chartManager.CenterAxisX();
             UpdateSeriesForAxisX(xMax);
-
-            //ApplySeriesMode();
         }
 
         private void ScaleChartByMouseWheel(object sender, MouseEventArgs e)
         {
+            if (!IsScalingAllowed())
+                return;
+
             var chartArea = chart1.ChartAreas[0];
-            double factor = 0.1;
 
             if (Control.ModifierKeys == Keys.Control)
             {
-                if (e.Delta < 0) chartArea.AxisY.Maximum += chartArea.AxisY.Maximum * factor;
-                else chartArea.AxisY.Maximum -= chartArea.AxisY.Maximum * factor;
+                //chartManager.ZoomActiveAxisY(e.Delta, activeAxisY);
             }
             else if (Control.ModifierKeys == Keys.Shift)
             {
-                if (e.Delta < 0) chartArea.AxisX.Maximum += chartArea.AxisX.Maximum * factor;
-                else chartArea.AxisX.Maximum -= chartArea.AxisX.Maximum * factor;
-
+                chartManager.ZoomAxisX(e.Delta);
                 UpdateSeriesForAxisX(chartArea.AxisX.Maximum);
             }
+
+            chartManager.CenterAxisX();
         }
 
         public void UpdateSeriesForAxisX(double newXMax)
@@ -313,22 +503,25 @@ namespace PhysicsLabsComplex
 
             if (radioButton1.Checked)
             {
-                GraphicsBuilder.BuildUtRC(Ut, uMax, omega, newXMax);
+                GraphicsBuilder.BuildUtRL(Ut, uMax, omega, newXMax);
             }
             else if (radioButton2.Checked)
             {
-                GraphicsBuilder.BuildItRC(It, iMax, omega, newXMax);
+                GraphicsBuilder.BuildItRL(It, iMax, omega, phi, newXMax);
             }
             else if (radioButton3.Checked)
             {
-                GraphicsBuilder.BuildUtRC(Ut, uMax, omega, newXMax);
-                GraphicsBuilder.BuildItRC(It, iMax, omega, newXMax);
+                GraphicsBuilder.BuildUtRL(Ut, uMax, omega, newXMax);
+                GraphicsBuilder.BuildItRL(It, iMax, omega, phi, newXMax);
             }
         }
 
         private void chart1_DoubleClick(object sender, EventArgs e)
         {
             if (!graphicsExisting)
+                return;
+
+            if (!IsScalingAllowed())
                 return;
 
             ResetZoom();
@@ -338,14 +531,114 @@ namespace PhysicsLabsComplex
 
         #region --- Interface ---
 
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            var dataRow = dataGridView1.Rows[e.RowIndex];
+
+            textBox1.Text = dataRow.Cells["R"].Value.ToString();
+            textBox2.Text = dataRow.Cells["L"].Value.ToString();
+            textBox3.Text = dataRow.Cells["Umax"].Value.ToString();
+            textBox4.Text = dataRow.Cells["f"].Value.ToString();
+        }
+
+        private void видалитиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+
+            var result = MessageBox.Show("Ви точно хочете видалити обрані параметри моделювання?\n Цю дію не можна буде відмінити.", "Видалення параметрів", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                int rowIndex = dataGridView1.CurrentRow.Index;
+                dataTable.Rows[rowIndex].Delete();
+                dataTable.AcceptChanges();
+
+                if (dataTable.Rows.Count == 0)
+                {
+                    DataWorking.DataKind currentKind = GridHelper.GetTabKind(tabPageIndex);
+                    DataWorking.DeleteFile(labNumber, currentKind);
+
+                    dataGridView1.DataSource = null;
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Columns.Clear();
+
+                    MessageBox.Show(
+                        "Всі записи про параметри моделювання видалено",
+                        "Видалення успішне",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    return;
+                }
+                else
+                {
+                    List<string> newLines = GridHelper.ToFileLines(dataTable);
+
+                    DataWorking.DataKind currentKind = GridHelper.GetTabKind(tabPageIndex);
+                    DataWorking.SaveFile(labNumber, currentKind, newLines);
+
+                    MessageBox.Show("Інформацію про параметри моделювання видалено", "Видалення успішне", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void видалитиВсіЗаписиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Ви точно хочете видалити всі записи про параметри моделювань?\n Цю дію не можна буде відмінити.", "Видалення всіх записів", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                DataWorking.DataKind currentKind = GridHelper.GetTabKind(tabPageIndex);
+                DataWorking.DeleteFile(labNumber, currentKind);
+
+                dataTable.Clear();
+                dataGridView1.DataSource = null;
+                dataGridView1.Rows.Clear();
+                dataGridView1.Columns.Clear();
+
+                MessageBox.Show("Всі записи про параметри моделювань видалено", "Видалення успішне", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             chartManager.ClearChartArea();
+
             graphicsExisting = false;
-            if (tabControl1.SelectedTab == tabPage1)
+
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+
+            tabPageIndex = tabControl1.SelectedIndex;
+
+            var kind = GridHelper.GetTabKind(tabPageIndex);
+            if (kind == DataWorking.DataKind.None) return;
+
+            dataTable = DataWorking.LoadData(labNumber, kind);
+            GridHelper.AddExperimentNumberColumn(dataTable);
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            if (tabPageIndex == 0)
             {
                 toolTip1.SetToolTip(pictureBox1, "Ознайомтеся з інструкцією до лабораторної роботи та порядком її виконання");
+                toolTip1.SetToolTip(chart1, "Затисніть Ctrl для розтягування по вертикалі,\r\nЗатисніть Shift для розтягування по горизонталі\r\n");
             }
+
+            if (tabPageIndex == 1)
+            {
+                GridHelper.HideArrayColumns(dataGridView1);
+                toolTip1.SetToolTip(chart1, null);
+            }
+
+            GridHelper.SetUpColumnHeaders(dataGridView1);
+        }
+
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            var bigImg = new ImageView(panel2.BackgroundImage);
+            bigImg.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

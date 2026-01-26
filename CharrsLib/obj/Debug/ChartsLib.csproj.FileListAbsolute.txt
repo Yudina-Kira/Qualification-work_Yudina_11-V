@@ -4,3 +4,9 @@ D:\Users\Kira\11 класс хззз\Программирование\выпус
 D:\Users\Kira\11 класс хззз\Программирование\выпуск\Graduation-work_Yudina_11-V\CharrsLib\obj\Debug\ChartsLib.csproj.CoreCompileInputs.cache
 D:\Users\Kira\11 класс хззз\Программирование\выпуск\Graduation-work_Yudina_11-V\CharrsLib\obj\Debug\ChartsLib.dll
 D:\Users\Kira\11 класс хззз\Программирование\выпуск\Graduation-work_Yudina_11-V\CharrsLib\obj\Debug\ChartsLib.pdb
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\CharrsLib\bin\Debug\ChartsLib.dll
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\CharrsLib\bin\Debug\ChartsLib.pdb
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\CharrsLib\obj\Debug\ChartsLib.csproj.AssemblyReference.cache
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\CharrsLib\obj\Debug\ChartsLib.csproj.CoreCompileInputs.cache
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\CharrsLib\obj\Debug\ChartsLib.dll
+D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\CharrsLib\obj\Debug\ChartsLib.pdb
