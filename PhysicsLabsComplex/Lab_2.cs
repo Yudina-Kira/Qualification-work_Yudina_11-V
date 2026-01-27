@@ -34,12 +34,12 @@ namespace PhysicsLabsComplex
         private int tabPageIndex = 0;
 
         private Series Ut, It;
-        //private Axis activeAxisY;
 
         private double r, c, uMax, f;
         private double omega, iMax, x0Max, phi;
 
         private ChartMode currentChartMode = ChartMode.None;
+        private SettingsChart.GraphicsMode currentGraphMode = SettingsChart.GraphicsMode.SingleUt;
 
         private bool graphicsExisting = false;
 
@@ -69,6 +69,11 @@ namespace PhysicsLabsComplex
             chartAnimator = new ChartAnimator(Ut, It);
 
             chartManager.ConfigureAxes("Час", "Напруга", 0, 0, "мс", "В");
+            chartManager.ConfigureAxisY2("Струм", 0, 0);
+            chartManager.ApplyAxisMode(currentGraphMode);
+
+            Ut.YAxisType = AxisType.Primary;
+            It.YAxisType = AxisType.Secondary;
 
             chart1.MouseWheel += ScaleChartByMouseWheel;
 
@@ -195,6 +200,7 @@ namespace PhysicsLabsComplex
 
                 chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.UtIt);
                 interfaceHelper.SetSeriesSelector(comboBox1, new string[] { "IN1", "IN2" });
+                comboBox1.SelectedIndex = -1;
             }
 
             chart1.Series.Add(Ut);
@@ -449,7 +455,7 @@ namespace PhysicsLabsComplex
 
         #endregion
 
-        #region --- Work with chart ????????????????????????????? --- 
+        #region --- Work with chart --- 
 
         private enum ChartMode
         {
@@ -466,19 +472,33 @@ namespace PhysicsLabsComplex
             if (currentChartMode == ChartMode.Experiment)
                 return false;
 
-            if (chart1.Series.All(s => s.Points.Count == 0))
+            bool allEmpty = true;
+            foreach (Series series in chart1.Series)
+            {
+                if (series.Points.Count != 0)
+                {
+                    allEmpty = false;
+                    break;
+                }
+            }
+
+            if (allEmpty)
                 return false;
 
             return true;
         }
 
-        private void ResetZoom() /////////////
+        private void ResetZoom()
         {
             double cycles = 5;
             double xMax = (1 / f) * cycles;
 
-            double y = Math.Max(uMax, iMax) + 10;
-            chartManager.SetAxisLimits(0, xMax, -y, y);
+            //double y = Math.Max(uMax, iMax) + 10;
+
+            double y = uMax + 10;
+            double y2 = iMax + 0.01;
+
+            chartManager.SetAxisLimits(0, xMax, -y, y, -y2, y2);
             chartManager.ApplyNiceGrid();
             chartManager.CenterAxisX();
             UpdateSeriesForAxisX(xMax);
@@ -493,7 +513,14 @@ namespace PhysicsLabsComplex
 
             if (Control.ModifierKeys == Keys.Control)
             {
-                //chartManager.ZoomActiveAxisY(e.Delta, activeAxisY);
+                if (currentGraphMode == SettingsChart.GraphicsMode.UtIt)
+                {
+
+                }
+                else
+                {
+                    chartManager.ZoomActiveAxisY(e.Delta);
+                }
             }
             else if (Control.ModifierKeys == Keys.Shift)
             {
@@ -504,7 +531,7 @@ namespace PhysicsLabsComplex
             chartManager.CenterAxisX();
         }
 
-        public void UpdateSeriesForAxisX(double newXMax)
+        private void UpdateSeriesForAxisX(double newXMax)
         {
             Ut.Points.Clear();
             It.Points.Clear();
@@ -524,21 +551,58 @@ namespace PhysicsLabsComplex
             }
         }
 
-        ///////////////////////////////////
+        #endregion
+
+        #region --- Form's elements' events ---
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var area = chart1.ChartAreas[0];
 
+            if (comboBox1.SelectedItem == null)
+            {
+                chartManager.SetActiveAxisY(null);
+                return;
+            }
+
             switch (comboBox1.SelectedItem.ToString())
             {
                 case "U(t)":
-                    //activeAxisY = area.AxisY;
+                    chartManager.SetActiveAxisY(area.AxisY);
                     break;
 
                 case "I(t)":
-                    //activeAxisY = area.AxisY2;
+                    chartManager.SetActiveAxisY(area.AxisY2);
+                    break;
+
+                default:
+                    chartManager.SetActiveAxisY(null);
                     break;
             }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!radioButton1.Checked) return;
+                
+            currentGraphMode = SettingsChart.GraphicsMode.SingleUt;
+            chartManager.ApplyAxisMode(currentGraphMode);
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!radioButton2.Checked) return;
+                
+            currentGraphMode = SettingsChart.GraphicsMode.SingleIt;
+            chartManager.ApplyAxisMode(currentGraphMode);
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!radioButton3.Checked) return;
+            
+            currentGraphMode = SettingsChart.GraphicsMode.UtIt;
+            chartManager.ApplyAxisMode(currentGraphMode);
         }
 
         private void chart1_DoubleClick(object sender, EventArgs e)
@@ -551,10 +615,6 @@ namespace PhysicsLabsComplex
 
             ResetZoom();
         }
-
-        #endregion
-
-        #region --- Interface ---
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

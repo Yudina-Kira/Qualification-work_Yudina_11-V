@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -273,9 +273,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(165, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 20);
+            this.label2.Size = new System.Drawing.Size(43, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Ом";
+            this.label2.Text = "кОм";
             // 
             // textBox2
             // 
@@ -439,7 +439,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 26);
             this.textBox6.TabIndex = 15;
-            this.textBox6.Text = "0,5";
+            this.textBox6.Text = "50";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
@@ -466,7 +466,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 26);
             this.textBox7.TabIndex = 12;
-            this.textBox7.Text = "5";
+            this.textBox7.Text = "3";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label13
@@ -525,9 +525,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(170, 38);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(34, 20);
+            this.label16.Size = new System.Drawing.Size(43, 20);
             this.label16.TabIndex = 2;
-            this.label16.Text = "Ом";
+            this.label16.Text = "кОм";
             // 
             // textBox9
             // 
@@ -552,9 +552,9 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(170, 89);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(50, 20);
+            this.label18.Size = new System.Drawing.Size(41, 20);
             this.label18.TabIndex = 5;
-            this.label18.Text = "мкГн";
+            this.label18.Text = "мГн";
             // 
             // groupBox4
             // 
@@ -645,18 +645,18 @@
             // 
             // chart1
             // 
-            chartArea3.AxisX.LabelStyle.Enabled = false;
-            chartArea3.AxisX2.LabelStyle.Enabled = false;
-            chartArea3.AxisY.LabelStyle.Enabled = false;
-            chartArea3.AxisY2.LabelStyle.Enabled = false;
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
+            chartArea1.AxisX.LabelStyle.Enabled = false;
+            chartArea1.AxisX2.LabelStyle.Enabled = false;
+            chartArea1.AxisY.LabelStyle.Enabled = false;
+            chartArea1.AxisY2.LabelStyle.Enabled = false;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Location = new System.Drawing.Point(564, 12);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(848, 593);
             this.chart1.TabIndex = 3;
             this.chart1.Text = "chart1";

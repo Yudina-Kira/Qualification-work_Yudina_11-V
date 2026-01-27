@@ -333,7 +333,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(100, 26);
             this.textBox10.TabIndex = 0;
-            this.textBox10.Text = "200";
+            this.textBox10.Text = "0.2";
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label20
@@ -350,9 +350,9 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(175, 62);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(34, 20);
+            this.label21.Size = new System.Drawing.Size(43, 20);
             this.label21.TabIndex = 2;
-            this.label21.Text = "Ом";
+            this.label21.Text = "кОм";
             // 
             // textBox11
             // 
@@ -644,7 +644,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "200";
+            this.textBox1.Text = "0.2";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
@@ -661,9 +661,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(168, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 20);
+            this.label2.Size = new System.Drawing.Size(43, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Ом";
+            this.label2.Text = "кОм";
             // 
             // textBox2
             // 

@@ -18,7 +18,6 @@ namespace ChartsLib
 
         private readonly Timer timer;
         public event EventHandler AnimationFinished;
-        //public bool IsRunning => timer.Enabled;
 
         private double _uMax;
         private double _iMax;

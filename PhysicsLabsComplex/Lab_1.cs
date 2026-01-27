@@ -123,7 +123,7 @@ namespace PhysicsLabsComplex
                 }
             }
 
-            r = double.Parse(textBox1.Text); //Ом
+            r = double.Parse(textBox1.Text); //кОм
             c = double.Parse(textBox2.Text); //мкФ
             u = double.Parse(textBox3.Text); //В
             T = double.Parse(textBox4.Text); //мс
@@ -139,7 +139,7 @@ namespace PhysicsLabsComplex
             };
 
             {
-                Console.WriteLine("r = " + r + " Ом");
+                Console.WriteLine("r = " + r + " кОм");
                 Console.WriteLine("c = " + c + " мкФ");
                 Console.WriteLine("u = " + u + " В");
                 Console.WriteLine("T = " + T + " мс");
@@ -148,6 +148,7 @@ namespace PhysicsLabsComplex
                 Console.WriteLine("After normalising");
 
                 //Normalising
+                r = UnitsToSI.KiloToBase(r); //Ом
                 c = UnitsToSI.MicroToBase(c); //Ф
                 T = UnitsToSI.MilliToBase(T); //с
                 D = UnitsToSI.PercentToFraction(D); //1
@@ -172,7 +173,7 @@ namespace PhysicsLabsComplex
             }
 
             currentChartMode = ChartMode.Model;
-            chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeSingle);
+            chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeModel);
             interfaceHelper.SetSeriesSelector(comboBox1);
 
             chargeAndDischarge.Points.Clear();
@@ -383,7 +384,7 @@ namespace PhysicsLabsComplex
                 }
             }
 
-            r = double.Parse(textBox10.Text); //Ом
+            r = double.Parse(textBox10.Text); //кОм
             c = double.Parse(textBox11.Text); //мкФ
             u = double.Parse(textBox9.Text); //В
             T = double.Parse(textBox7.Text); //мс
@@ -412,7 +413,7 @@ namespace PhysicsLabsComplex
             if (radioButton5.Checked)
             {
                 GraphicsBuilder.BuildExperiment(chargeAndDischarge, ch1);
-                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeSingle);
+                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeExpSingle);
             }
             else if (radioButton6.Checked)
             {
@@ -457,6 +458,13 @@ namespace PhysicsLabsComplex
             Experiment
         }
 
+        private enum GraphMode
+        {
+            Charge,
+            Discharge,
+            ChargeDischarge
+        }
+
         private bool IsScalingAllowed()
         {
             if (!graphicsExisting)
@@ -465,7 +473,17 @@ namespace PhysicsLabsComplex
             if (currentChartMode == ChartMode.Experiment)
                 return false;
 
-            if (chart1.Series.All(s => s.Points.Count == 0))
+            bool allEmpty = true;
+            foreach (Series series in chart1.Series)
+            {
+                if (series.Points.Count != 0)
+                {
+                    allEmpty = false;
+                    break;
+                }
+            }
+
+            if (allEmpty)
                 return false;
 
             return true;
@@ -500,13 +518,6 @@ namespace PhysicsLabsComplex
                 chartManager.ZoomAxisX(e.Delta);
                 UpdateSeriesForAxisX(chartArea.AxisX.Maximum);
             }
-        }
-
-        public enum GraphMode
-        {
-            Charge,
-            Discharge,
-            ChargeDischarge,
         }
 
         private double GetInitialXMax(GraphMode mode)
