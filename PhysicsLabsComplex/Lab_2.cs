@@ -196,7 +196,7 @@ namespace PhysicsLabsComplex
                 GraphicsBuilder.BuildItRC(It, iMax, omega, x0Max);
 
                 double yMin = -(Math.Max(uMax, iMax) + 10);
-                chartManager.ConfigureAxes("Час", "Напруга", 0, yMin, "мс", "В", "В");
+                chartManager.ConfigureAxes("Час", "Напруга", 0, yMin, "мс", "В", "А");
 
                 chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.UtIt);
                 interfaceHelper.SetSeriesSelector(comboBox1, new string[] { "IN1", "IN2" });
@@ -496,7 +496,7 @@ namespace PhysicsLabsComplex
             //double y = Math.Max(uMax, iMax) + 10;
 
             double y = uMax + 10;
-            double y2 = iMax + 0.01;
+            double y2 = iMax + 0.002;
 
             chartManager.SetAxisLimits(0, xMax, -y, y, -y2, y2);
             chartManager.ApplyNiceGrid();

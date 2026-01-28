@@ -567,6 +567,9 @@ namespace ChartsLib
 
         public void ApplyStaticGrid()
         {
+
+
+
             xAnnotation.Text = $"2 {xUnit} / 1 под.";
             yAnnotation.Text = $"1 {yUnit} / 1 под.";
             addyAnnotation.Text = $"1 {addyUnit} / 1 под.";
@@ -618,6 +621,13 @@ namespace ChartsLib
             chartArea.AxisX.ScaleView.ZoomReset();
             chartArea.AxisY.ScaleView.ZoomReset();
             chartArea.AxisY2.ScaleView.ZoomReset();
+        }
+
+        public void SetStaticAnnotations()
+        {
+            xAnnotation.Text = $"320 мкс / 1 под.";
+            yAnnotation.Text = $"1 В / 1 под.";
+            addyAnnotation.Text = $"1 В / 1 под.";
         }
 
         #region --- Private utilities ---

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ChartsLib
 {
@@ -34,7 +35,9 @@ namespace ChartsLib
         private int uitIndex;
 
         private double lastU;
+        private double lastX;
         private bool wasCharging;
+        private bool isCharging;
 
         public ChartAnimator(Series Ut, Series It)
         {
@@ -86,7 +89,7 @@ namespace ChartsLib
 
         public void StartAnimation(LabMode lMode, AnimationMode aMode)
         {
-            StopAnimation();
+            timer.Stop();
 
             labMode = lMode;
             animMode = aMode;
@@ -94,7 +97,9 @@ namespace ChartsLib
             utIndex = itIndex = uitIndex = 0;
 
             lastU = 0;
+            lastX = 0;
             wasCharging = true;
+            isCharging = true;
 
             _ut?.Points.Clear();
             _it?.Points.Clear();
@@ -190,40 +195,54 @@ namespace ChartsLib
 
         private void AnimateChargeDischarge()
         {
-            double tGlobal = utIndex * dt;
-            if (tGlobal > _xMax)
+            double tCharge = _D * _T;
+            double tDischarge = (1 - _D) * _T;
+
+            double t = utIndex * dt;
+            double Στ = lastX + t;
+
+            if (Στ > _xMax)
             {
                 StopInternal();
                 return;
             }
 
-            double tInPeriod = tGlobal % _T;
             double uValue;
 
-            if (tInPeriod < _D * _T)
+            if (isCharging)
             {
-                if (!wasCharging)
+                if (t >= tCharge)
                 {
-                    lastU = _ut.Points.Count > 0 ? _ut.Points[_ut.Points.Count - 1].YValues[0] : 0;
-                    wasCharging = true;
+                    uValue = _uMax - (_uMax - lastU) * Math.Exp(-tCharge / _tau);
+                    _ut.Points.AddXY(lastX + tCharge, uValue);
+
+                    lastX += tCharge;
+                    lastU = uValue;
+                    utIndex = 0;
+                    isCharging = false;
+                    return;
                 }
 
-                double tLocal = tInPeriod;
-                uValue = _uMax - (_uMax - lastU) * Math.Exp(-tLocal / _tau);
+                uValue = _uMax - (_uMax - lastU) * Math.Exp(-t / _tau);
             }
             else
             {
-                if (wasCharging)
+                if (t >= tDischarge)
                 {
-                    lastU = _ut.Points[_ut.Points.Count - 1].YValues[0];
-                    wasCharging = false;
+                    uValue = lastU * Math.Exp(-tDischarge / _tau);
+                    _ut.Points.AddXY(lastX + tDischarge, uValue);
+
+                    lastX += tDischarge;
+                    lastU = uValue;
+                    utIndex = 0;
+                    isCharging = true;
+                    return;
                 }
 
-                double tLocal = tInPeriod - _D * _T;
-                uValue = lastU * Math.Exp(-tLocal / _tau);
+                uValue = lastU * Math.Exp(-t / _tau);
             }
 
-            _ut.Points.AddXY(tGlobal, uValue);
+            _ut.Points.AddXY(Στ, uValue);
             utIndex++;
         }
 

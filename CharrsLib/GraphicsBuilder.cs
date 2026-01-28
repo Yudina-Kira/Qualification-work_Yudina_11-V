@@ -45,7 +45,7 @@ namespace ChartsLib
             {
                 for (int i = 0; i <= steps; i++)
                 {
-                    double t = (i * tCharge / steps);
+                    double t = i * tCharge / steps;
                     double value = u - (u - lastU) * Math.Exp(-t / tau);
 
                     double tTotalCharge = t + lastX;

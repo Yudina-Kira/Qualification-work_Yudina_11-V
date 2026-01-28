@@ -41,6 +41,7 @@ namespace PhysicsLabsComplex
         private GraphMode currentGraphMode;
 
         private bool graphicsExisting = false;
+        private bool isAnimating = false;
 
         private byte type;
         private byte[] payload;
@@ -66,6 +67,7 @@ namespace PhysicsLabsComplex
             uGenerator = new Series();
 
             chartAnimator = new ChartAnimator(chargeAndDischarge, uGenerator);
+            chartAnimator.AnimationFinished += ChartAnimator_AnimationFinished;
 
             chartManager.ConfigureAxes("Час", "Напруга", 0, 0, "мс", "В");
 
@@ -203,6 +205,7 @@ namespace PhysicsLabsComplex
             chart1.Update();
 
             graphicsExisting = true;
+            checkBox1.Enabled = true;
 
             DataWorking.AppendData(labNumber, DataWorking.DataKind.Model, parameters);
             dataTable = DataWorking.LoadData(labNumber, DataWorking.DataKind.Model);
@@ -221,9 +224,11 @@ namespace PhysicsLabsComplex
             if (!checkBox1.Checked)
             {
                 chartAnimator.StopAnimation();
+                isAnimating = false;
                 return;
             }
 
+            isAnimating = true;
             double currentXMax = chart1.ChartAreas[0].AxisX.Maximum;
             chartAnimator.ConfigureChargeDischarge(0.0005, currentXMax, u, tau, D, T);
 
@@ -431,7 +436,7 @@ namespace PhysicsLabsComplex
             chart1.Series.Add(uGenerator);
 
             chartManager.ResetAxes();
-            chartManager.ApplyStaticGrid();
+            ApplyStaticGrid4x4();
 
             graphicsExisting = true;
 
@@ -511,6 +516,8 @@ namespace PhysicsLabsComplex
             }
             else if (Control.ModifierKeys == Keys.Shift)
             {
+                if (isAnimating) return;
+
                 if (!radioButton3.Checked)
                     if (e.Delta < 0)
                         if (chartArea.AxisX.Maximum >= pulseDuration) return;
@@ -556,12 +563,35 @@ namespace PhysicsLabsComplex
             }
         }
 
+        private void ApplyStaticGrid4x4()
+        {
+            var area = chart1.ChartAreas[0];
+
+            double xMax = area.AxisX.Maximum;
+            double xMin = area.AxisX.Minimum;
+
+            area.AxisX.Interval = (xMax - xMin) / 4;
+
+            double yMax = area.AxisY.Maximum;
+            double yMin = area.AxisY.Minimum;
+
+            area.AxisY.Interval = (yMax - yMin) / 4;
+
+            chartManager.SetStaticAnnotations();
+        }
+
+        private void ChartAnimator_AnimationFinished(object sender, EventArgs e)
+        {
+            isAnimating = false;
+            checkBox1.Checked = false;
+        }
+
         private void chart1_DoubleClick(object sender, EventArgs e)
         {
-            if (!graphicsExisting)
+            if (!IsScalingAllowed())
                 return;
 
-            if (!IsScalingAllowed())
+            if (isAnimating)
                 return;
 
             ResetZoom();
@@ -570,6 +600,14 @@ namespace PhysicsLabsComplex
         #endregion
 
         #region --- Interface ---
+
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            isAnimating = false;
+            chartAnimator.StopAnimation();
+            checkBox1.Checked = false;
+            checkBox1.Enabled = false;
+        }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -643,6 +681,9 @@ namespace PhysicsLabsComplex
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            chartAnimator.StopAnimation();
+            isAnimating = false;
+
             chartManager.ClearChartArea();
             graphicsExisting = false;
 
@@ -691,6 +732,7 @@ namespace PhysicsLabsComplex
 
         private void Lab_1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            chartAnimator.StopAnimation();
             var labsExitForm = new LabsExit(this);
             labsExitForm.ShowDialog();
             if (!LabsExit.closing)
