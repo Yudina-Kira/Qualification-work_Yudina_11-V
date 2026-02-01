@@ -28,33 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("1.1. Загальне визначення змінного струму та його характеристики");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("1.2. Діюче значення змінного струму");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("1.3. Багатофазний струм");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("1.4. Переваги змінного струму");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("1. ЗМІННИЙ СТРУМ", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("2.1. Імпульсний струм");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("2.2. Конденсатор. Принцип роботи та характеристики");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("2.3. Процеси зарядки і розрядки конденсатора");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("2.4. Види конденсаторів");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("2.5. Способи збільшення та зменшення загальної ємності");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("ДОДАТКОВА ІНФОРМАЦІЯ ПРО КОНДЕНСАТОРИ", new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10});
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("2. ДО ЛАБОРАТОРНОЇ РОБОТИ №1", new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode11});
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("3.1. Резистор. Принцип роботи та характеристики");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("3.2. Індуктивність. Принцип роботи та характеристики");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("3. ДО ЛАБОРАТОРНИХ РОБІТ №2, 3, 4", new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode14});
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("1.1. Загальне визначення змінного струму та його характеристики");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("1.2. Діюче значення змінного струму");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("1.3. Багатофазний струм");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("1.4. Переваги змінного струму");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("1. ЗМІННИЙ СТРУМ", new System.Windows.Forms.TreeNode[] {
+            treeNode24,
+            treeNode25,
+            treeNode26,
+            treeNode27});
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("2.1. Імпульсний струм");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("2.2. Конденсатор. Принцип роботи та характеристики");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("2.3. Процеси зарядки і розрядки конденсатора");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("2.4. Види конденсаторів");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("2.5. Способи збільшення та зменшення загальної ємності");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("ДОДАТКОВА ІНФОРМАЦІЯ ПРО КОНДЕНСАТОРИ", new System.Windows.Forms.TreeNode[] {
+            treeNode32,
+            treeNode33});
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("2. ДО ЛАБОРАТОРНОЇ РОБОТИ №1", new System.Windows.Forms.TreeNode[] {
+            treeNode29,
+            treeNode30,
+            treeNode31,
+            treeNode34});
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("3.1. Резистор. Принцип роботи та характеристики");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("3.2. Індуктивність. Принцип роботи та характеристики");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("3.3. Види опору в колах змінного струму");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("3.4. Поведінка RC-ланки в колі змінного струму");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("3.5. Поведінка RL-ланки в колі змінного струму");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("3.6. Види резисторів");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("3.7. Способи збільшення та зменшення загального опору");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("ДОДАТКОВА ІНФОРМАЦІЯ ПРО РЕЗИСТОРИ", new System.Windows.Forms.TreeNode[] {
+            treeNode41,
+            treeNode42});
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("3.8. Види котушок індуктивності");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("ДОДАТКОВА ІНФОРМАЦІЯ ПРО ІНДУКТИВНІСТЬ", new System.Windows.Forms.TreeNode[] {
+            treeNode44});
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("3. ДО ЛАБОРАТОРНИХ РОБІТ №2, 3, 4", new System.Windows.Forms.TreeNode[] {
+            treeNode36,
+            treeNode37,
+            treeNode38,
+            treeNode39,
+            treeNode40,
+            treeNode43,
+            treeNode45});
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -90,41 +106,57 @@
             this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.treeView1.Location = new System.Drawing.Point(12, 12);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node1_1";
-            treeNode1.Text = "1.1. Загальне визначення змінного струму та його характеристики";
-            treeNode2.Name = "Node1_2";
-            treeNode2.Text = "1.2. Діюче значення змінного струму";
-            treeNode3.Name = "Node1_3";
-            treeNode3.Text = "1.3. Багатофазний струм";
-            treeNode4.Name = "Node1_4";
-            treeNode4.Text = "1.4. Переваги змінного струму";
-            treeNode5.Checked = true;
-            treeNode5.Name = "Node1";
-            treeNode5.Text = "1. ЗМІННИЙ СТРУМ";
-            treeNode6.Name = "Node2_1";
-            treeNode6.Text = "2.1. Імпульсний струм";
-            treeNode7.Name = "Node2_2";
-            treeNode7.Text = "2.2. Конденсатор. Принцип роботи та характеристики";
-            treeNode8.Name = "Node2_3";
-            treeNode8.Text = "2.3. Процеси зарядки і розрядки конденсатора";
-            treeNode9.Name = "Node2_4";
-            treeNode9.Text = "2.4. Види конденсаторів";
-            treeNode10.Name = "Node2_5";
-            treeNode10.Text = "2.5. Способи збільшення та зменшення загальної ємності";
-            treeNode11.Name = "Node2_45";
-            treeNode11.Text = "ДОДАТКОВА ІНФОРМАЦІЯ ПРО КОНДЕНСАТОРИ";
-            treeNode12.Name = "Node2";
-            treeNode12.Text = "2. ДО ЛАБОРАТОРНОЇ РОБОТИ №1";
-            treeNode13.Name = "Node3_1";
-            treeNode13.Text = "3.1. Резистор. Принцип роботи та характеристики";
-            treeNode14.Name = "Node3_2";
-            treeNode14.Text = "3.2. Індуктивність. Принцип роботи та характеристики";
-            treeNode15.Name = "Node3";
-            treeNode15.Text = "3. ДО ЛАБОРАТОРНИХ РОБІТ №2, 3, 4";
+            treeNode24.Name = "Node1_1";
+            treeNode24.Text = "1.1. Загальне визначення змінного струму та його характеристики";
+            treeNode25.Name = "Node1_2";
+            treeNode25.Text = "1.2. Діюче значення змінного струму";
+            treeNode26.Name = "Node1_3";
+            treeNode26.Text = "1.3. Багатофазний струм";
+            treeNode27.Name = "Node1_4";
+            treeNode27.Text = "1.4. Переваги змінного струму";
+            treeNode28.Checked = true;
+            treeNode28.Name = "Node1";
+            treeNode28.Text = "1. ЗМІННИЙ СТРУМ";
+            treeNode29.Name = "Node2_1";
+            treeNode29.Text = "2.1. Імпульсний струм";
+            treeNode30.Name = "Node2_2";
+            treeNode30.Text = "2.2. Конденсатор. Принцип роботи та характеристики";
+            treeNode31.Name = "Node2_3";
+            treeNode31.Text = "2.3. Процеси зарядки і розрядки конденсатора";
+            treeNode32.Name = "Node2_4";
+            treeNode32.Text = "2.4. Види конденсаторів";
+            treeNode33.Name = "Node2_5";
+            treeNode33.Text = "2.5. Способи збільшення та зменшення загальної ємності";
+            treeNode34.Name = "Node2_45";
+            treeNode34.Text = "ДОДАТКОВА ІНФОРМАЦІЯ ПРО КОНДЕНСАТОРИ";
+            treeNode35.Name = "Node2";
+            treeNode35.Text = "2. ДО ЛАБОРАТОРНОЇ РОБОТИ №1";
+            treeNode36.Name = "Node3_1";
+            treeNode36.Text = "3.1. Резистор. Принцип роботи та характеристики";
+            treeNode37.Name = "Node3_2";
+            treeNode37.Text = "3.2. Індуктивність. Принцип роботи та характеристики";
+            treeNode38.Name = "Node3_3";
+            treeNode38.Text = "3.3. Види опору в колах змінного струму";
+            treeNode39.Name = "Node3_4";
+            treeNode39.Text = "3.4. Поведінка RC-ланки в колі змінного струму";
+            treeNode40.Name = "Node3_5";
+            treeNode40.Text = "3.5. Поведінка RL-ланки в колі змінного струму";
+            treeNode41.Name = "Node3_6";
+            treeNode41.Text = "3.6. Види резисторів";
+            treeNode42.Name = "Node3_7";
+            treeNode42.Text = "3.7. Способи збільшення та зменшення загального опору";
+            treeNode43.Name = "Node3_45";
+            treeNode43.Text = "ДОДАТКОВА ІНФОРМАЦІЯ ПРО РЕЗИСТОРИ";
+            treeNode44.Name = "Node3_8";
+            treeNode44.Text = "3.8. Види котушок індуктивності";
+            treeNode45.Name = "Node_38";
+            treeNode45.Text = "ДОДАТКОВА ІНФОРМАЦІЯ ПРО ІНДУКТИВНІСТЬ";
+            treeNode46.Name = "Node3";
+            treeNode46.Text = "3. ДО ЛАБОРАТОРНИХ РОБІТ №2, 3, 4";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode12,
-            treeNode15});
+            treeNode28,
+            treeNode35,
+            treeNode46});
             this.treeView1.Size = new System.Drawing.Size(659, 135);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);

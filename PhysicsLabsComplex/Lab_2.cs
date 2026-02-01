@@ -18,7 +18,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using static ChartsLib.ChartAnimator;
-using static PhysicsLabsComplex.Lab_1;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
@@ -42,6 +41,7 @@ namespace PhysicsLabsComplex
         private SettingsChart.GraphicsMode currentGraphMode = SettingsChart.GraphicsMode.SingleUt;
 
         private bool graphicsExisting = false;
+        private bool isAnimating = false;
 
         private byte type;
         private byte[] payload;
@@ -67,13 +67,15 @@ namespace PhysicsLabsComplex
             It = new Series();
 
             chartAnimator = new ChartAnimator(Ut, It);
+            chartAnimator.AnimationFinished += ChartAnimator_AnimationFinished;
 
-            chartManager.ConfigureAxes("Час", "Напруга", 0, 0, "мс", "В");
-            chartManager.ConfigureAxisY2("Струм", 0, 0);
+            chartManager.ConfigureAxes("Час", "Напруга", "мс", "В");
+            chartManager.ConfigureAxisY2("Струм", "А");
             chartManager.ApplyAxisMode(currentGraphMode);
 
             Ut.YAxisType = AxisType.Primary;
             It.YAxisType = AxisType.Secondary;
+            chart1.ChartAreas[0].AxisY.Enabled = AxisEnabled.False;
 
             chart1.MouseWheel += ScaleChartByMouseWheel;
 
@@ -108,6 +110,7 @@ namespace PhysicsLabsComplex
         private void button1_Click(object sender, EventArgs e)
         {
             graphicsExisting = false;
+            checkBox1.Enabled = true;
 
             {
                 bool anyChecked = false;
@@ -181,12 +184,14 @@ namespace PhysicsLabsComplex
             if (radioButton1.Checked)
             {
                 GraphicsBuilder.BuildUtRC(Ut, uMax, omega, phi, x0Max);
+                currentGraphMode = SettingsChart.GraphicsMode.SingleUt;
                 chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleUt);
                 interfaceHelper.SetSeriesSelector(comboBox1);
             }
             else if (radioButton2.Checked)
             {
                 GraphicsBuilder.BuildItRC(It, iMax, omega, x0Max);
+                currentGraphMode = SettingsChart.GraphicsMode.SingleIt;
                 chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleIt);
                 interfaceHelper.SetSeriesSelector(comboBox1);
             }
@@ -195,8 +200,9 @@ namespace PhysicsLabsComplex
                 GraphicsBuilder.BuildUtRC(Ut, uMax, omega, phi, x0Max);
                 GraphicsBuilder.BuildItRC(It, iMax, omega, x0Max);
 
-                double yMin = -(Math.Max(uMax, iMax) + 10);
-                chartManager.ConfigureAxes("Час", "Напруга", 0, yMin, "мс", "В", "А");
+                currentGraphMode = SettingsChart.GraphicsMode.UtIt;
+
+                //chartManager.SetAxisLimits(0, x0Max, -(uMax + 5), uMax + 5, -(iMax + 0.0001), iMax + 0.0001);
 
                 chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.UtIt);
                 interfaceHelper.SetSeriesSelector(comboBox1, new string[] { "IN1", "IN2" });
@@ -205,8 +211,9 @@ namespace PhysicsLabsComplex
 
             chart1.Series.Add(Ut);
             chart1.Series.Add(It);
+
+            chartManager.ApplyAxisMode(currentGraphMode);
             ResetZoom();
-            chartManager.CenterAxisX();
 
             chart1.Invalidate();
             chart1.Update();
@@ -229,9 +236,11 @@ namespace PhysicsLabsComplex
             if (!checkBox1.Checked)
             {
                 chartAnimator.StopAnimation();
+                isAnimating = false;
                 return;
             }
 
+            isAnimating = true;
             double currentXMax = chart1.ChartAreas[0].AxisX.Maximum;
             chartAnimator.Configure(0.00025, currentXMax, uMax, iMax, omega, phi);
 
@@ -429,7 +438,9 @@ namespace PhysicsLabsComplex
             }
             else if (radioButton4.Checked)
             {
-                chartManager.ConfigureAxes("Час", "Напруга", 0, 0, "мс", "В", "В");
+                chartManager.ConfigureAxes("Час", "Напруга (вхід 1)", "мс", "В");
+                chartManager.ConfigureAxisY2("Напруга (вхід 2)", "В");
+
                 GraphicsBuilder.BuildExperiment(Ut, ch1, It, ch2);
                 chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.UtIt);
             }
@@ -493,14 +504,11 @@ namespace PhysicsLabsComplex
             double cycles = 5;
             double xMax = (1 / f) * cycles;
 
-            //double y = Math.Max(uMax, iMax) + 10;
-
             double y = uMax + 10;
             double y2 = iMax + 0.002;
 
             chartManager.SetAxisLimits(0, xMax, -y, y, -y2, y2);
             chartManager.ApplyNiceGrid();
-            chartManager.CenterAxisX();
             UpdateSeriesForAxisX(xMax);
         }
 
@@ -515,7 +523,15 @@ namespace PhysicsLabsComplex
             {
                 if (currentGraphMode == SettingsChart.GraphicsMode.UtIt)
                 {
+                    if (comboBox1.SelectedItem == null) return;
 
+                    if (comboBox1.SelectedItem.ToString() == "IN1")
+                        chartManager.SetActiveAxisY(chartArea.AxisY);
+
+                    if (comboBox1.SelectedItem.ToString() == "IN2")
+                        chartManager.SetActiveAxisY(chartArea.AxisY2);
+
+                    chartManager.ZoomActiveAxisY(e.Delta);
                 }
                 else
                 {
@@ -524,11 +540,11 @@ namespace PhysicsLabsComplex
             }
             else if (Control.ModifierKeys == Keys.Shift)
             {
+                if (isAnimating) return;
+
                 chartManager.ZoomAxisX(e.Delta);
                 UpdateSeriesForAxisX(chartArea.AxisX.Maximum);
             }
-
-            chartManager.CenterAxisX();
         }
 
         private void UpdateSeriesForAxisX(double newXMax)
@@ -551,9 +567,34 @@ namespace PhysicsLabsComplex
             }
         }
 
+        private void ChartAnimator_AnimationFinished(object sender, EventArgs e)
+        {
+            isAnimating = false;
+            checkBox1.Checked = false;
+        }
+
+        private void chart1_DoubleClick(object sender, EventArgs e)
+        {
+            if (!IsScalingAllowed())
+                return;
+
+            if (isAnimating)
+                return;
+
+            ResetZoom();
+        }
+
         #endregion
 
         #region --- Form's elements' events ---
+
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            isAnimating = false;
+            chartAnimator.StopAnimation();
+            checkBox1.Checked = false;
+            checkBox1.Enabled = false;
+        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -567,11 +608,11 @@ namespace PhysicsLabsComplex
 
             switch (comboBox1.SelectedItem.ToString())
             {
-                case "U(t)":
+                case "IN1":
                     chartManager.SetActiveAxisY(area.AxisY);
                     break;
 
-                case "I(t)":
+                case "IN2":
                     chartManager.SetActiveAxisY(area.AxisY2);
                     break;
 
@@ -579,41 +620,6 @@ namespace PhysicsLabsComplex
                     chartManager.SetActiveAxisY(null);
                     break;
             }
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!radioButton1.Checked) return;
-                
-            currentGraphMode = SettingsChart.GraphicsMode.SingleUt;
-            chartManager.ApplyAxisMode(currentGraphMode);
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!radioButton2.Checked) return;
-                
-            currentGraphMode = SettingsChart.GraphicsMode.SingleIt;
-            chartManager.ApplyAxisMode(currentGraphMode);
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!radioButton3.Checked) return;
-            
-            currentGraphMode = SettingsChart.GraphicsMode.UtIt;
-            chartManager.ApplyAxisMode(currentGraphMode);
-        }
-
-        private void chart1_DoubleClick(object sender, EventArgs e)
-        {
-            if (!graphicsExisting)
-                return;
-
-            if (!IsScalingAllowed())
-                return;
-
-            ResetZoom();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -687,7 +693,16 @@ namespace PhysicsLabsComplex
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            chartAnimator.StopAnimation();
+            isAnimating = false;
+
             chartManager.ClearChartArea();
+            chart1.ChartAreas[0].AxisY.Enabled = AxisEnabled.False;
+            chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+            chart1.ChartAreas[0].AxisY.MinorGrid.Enabled = false;
+            chart1.ChartAreas[0].AxisY2.MajorGrid.Enabled = false;
+            chart1.ChartAreas[0].AxisY2.MinorGrid.Enabled = false;
+            comboBox1.Visible = false;
 
             graphicsExisting = false;
 

@@ -39,6 +39,7 @@ namespace PhysicsLabsComplex
 
         private ChartMode currentChartMode = ChartMode.None;
         private GraphMode currentGraphMode;
+        private SettingsChart.AnnotationsMode annotationsMode;
 
         private bool graphicsExisting = false;
         private bool isAnimating = false;
@@ -69,7 +70,8 @@ namespace PhysicsLabsComplex
             chartAnimator = new ChartAnimator(chargeAndDischarge, uGenerator);
             chartAnimator.AnimationFinished += ChartAnimator_AnimationFinished;
 
-            chartManager.ConfigureAxes("Час", "Напруга", 0, 0, "мс", "В");
+            chartManager.ConfigureAxes("Час", "Напруга", "мс", "В");
+            chartManager.SetActiveAxisY(chart1.ChartAreas[0].AxisY);
 
             chart1.MouseWheel += ScaleChartByMouseWheel;
 
@@ -175,7 +177,9 @@ namespace PhysicsLabsComplex
             }
 
             currentChartMode = ChartMode.Model;
-            chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeModel);
+            annotationsMode = SettingsChart.AnnotationsMode.ChargeDischargeModel;
+
+            chartManager.DrawLineAnnotations(annotationsMode);
             interfaceHelper.SetSeriesSelector(comboBox1);
 
             chargeAndDischarge.Points.Clear();
@@ -418,18 +422,23 @@ namespace PhysicsLabsComplex
             if (radioButton5.Checked)
             {
                 GraphicsBuilder.BuildExperiment(chargeAndDischarge, ch1);
-                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeExpSingle);
+                //chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeExpSingle);
+                annotationsMode = SettingsChart.AnnotationsMode.ChargeDischargeExpSingle;
             }
             else if (radioButton6.Checked)
             {
                 GraphicsBuilder.BuildExperiment(uGenerator, ch2);
-                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.GeneratorSingle);
+                //chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.GeneratorSingle);
+                annotationsMode = SettingsChart.AnnotationsMode.GeneratorSingle;
             }
             else if (radioButton4.Checked)
             {
-                chartManager.ConfigureAxes("Час", "Напруга", 0, 0, "мс", "В", "В");
+                chartManager.ConfigureAxes("Час", "Напруга (вхід 1)", "мс", "В");
+                chartManager.ConfigureAxisY2("Напруга (вхід 2)", "В");
+
                 GraphicsBuilder.BuildExperiment(chargeAndDischarge, ch1, uGenerator, ch2);
-                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeGenerator);
+                //chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeGenerator);
+                annotationsMode = SettingsChart.AnnotationsMode.ChargeDischargeGenerator;
             }
 
             chart1.Series.Add(chargeAndDischarge);
@@ -437,6 +446,7 @@ namespace PhysicsLabsComplex
 
             chartManager.ResetAxes();
             ApplyStaticGrid4x4();
+            chartManager.DrawLineAnnotations(annotationsMode);
 
             graphicsExisting = true;
 
@@ -454,7 +464,7 @@ namespace PhysicsLabsComplex
 
         #endregion
 
-        #region --- Working with chart ---
+        #region --- Working with chart (scaling) ---
 
         private enum ChartMode
         {

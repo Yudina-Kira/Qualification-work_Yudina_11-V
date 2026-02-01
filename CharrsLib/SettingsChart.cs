@@ -15,6 +15,9 @@ namespace ChartsLib
     {
         private Chart chart;
         private ChartArea chartArea;
+
+        private GraphicsMode currentMode = GraphicsMode.SingleUt;
+
         private Axis activeAxisY;
 
         private TextAnnotation xAnnotation;
@@ -28,6 +31,22 @@ namespace ChartsLib
         private string addyUnit = "";
 
         private double xUnitFactor = 1;
+        private double yUnitFactor = 1;
+        private double y2UnitFactor = 1;
+
+        private double[] niceSteps =
+        {
+            1e-6, 2e-6, 5e-6,
+            1e-5, 2e-5, 5e-5,
+            1e-4, 2e-4, 5e-4,
+            1e-3, 2e-3, 5e-3,
+            1e-2, 2e-2, 5e-2,
+            1e-1, 2e-1, 5e-1,
+            1, 2, 5,
+            10, 20, 50,
+            100, 200, 500,
+            1000
+        };
 
         public SettingsChart(Chart chart)
         {
@@ -50,8 +69,10 @@ namespace ChartsLib
 
             PrepareChart(); //підготовка чарту та додавання елементів
             SetChartArea(); //налаштування області
-            SetAnnotations(); //налаштування анотацій
+            SetAnnotations(); //налаштування текстових анотацій
         }
+
+        #region --- General customization of element styles and preparing ---
 
         public void PrepareChart()
         {
@@ -81,7 +102,7 @@ namespace ChartsLib
         {
             chartArea.BackColor = Color.Black;
 
-            // Main axises
+            // Main axes
             chartArea.AxisX.LineColor = Color.LimeGreen;
             chartArea.AxisY.LineColor = Color.LimeGreen;
 
@@ -91,7 +112,7 @@ namespace ChartsLib
             chartArea.AxisX.TitleForeColor = Color.LimeGreen;
             chartArea.AxisY.TitleForeColor = Color.LimeGreen;
 
-            // Major grid
+            // Major grids
             chartArea.AxisX.MajorGrid.LineColor = Color.LimeGreen;
             chartArea.AxisY.MajorGrid.LineColor = Color.LimeGreen;
 
@@ -131,6 +152,19 @@ namespace ChartsLib
             chartArea.InnerPlotPosition.Y = 0;
             chartArea.InnerPlotPosition.Width = 100;
             chartArea.InnerPlotPosition.Height = 100;
+
+            // Additional axis Y2
+            chartArea.AxisY2.LineColor = Color.LimeGreen;
+            chartArea.AxisY2.LineDashStyle = ChartDashStyle.Solid;
+            chartArea.AxisY2.TitleForeColor = Color.LimeGreen;
+
+            chartArea.AxisY2.MajorGrid.LineColor = Color.LimeGreen;
+            chartArea.AxisY2.MajorGrid.LineDashStyle = ChartDashStyle.Solid;
+            chartArea.AxisY2.MajorGrid.LineWidth = 1;
+
+            chartArea.AxisY2.MinorGrid.LineColor = Color.LimeGreen;
+            chartArea.AxisY2.MinorGrid.LineDashStyle = ChartDashStyle.Dot;
+            chartArea.AxisY2.MinorGrid.LineWidth = 1;
         }
 
         public void SetAnnotations()
@@ -156,6 +190,40 @@ namespace ChartsLib
             yAnnotation.ClipToChartArea = chartArea.Name;
             addyAnnotation.ClipToChartArea = chartArea.Name;
         }
+
+        public void ClearChartArea()
+        {
+            chart.Series.Clear();
+
+            xAnnotation.Text = "";
+            yAnnotation.Text = "";
+            addyAnnotation.Text = "";
+
+            xLine.Width = 0;
+            xLine.Height = 0;
+            supXLine.Width = 0;
+            supXLine.Height = 0;
+            subXLine.Width = 0;
+            subXLine.Height = 0;
+
+            yLine.Width = 0;
+            yLine.Height = 0;
+            supYLine.Width = 0;
+            supYLine.Height = 0;
+            subYLine.Width = 0;
+            subYLine.Height = 0;
+
+            addYLine.Width = 0;
+            addYLine.Height = 0;
+            addSupYLine.Width = 0;
+            addSupYLine.Height = 0;
+            addSubYLine.Width = 0;
+            addSubYLine.Height = 0;
+        }
+
+        #endregion
+
+        #region --- Setting the color for annotations in different modes ---
 
         public enum AnnotationsMode
         {
@@ -313,6 +381,10 @@ namespace ChartsLib
             }
         }
 
+        #endregion
+
+        #region --- Clearing and setting up series in different modes ---
+
         public enum SeriesMode
         {
             ChargeDischargeModel,
@@ -367,69 +439,63 @@ namespace ChartsLib
             series.ChartArea = chartArea.Name;
         }
 
-        public void ConfigureAxes(string xTitle, string yTitle, double xMin, double yMin, string xUnit, string yUnit, string addyUnit = "")
+        #endregion
+
+        #region --- Configuration of axes, setting their limits ---
+
+        public void ConfigureAxes(string xTitle, string yTitle, string xUnit, string yUnit)
         {
             chartArea.AxisX.Title = xTitle;
             chartArea.AxisY.Title = yTitle;
 
-            chartArea.AxisX.Minimum = xMin;
-            chartArea.AxisY.Minimum = yMin;
-
             this.xUnit = xUnit;
             this.yUnit = yUnit;
-            this.addyUnit = addyUnit;
         }
 
-        public void ConfigureAxisY2(string y2Title, double y2Min, double y2Max)
+        public void ConfigureAxisY2(string y2Title, string addyUnit)
         {
-            chartArea.AxisY2.Enabled = AxisEnabled.True;
-
             chartArea.AxisY2.Title = y2Title;
-            chartArea.AxisY2.Minimum = y2Min;
-            chartArea.AxisY2.Maximum = y2Max;
-
-            chartArea.AxisY2.LineColor = Color.LimeGreen;
-            chartArea.AxisY2.LineDashStyle = ChartDashStyle.Solid;
-            chartArea.AxisY2.TitleForeColor = Color.LimeGreen;
-
-            chartArea.AxisY2.MajorGrid.Enabled = true;
-            chartArea.AxisY2.MajorGrid.LineColor = Color.LimeGreen;
-            chartArea.AxisY2.MajorGrid.LineDashStyle = ChartDashStyle.Solid;
-            chartArea.AxisY2.MajorGrid.LineWidth = 1;
-
-            chartArea.AxisY2.MinorGrid.Enabled = true;
-            chartArea.AxisY2.MinorGrid.LineColor = Color.LimeGreen;
-            chartArea.AxisY2.MinorGrid.LineDashStyle = ChartDashStyle.Dot;
-            chartArea.AxisY2.MinorGrid.LineWidth = 1;
-
-            chartArea.AxisY2.ScrollBar.Enabled = false;
+            this.addyUnit = addyUnit;
 
             chartArea.AxisY2.LabelStyle.Enabled = false;
-            chartArea.AxisY2.ScrollBar.Enabled = false;
             chartArea.AxisY2.IsStartedFromZero = false;
         }
 
-        public void SetAxisLimits(double xMin, double xMax, double yMin, double yMax)
+        public void SetAxisLimits(double xMin, double xMax, double yMin, double yMax, double? y2Min = null, double? y2Max = null)
         {
             chartArea.AxisX.Minimum = xMin;
             chartArea.AxisX.Maximum = xMax;
             chartArea.AxisY.Minimum = yMin;
             chartArea.AxisY.Maximum = yMax;
+
+            if (y2Min.HasValue && y2Max.HasValue)
+            {
+                chartArea.AxisY2.Minimum = y2Min.Value;
+                chartArea.AxisY2.Maximum = y2Max.Value;
+            }
         }
 
-        public void SetAxisLimits(double xMin, double xMax, double yMin, double yMax, double y2Min, double y2Max)
+        public void ResetAxes()
         {
-            chartArea.AxisX.Minimum = xMin;
-            chartArea.AxisX.Maximum = xMax;
-            chartArea.AxisY.Minimum = yMin;
-            chartArea.AxisY.Maximum = yMax;
-            chartArea.AxisY2.Minimum = y2Min;
-            chartArea.AxisY2.Maximum = y2Max;
+            chartArea.AxisX.Minimum = double.NaN;
+            chartArea.AxisX.Maximum = double.NaN;
+            chartArea.AxisY.Minimum = double.NaN;
+            chartArea.AxisY.Maximum = double.NaN;
+            chartArea.AxisY2.Minimum = double.NaN;
+            chartArea.AxisY2.Maximum = double.NaN;
+
+            chartArea.AxisX.Interval = double.NaN;
+            chartArea.AxisY.Interval = double.NaN;
+            chartArea.AxisY2.Interval = double.NaN;
+
+            chartArea.AxisX.ScaleView.ZoomReset();
+            chartArea.AxisY.ScaleView.ZoomReset();
+            chartArea.AxisY2.ScaleView.ZoomReset();
         }
 
-        public void SetActiveAxisY(Axis axis) => activeAxisY = axis;
+        #endregion
 
-        private Axis GetEffectiveYAxis() => activeAxisY ?? chartArea.AxisY;
+        #region --- Active axis and axes modes by GraphicsMode ---
 
         public enum GraphicsMode
         {
@@ -440,17 +506,22 @@ namespace ChartsLib
 
         public void ApplyAxisMode(GraphicsMode mode)
         {
+            currentMode = mode;
+
             chartArea.AxisY.Enabled = AxisEnabled.False;
             chartArea.AxisY2.Enabled = AxisEnabled.False;
-        
-            switch (mode)
+
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chartArea.AxisY.MinorGrid.Enabled = false;
+            chartArea.AxisY2.MajorGrid.Enabled = false;
+            chartArea.AxisY2.MinorGrid.Enabled = false;
+
+            switch (currentMode)
             {
                 case GraphicsMode.SingleUt:
                     chartArea.AxisY.Enabled = AxisEnabled.True;
                     chartArea.AxisY.MajorGrid.Enabled = true;
                     chartArea.AxisY.MinorGrid.Enabled = true;
-                    chartArea.AxisY2.MajorGrid.Enabled = false;
-                    chartArea.AxisY2.MinorGrid.Enabled = false;
                     activeAxisY = chartArea.AxisY;
                     break;
 
@@ -458,38 +529,36 @@ namespace ChartsLib
                     chartArea.AxisY2.Enabled = AxisEnabled.True;
                     chartArea.AxisY2.MajorGrid.Enabled = true;
                     chartArea.AxisY2.MinorGrid.Enabled = true;
-                    chartArea.AxisY.MajorGrid.Enabled = false;
-                    chartArea.AxisY.MinorGrid.Enabled = false;
                     activeAxisY = chartArea.AxisY2;
                     break;
 
                 case GraphicsMode.UtIt:
                     chartArea.AxisY.Enabled = AxisEnabled.True;
                     chartArea.AxisY2.Enabled = AxisEnabled.True;
+                    
                     chartArea.AxisY.MajorGrid.Enabled = true;
                     chartArea.AxisY.MinorGrid.Enabled = true;
-                    chartArea.AxisY2.MajorGrid.Enabled = false;
-                    chartArea.AxisY2.MinorGrid.Enabled = false;
-                    activeAxisY = null;
+                    
+                    activeAxisY = chartArea.AxisY;
                     break;
             }
         }
 
-        public void CenterAxisX()
-        {
-            //chartArea.AxisX.IsStartedFromZero = false;
-            //chartArea.AxisX.Crossing = (chartArea.AxisY.Minimum + chartArea.AxisY.Maximum) / 2;
+        public void SetActiveAxisY(Axis axis) => activeAxisY = axis;
 
-            //chartArea.AxisX.LineWidth = 3;
-            //chartArea.AxisY.LineColor = Color.LimeGreen;
+        //private Axis GetEffectiveYAxis()
+        //{
+        //    switch (currentMode)
+        //    {
+        //        case GraphicsMode.SingleUt:
+        //        case GraphicsMode.UtIt:
+        //            return 
+        //    }
+        //}
 
-            Axis axis = GetEffectiveYAxis();
+        #endregion
 
-            chartArea.AxisX.Crossing = (axis.Minimum + axis.Maximum) / 2;
-
-            chartArea.AxisX.LineWidth = 3;
-            chartArea.AxisX.LineColor = Color.LimeGreen;
-        }
+        #region --- Zoom of axes ---
 
         public void ZoomAxisX(double delta, double factor = 0.1)
         {
@@ -515,9 +584,8 @@ namespace ChartsLib
 
         public void ZoomActiveAxisY(double delta, double factor = 0.1)
         {
-            Axis axis = GetEffectiveYAxis();
-
-            if (activeAxisY == null) return;
+            Axis axis = activeAxisY;
+            if (axis == null || axis.Interval <= 0) return;
 
             double min = axis.Minimum;
             double max = axis.Maximum;
@@ -539,8 +607,19 @@ namespace ChartsLib
             chart.Invalidate();
         }
 
+        #endregion
+
+        #region --- Grids for different modes ---
+
         public void ApplyNiceGrid(int divisions = 5)
         {
+            chartArea.AxisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
+            chartArea.AxisX.IsMarginVisible = false;
+            chartArea.AxisY.IntervalAutoMode = IntervalAutoMode.FixedCount;
+            chartArea.AxisY.IsMarginVisible = false;
+            chartArea.AxisY2.IntervalAutoMode = IntervalAutoMode.FixedCount;
+            chartArea.AxisY2.IsMarginVisible = false;
+
             // Axis X
             double xRange = chartArea.AxisX.Maximum - chartArea.AxisX.Minimum;
 
@@ -551,104 +630,67 @@ namespace ChartsLib
             chartArea.AxisX.Interval = GetNiceInterval(xRange, divisions);
 
             // Axis Y
-            //double yRange = chartArea.AxisY.Maximum - chartArea.AxisY.Minimum;
+            double yRange = chartArea.AxisY.Maximum - chartArea.AxisY.Minimum;
+            chartArea.AxisY.Interval = GetNiceInterval(yRange, divisions);
 
-            //chartArea.AxisY.Interval = GetNiceInterval(yRange, divisions);
+            // Axis Y2
+            double y2Range = chartArea.AxisY2.Maximum - chartArea.AxisY2.Minimum;
 
-            Axis axis = GetEffectiveYAxis(); // активная ось или AxisY по умолчанию
-            if (axis != null)
-            {
-                double yRange = axis.Maximum - axis.Minimum;
-                axis.Interval = GetNiceInterval(yRange, divisions);
-            }
+            if (y2Range < 1e-3) { addyUnit = "мкА"; y2UnitFactor = 1e6; }
+            else if (y2Range < 1) { addyUnit = "мА"; y2UnitFactor = 1e3; }
+            else { addyUnit = "А"; y2UnitFactor = 1; }
+
+            chartArea.AxisY2.Interval = GetNiceInterval(y2Range, divisions);
 
             UpdateAnnotations();
         }
 
-        public void ApplyStaticGrid()
+        public void ApplyStaticGrid(int xDivisions = 5, int yDivisions = 5)
         {
 
-
-
-            xAnnotation.Text = $"2 {xUnit} / 1 под.";
-            yAnnotation.Text = $"1 {yUnit} / 1 под.";
-            addyAnnotation.Text = $"1 {addyUnit} / 1 под.";
         }
 
-        public void ClearChartArea()
+        #endregion
+
+        #region --- Annotations ---
+
+        private void UpdateAnnotations()
         {
-            chart.Series.Clear();
+            // X-annotation
+            if (chartArea.AxisX.Interval > 0)
+                xAnnotation.Text = $"{chartArea.AxisX.Interval * xUnitFactor:0.###} {xUnit} / 1 под.";
 
-            xAnnotation.Text = "";
-            yAnnotation.Text = "";
-            addyAnnotation.Text = "";
+            // Y-annotation and Y2-annotation
+            if (activeAxisY != null && activeAxisY.Interval > 0)
+            {
+                (string mainUnit, double mainFactor, string secondUnit, double secondFactor) = GetAxisYUnits();
 
-            xLine.Width = 0;
-            xLine.Height = 0;
-            supXLine.Width = 0;
-            supXLine.Height = 0;
-            subXLine.Width = 0;
-            subXLine.Height = 0;
+                if (activeAxisY == chartArea.AxisY)
+                {
+                    yAnnotation.Text = $"{chartArea.AxisY.Interval * mainFactor:0.###} {mainUnit} / 1 под.";
+                    addyAnnotation.Text = $"{chartArea.AxisY2.Interval * secondFactor:0.###} {secondUnit} / 1 под.";
+                }
 
-            yLine.Width = 0;
-            yLine.Height = 0;
-            supYLine.Width = 0;
-            supYLine.Height = 0;
-            subYLine.Width = 0;
-            subYLine.Height = 0;
+                if (activeAxisY == chartArea.AxisY2)
+                {
+                    if (currentMode == GraphicsMode.SingleIt)
+                    {
+                        yAnnotation.Text = $"{activeAxisY.Interval * mainFactor:0.###} {mainUnit} / 1 под.";
+                        //addyAnnotation.Text = $"{activeAxisY.Interval * secondFactor:0.###} {secondUnit} / 1 под.";
+                    }
+                    else if (currentMode == GraphicsMode.UtIt)
+                    {
+                        //yAnnotation.Text = $"{activeAxisY.Interval * mainFactor:0.###} {mainUnit} / 1 под.";
+                        addyAnnotation.Text = $"{activeAxisY.Interval * secondFactor:0.###} {secondUnit} / 1 под.";
+                    }
+                }
 
-            addYLine.Width = 0;
-            addYLine.Height = 0;
-            addSupYLine.Width = 0;
-            addSupYLine.Height = 0;
-            addSubYLine.Width = 0;
-            addSubYLine.Height = 0;
+            }
         }
-
-        public void ResetAxes()
-        {
-            chartArea.AxisX.Minimum = double.NaN;
-            chartArea.AxisX.Maximum = double.NaN;
-            chartArea.AxisY.Minimum = double.NaN;
-            chartArea.AxisY.Maximum = double.NaN;
-            chartArea.AxisY2.Minimum = double.NaN;
-            chartArea.AxisY2.Maximum = double.NaN;
-
-            chartArea.AxisX.Interval = double.NaN;
-            chartArea.AxisY.Interval = double.NaN;
-            chartArea.AxisY2.Interval = double.NaN;
-
-            chartArea.AxisX.ScaleView.ZoomReset();
-            chartArea.AxisY.ScaleView.ZoomReset();
-            chartArea.AxisY2.ScaleView.ZoomReset();
-        }
-
-        public void SetStaticAnnotations()
-        {
-            xAnnotation.Text = $"320 мкс / 1 под.";
-            yAnnotation.Text = $"1 В / 1 под.";
-            addyAnnotation.Text = $"1 В / 1 под.";
-        }
-
-        #region --- Private utilities ---
 
         private double GetNiceInterval(double range, int divisions)
         {
             double rough = range / divisions;
-
-            double[] niceSteps =
-            {
-                1e-6, 2e-6, 5e-6, // мкс
-                1e-5, 2e-5, 5e-5,
-                1e-4, 2e-4, 5e-4,
-                1e-3, 2e-3, 5e-3, // мс
-                1e-2, 2e-2, 5e-2,
-                1e-1, 2e-1, 5e-1,
-                1, 2, 5,          // сек
-                10, 20, 50,
-                100, 200, 500,
-                1000
-            };
 
             foreach (var step in niceSteps)
                 if (step >= rough) 
@@ -657,28 +699,27 @@ namespace ChartsLib
             return niceSteps[niceSteps.Length - 1];
         }
 
-        private void UpdateAnnotations()
+        private (string mainUnit, double mainFactor, string secondUnit, double secondFactor) GetAxisYUnits()
         {
-            //if (chartArea.AxisX.Interval > 0)
-            //    xAnnotation.Text = $"{chartArea.AxisX.Interval * xUnitFactor:0.###} {xUnit} / 1 под.";
-
-            //if (chartArea.AxisY.Interval > 0)
-            //{
-            //    yAnnotation.Text = $"{chartArea.AxisY.Interval} {yUnit} / 1 под.";
-            //    addyAnnotation.Text = $"{chartArea.AxisY.Interval} {addyUnit} / 1 под.";
-            //}
-
-            // X-аннотация
-            if (chartArea.AxisX.Interval > 0)
-                xAnnotation.Text = $"{chartArea.AxisX.Interval * xUnitFactor:0.###} {xUnit} / 1 под.";
-
-            // Y-аннотация
-            Axis axis = GetEffectiveYAxis();
-            if (axis != null)
+            switch (currentMode)
             {
-                yAnnotation.Text = $"{axis.Interval} {yUnit} / 1 под.";
-                addyAnnotation.Text = $"{axis.Interval} {addyUnit} / 1 под.";
+                case GraphicsMode.SingleIt:
+                    return (addyUnit, y2UnitFactor, yUnit, yUnitFactor);
+
+                case GraphicsMode.SingleUt:
+                case GraphicsMode.UtIt:
+                    return (yUnit, yUnitFactor, addyUnit, y2UnitFactor);
+
+                default:
+                    return (yUnit, yUnitFactor, addyUnit, y2UnitFactor);
             }
+        }
+
+        public void SetStaticAnnotations()
+        {
+            xAnnotation.Text = $"320 мкс / 1 под.";
+            yAnnotation.Text = $"1 В / 1 под.";
+            addyAnnotation.Text = $"1 В / 1 под.";
         }
 
         #endregion

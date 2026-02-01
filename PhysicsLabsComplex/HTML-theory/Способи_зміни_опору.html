@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Способи зміни опору</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textContainer {
+            position: relative;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <h2>Способи збільшення та зменшення загального опору</h2>
+        <p>
+            Від способу з’єднання резисторів у колі залежить загальний опір усієї ділянки кола. Для отримання більших значень опору резистори з’єднують послідовно.
+        </p>
+        <div class="photo">
+            <img src="Фото/Рисунок 3-7-1.png" alt="Послідовне з'єднання резисторів">
+            <p class="caption">Рисунок 3.7.1</p>
+        </div>
+        <p>
+            Загальний опір ділянки кола з послідовно з’єднаними резисторами (рис. 3.7.1) дорівнює сумі опорів усіх резисторів, з яких вона складається:
+        </p>
+        <div class="formula">
+            <img src="Формулы/62.png" alt="Формула загального опору всієї ділянки кола">
+        </div>
+        <div class="photo">
+            <img src="Фото/Рисунок 3-7-2.png" alt="Паралельне з'єднання резисторів">
+            <p class="caption">Рисунок 3.7.2</p>
+        </div>
+        <p>
+            При послідовному з’єднанні резисторів їх загальний опір завжди більший за максимальний опір окремого резистора.
+        </p>
+        <p>
+            Загальний опір ділянки кола з паралельно з’єднаними резисторами (рис. 3.7.2) дорівнює: 
+        </p>
+        <div class="formula">
+            <img src="Формулы/63.png" alt="Формула опору ділянки кола з паралельним з'єднанням резисторів">
+        </div>
+        <p>
+            При паралельному з’єднанні резисторів їх загальний опір завжди менший за мінімальний опір резисторів, з яких складається ділянка кола.
+        </p>
+        <div class="photo">
+            <img src="Фото/Рисунок 3-7-3.png" alt="Змішане з'єднання резисторів">
+            <p class="caption">Рисунок 3.7.3</p>
+        </div>
+        <p>
+            При змішаному з’єднанні резисторів схема може складатися з кількох підблоків послідовного та паралельного з’єднань. Для таких складних ланцюгів застосовується правило поетапного розрахунку: спочатку розраховується опір найменших підблоків, після чого – більших. 
+        </p>
+        <p>
+            Наприклад, розрахунок загального опору змішаної схеми, зображеної на рис. 3.7.3, має вигляд:
+        </p>
+        <div class="formula">
+            <img src="Формулы/64.png" alt="Формула загального опору кола зі змішаним з'єднанням резисторів">
+        </div>
+        <p>
+            Подана ділянка кола являє собою паралельне з’єднання двох підблоків: одного резистора <i>R<sub>3</sub></i> та послідовно з’єднаних резисторів <i>R<sub>1</sub></i> і <i>R<sub>2</sub></i>. Для правильного розрахунку загального опору спочатку визначається опір ділянки послідовного з’єднання за відповідною формулою:
+        </p>
+        <div class="formula">
+            <img src="Формулы/65.png" alt="Формула опору ділянки кола з послідовним з'єднанням резисторів">
+        </div>
+        <p>
+            Після підстановки цього виразу формула для знаходження загального опору ділянки кола набуває вигляду:
+        </p>
+        <div class="formula">
+            <img src="Формулы/66.png" alt="Остаточна формула опору кола зі змішаним з'єднанням резисторів">
+        </div>
+        <p class="last">
+            Змішане з’єднання резисторів використовується для отримання специфічного еквівалентного опору, точного розподілу напруги і струму, а також при відсутності номіналу резистора з необхідним номіналом.
+        </p>
+        <canvas id="drawCanvas"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var container = document.getElementById('textContainer');
+
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        var ctx = canvas.getContext('2d');
+        var drawing = false; // малювання на канві активне
+        var lines = [];
+        var drawEnabled = false; // режим малювання, керуючи з форми
+        var currentTool = 'pen';
+        var currentColor = 'blue';
+        var currentWidth = 6;
+        var currentAlpha = 1;
+
+        function setDrawingEnabled(value) {
+            drawEnabled = value;
+            canvas.style.pointerEvents = value ? 'auto' : 'none';
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            if (tool === 'pen') {
+                currentAlpha = 1;
+            } else if (tool === 'marker') {
+                currentAlpha = 0.5;
+            } else if (tool === 'laser') {
+                currentAlpha = 1;
+            }
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setLineWidth(width) {
+            currentWidth = width;
+        }
+
+        function clearCanvas() {
+            lines = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // ===== Обробка рухів миші =====
+        canvas.addEventListener('mousedown', function (e) {
+            if (!drawEnabled) return;
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines.push({ color: currentColor, width: currentWidth, alpha: currentAlpha, points: [point] });
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (!drawing || !drawEnabled) return;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines[lines.length - 1].points.push(point);
+            redraw();
+        });
+
+        canvas.addEventListener('mouseup', function () { drawing = false; });
+        canvas.addEventListener('mouseleave', function () { drawing = false; });
+
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.globalAlpha = line.alpha;
+                ctx.lineWidth = line.width;
+                ctx.moveTo(line.points[0].x, line.points[0].y);
+                for (var j = 1; j < line.points.length; j++) {
+                    ctx.lineTo(line.points[j].x, line.points[j].y);
+                }
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+    </script>
+</body>
+</html>

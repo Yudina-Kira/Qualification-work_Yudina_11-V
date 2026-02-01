@@ -108,6 +108,36 @@ namespace PhysicsLabsComplex
                     currentNode = "3.2. Індуктивність";
                     break;
 
+                case "3.3. Види опору в колах змінного струму":
+                    currentHtmlPageName = "Види_опору.html";
+                    currentNode = "3.3. Види опору";
+                    break;
+
+                case "3.4. Поведінка RC-ланки в колі змінного струму":
+                    currentHtmlPageName = "Поведінка_RC-ланки.html";
+                    currentNode = "3.4. Поведінка RC-ланки";
+                    break;
+
+                case "3.5. Поведінка RL-ланки в колі змінного струму":
+                    currentHtmlPageName = "Поведінка_RL-ланки.html";
+                    currentNode = "3.5. Поведінка RL-ланки";
+                    break;
+
+                case "3.6. Види резисторів":
+                    currentHtmlPageName = "Види_резисторів.html";
+                    currentNode = "3.6. Види резисторів";
+                    break;
+
+                case "3.7. Способи збільшення та зменшення загального опору":
+                    currentHtmlPageName = "Способи_зміни_опору.html";
+                    currentNode = "3.7. Способи зміни опору";
+                    break;
+
+                case "3.8. Види котушок індуктивності":
+                    currentHtmlPageName = "Види_індуктивностей.html";
+                    currentNode = "3.8. Види котушок";
+                    break;
+
                 default:
                     return;
             }
@@ -190,8 +220,8 @@ namespace PhysicsLabsComplex
             {
                 noteHelper.SaveNotes(currentNode);
 
-                hasUnsavedChanges = false;
-                saveStatus.BackColor = Color.LimeGreen;
+                //hasUnsavedChanges = false;
+                //saveStatus.BackColor = Color.LimeGreen;
 
                 string nodeFolder = NoteDataWorking.GetNodeFolder(currentNode);
                 var files = Directory.GetFiles(nodeFolder).OrderByDescending(f => File.GetLastWriteTime(f)).ToArray();
@@ -219,9 +249,6 @@ namespace PhysicsLabsComplex
             {
                 noteHelper.ClearCanvas();
                 NoteDataWorking.ClearFolder(currentNode);
-
-                //hasUnsavedChanges = false;
-                //Mark();
             }
         }
 
@@ -231,14 +258,6 @@ namespace PhysicsLabsComplex
         {
             var menuForm = new Menu();
             menuForm.Show();
-        }
-
-        public void Mark()
-        {
-            if (hasUnsavedChanges) saveStatus.BackColor = Color.Red;
-            else saveStatus.BackColor = Color.Green;
-        }
-
-        
+        }        
     }
 }

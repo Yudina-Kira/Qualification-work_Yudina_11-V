@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Індуктивність. Принцип роботи та характеристики</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textContainer {
+            position: relative;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <h2>Індуктивність. Принцип роботи та характеристики</h2>
+        <p>
+            <strong>Індуктивність</strong> – фізична величина, що характеризує здатність провідника накопичувати енергію магнітного поля, коли в ньому протікає електричний струм. 
+        </p>
+        <p>
+            Індуктивність контуру дорівнює відношенню магнітного потоку в ньому до сили струму, що протікає:
+        </p>
+        <div class="formula">
+            <img src="Формулы/30.png" alt="Формула індуктивності">
+        </div>
+        <p>
+            У системі СІ вимірюється в Гн (генрі):
+        </p>
+        <div class="formula">
+            <img src="Формулы/31.png" alt="Розмірність генрі">
+        </div>
+        <p>
+            Один генрі – це індуктивність такого замкненого контуру, в якому струм 1 А створює магнітний потік 1 Вб.
+        </p>
+        <p>
+            Енергію магнітного поля, створеного електричним струмом у колі, можна визначити за формулою:
+        </p>
+        <div class="formula">
+            <img src="Формулы/32.png" alt="Формула енергії магнітного поля">
+        </div>
+        <p>
+            де <i>W</i> – енергія, <i>L</i> – індуктивність контуру, <i>I</i> – сила струму в контурі.
+        </p>
+        <p>
+            Подібно до механічної інерції, яка перешкоджає зміні швидкості тіла, індуктивність кола перешкоджає зміні сили струму: при зростанні струму вона гальмує його збільшення, а при зменшенні – перешкоджає спадові. Це явище зумовлене виникненням ЕРС самоіндукції, яка з’являється під час зміни струму і спрямована проти цієї зміни, що і є проявом електричної інерції кола.
+        </p>
+        <p>
+            Відповідно до закону електромагнітної індукції, ЕРС самоіндукції можна записати так:
+        </p>
+        <div class="formula">
+            <img src="Формулы/33.png" alt="Формула ЕРС самоіндукції">
+        </div>
+        <p>
+            Підставивши формулу магнітного потоку через індуктивність, отримуємо:
+        </p>
+        <div class="formula">
+            <img src="Формулы/34.png" alt="Формула ЕРС самоіндукції через індуктивність">
+        </div>
+        <p>
+            З цієї формули випливає, що індуктивність чисельно дорівнює модулю ЕРС самоіндукції, що виникає у контурі під час зміни сили струму на 1 А протягом 1 с.
+        </p>
+        <div class="photo">
+            <img src="Фото/Рисунок 3-2-1.png" alt="Позначення котушки індуктивності в електричному колі">
+            <p class="caption">Рисунок 3.1.1. Умовне позначення котушки індуктивності</p>
+        </div>
+        <p>
+            На практиці індуктивність зосереджена в спеціальному елементі електричного кола — <strong>котушці індуктивності</strong>, яка являє собою провідник, згорнутий у вигляді витків. У схемах здебільшого позначається як <i>L</i>, а її умовне графічне зображення наведено на рисунку 3.2.1. 
+        </p>
+        <p>
+            Принцип роботи котушки індуктивності полягає в накопиченні та зберіганні енергії магнітного поля. Котушка виконує роль такого елемента електричного кола, що протидіє різким змінам сили струму. Під час протікання струму через витки котушки частина енергії електричного кола переходить в енергію магнітного поля. При зміні режиму роботи накопичена енергія повертається в коло і, зумовлюючи появу ЕРС самоіндукції, згладжує перехідні процеси.
+        </p>
+        <p>
+            Основною характеристикою котушки індуктивності є її індуктивність, яка чисельно дорівнює відношенню магнітного потоку, що пронизує котушку, до сили струму в колі. Зазвичай значення індуктивностей котушок варіюються від десятих часток мкГн до десятків Гн.
+        </p>
+        <p>
+            Індуктивність не залежить від сили струму в колі. Вона завжди є додатною величиною та визначається лише геометричними параметрами кола (розмірами, формою, кількістю витків) і магнітними властивостями середовища (наявністю, характеристиками осердя). Ці залежності добре помітні у формулі індуктивності соленоїда – котушки, довжина якої набагато більша, ніж її діаметр:
+        </p>
+        <div class="formula">
+            <img src="Формулы/35.png" alt="Формула індуктивності за фізичними параметрами">
+        </div>
+        <p>
+            де <i>μ<sub>0</sub></i> – <strong>магнітна стала</strong> (позначає магнітні властивості вакууму і дорівнює 1,2566*10<sup>-6</sup> Гн/м), <i>μ</i> – відносна магнітна проникність середовища, <i>N</i> – кількість витків, <i>S</i> – площа поперечного перерізу, <i>l</i> – довжина котушки.
+        </p>
+        <p class="last">
+            <strong>Відносна магнітна проникність</strong> <i>μ</i> – характеристика осердя котушки; безрозмірна скалярна величина, яка визначає здатність матеріалу проводити та посилювати магнітне поле в порівнянні з вакуумом. Чим більша μ, тим ефективніше котушка накопичує енергію магнітного поля, і тим менше витків потрібно для досягнення певної індуктивності. Таким чином, феритові або залізні осердя з високим значенням μ дозволяють робити котушки більш компактними для трансформаторів та дроселів.
+        </p>
+        <canvas id="drawCanvas"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var container = document.getElementById('textContainer');
+
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        var ctx = canvas.getContext('2d');
+        var drawing = false; // малювання на канві активне
+        var lines = [];
+        var drawEnabled = false; // режим малювання, керуючи з форми
+        var currentTool = 'pen';
+        var currentColor = 'blue';
+        var currentWidth = 6;
+        var currentAlpha = 1;
+
+        function setDrawingEnabled(value) {
+            drawEnabled = value;
+            canvas.style.pointerEvents = value ? 'auto' : 'none';
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            if (tool === 'pen') {
+                currentAlpha = 1;
+            } else if (tool === 'marker') {
+                currentAlpha = 0.5;
+            } else if (tool === 'laser') {
+                currentAlpha = 1;
+            }
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setLineWidth(width) {
+            currentWidth = width;
+        }
+
+        function clearCanvas() {
+            lines = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // ===== Обробка рухів миші =====
+        canvas.addEventListener('mousedown', function (e) {
+            if (!drawEnabled) return;
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines.push({ color: currentColor, width: currentWidth, alpha: currentAlpha, points: [point] });
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (!drawing || !drawEnabled) return;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines[lines.length - 1].points.push(point);
+            redraw();
+        });
+
+        canvas.addEventListener('mouseup', function () { drawing = false; });
+        canvas.addEventListener('mouseleave', function () { drawing = false; });
+
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.globalAlpha = line.alpha;
+                ctx.lineWidth = line.width;
+                ctx.moveTo(line.points[0].x, line.points[0].y);
+                for (var j = 1; j < line.points.length; j++) {
+                    ctx.lineTo(line.points[j].x, line.points[j].y);
+                }
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+    </script>
+</body>
+</html>

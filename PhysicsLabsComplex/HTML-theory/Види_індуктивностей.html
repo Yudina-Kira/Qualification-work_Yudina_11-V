@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Види котушок індуктивності</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textContainer {
+            position: relative;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <h2>Види котушок індуктивності</h2>
+        <div class="photo">
+            <img src="Фото/Рисунок 3-8-1.jpg" alt="Котушки індуктивності різних видів">
+            <p class="caption">Рисунок 3.8.1. Котушки індуктивності різних видів</p>
+        </div>
+        <p>
+            У сучасній радіотехніці котушки індуктивності відіграють важливу роль: вони забезпечують формування коливальних контурів, передачу сигналів між ланцюгами та фільтрацію перешкод. Існує багато різновидів котушок, кожен із яких має свої особливості. Основні типи:
+        </p>
+        <ul>
+            <li>
+                <em>Контурні</em> – застосовуються разом із конденсаторами для створення резонансних коливальних контурів. Вони повинні мати високу термічну та довгострокову стабільність, а також добротність. Вимоги до паразитної ємності у цьому випадку зазвичай незначні;
+            </li>
+            <li>
+                <em>Котушки зв’язку, або трансформатори</em> – використовуються для трансформаторної взаємодії між окремими ланцюгами та каскадами. Наприклад, вони дозволяють розділити за постійним струмом базу одного підсилювального каскаду від колектора іншого. Для нерезонансних трансформаторів не потрібна висока точність чи добротність, тому їх виготовляють із тонкого проводу невеликих розмірів. Основні параметри таких котушок – індуктивність та коефіцієнт взаємної індукції;
+            </li>
+            <li>
+                <em>Варіометри</em> – дозволяють змінювати індуктивність у процесі роботи, наприклад, для налаштування резонансної частоти. Це досягається обертанням однієї котушки всередині іншої або переміщенням феромагнітного сердечника відносно обмотки. Завдяки такій конструкції індуктивність можна регулювати у 4-5 разів, що робить варіометри незамінними в налаштовуваних коливальних контурах;
+            </li>
+            <li>
+                <em>Дроселі</em> – мають високий опір для змінного струму та низький – для постійного. Їх підключають послідовно з навантаженням для обмеження змінного струму. Часто застосовуються у ланцюгах живлення як фільтруючі елементи або баласти для розрядних ламп. Для низьких частот дроселі виконують на сердечниках із трансформаторної сталі, а для високих – з пермалою чи фериту. Особливий різновид – феритові бочонки (бусини або кільця), що пригнічують високочастотні синфазні перешкоди;
+            </li>
+            <li>
+                <em>Фільтри синфазних перешкод</em> – містять дві котушки, намотані встрічно або узгоджено, що підвищує ефективність їх роботи. Встрічна намотка краще пригнічує синфазні перешкоди, а узгоджена – диференціальні. Такі фільтри широко викорис-товуються у входах блоків живлення, у цифрових сигнальних лініях та в аудіоапаратурі. На низьких частотах застосовують феромагнітні сердечники, на високих – феритові. 
+            </li>
+        </ul>
+        <p class="last">
+            Завдяки різноманіттю конструкцій котушок індуктивності можна ефективно вирішувати завдання формування коливальних контурів, організації зв’язку між каскадами та забезпечення електромагнітної сумісності пристроїв.
+        </p>
+        <canvas id="drawCanvas"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var container = document.getElementById('textContainer');
+
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        var ctx = canvas.getContext('2d');
+        var drawing = false; // малювання на канві активне
+        var lines = [];
+        var drawEnabled = false; // режим малювання, керуючи з форми
+        var currentTool = 'pen';
+        var currentColor = 'blue';
+        var currentWidth = 6;
+        var currentAlpha = 1;
+
+        function setDrawingEnabled(value) {
+            drawEnabled = value;
+            canvas.style.pointerEvents = value ? 'auto' : 'none';
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            if (tool === 'pen') {
+                currentAlpha = 1;
+            } else if (tool === 'marker') {
+                currentAlpha = 0.5;
+            } else if (tool === 'laser') {
+                currentAlpha = 1;
+            }
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setLineWidth(width) {
+            currentWidth = width;
+        }
+
+        function clearCanvas() {
+            lines = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // ===== Обробка рухів миші =====
+        canvas.addEventListener('mousedown', function (e) {
+            if (!drawEnabled) return;
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines.push({ color: currentColor, width: currentWidth, alpha: currentAlpha, points: [point] });
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (!drawing || !drawEnabled) return;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines[lines.length - 1].points.push(point);
+            redraw();
+        });
+
+        canvas.addEventListener('mouseup', function () { drawing = false; });
+        canvas.addEventListener('mouseleave', function () { drawing = false; });
+
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.globalAlpha = line.alpha;
+                ctx.lineWidth = line.width;
+                ctx.moveTo(line.points[0].x, line.points[0].y);
+                for (var j = 1; j < line.points.length; j++) {
+                    ctx.lineTo(line.points[j].x, line.points[j].y);
+                }
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+    </script>
+</body>
+</html>

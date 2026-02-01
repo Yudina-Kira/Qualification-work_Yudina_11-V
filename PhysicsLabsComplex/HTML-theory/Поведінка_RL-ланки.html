@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поведінка Rl-ланки</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textContainer {
+            position: relative;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <h2>Поведінка RL-ланки в колі змінного струму</h2>
+        <div class="photo">
+            <img src="Фото/Рисунок 3-5-1.png" alt="Схема RL-ланки">
+            <p class="caption">Рисунок 3.5.1</p>
+        </div>
+        <p>
+            RL-ланка – це електричне коло, яке складається з опору <i>R</i> та індуктивності <i>L</i> (рис. 3.5.1). Поведінка такої ланки, як і RC-ланки, визначається взаємодією активної та реактивної складових опору.
+        </p>
+        <p>
+            У досліджуваній схемі вихід <i>IN1</i> вимірювального приладу підключений до входу кола, після чого розташована котушка індуктивності <i>L</i>, далі – вихід <i>IN2</i> вимірювального приладу, і завершальним елементом кола є резистор <i>R</i>.
+        </p>
+        <br /> <br /> <br /> <br /> <br /> <br /> <br />
+        <div class="photo">
+            <img src="Фото/Рисунок 3-5-2.png" alt="Коливання в RL-ланці">
+            <p class="caption">Рисунок 3.5.2. Струм позначено жовтим кольором, напругу – блакитним.</p>
+        </div>
+        <p>
+            Індуктивність створює реактивний (індуктивний) опір, унаслідок чого струм у колі відстає від напруги на деякий кут (рис. 3.5.2). 
+        </p>
+        <p>
+            Тангенс кута зсуву фаз між напругою та струмом в RL-ланці дорівнює співвідношенню індуктивного опору кола до активного:
+        </p>
+        <div class="formula">
+            <img src="Формулы/58.png" alt="Тангенс кута фазового зсуву">
+        </div>
+        <p>
+            Даний вираз можна підтвердити за допомогою побудови векторної діаграми. Для цього, на координатній площині потрібно зобразити три вектори, які відповідатимуть струму та напругам на резисторі і котушці індуктивності відповідно (рис. 3.5.3). 
+        </p>
+        <div class="photo">
+            <img src="Фото/Рисунок 3-5-3.png" alt="Вектори напруг та струму на діаграмі">
+            <p class="caption">Рисунок 3.5.3</p>
+        </div>
+        <p>
+            Вздовж осі OX спрямовано вектор струму <i>I&#8594;</i>. Наступним зображується вектор напруги на резисторі <i>U<sub>R</sub>&#8594;</i>, так само спрямований вздовж вісі OX.
+        </p>
+        <p>
+            Як відомо, у колі з чисто індуктивним опором зсув фаз між струмом і напругою дорівнює куту <i>π/2</i>, причому коливання напруги випереджають коливання струму. Звідси випливає, що вектор напруги на котушці <i>U<sub>L</sub>&#8594;</i> буде спрямований перпендикулярно вектору струму <i>I&#8594;</i> вгору.
+        </p>
+        <br /> <br /> <br /> <br /> <br />
+        <div class="photo">
+            <img src="Фото/Рисунок 3-5-4.png" alt="Векторна діаграма з результуючим вектором та кутом зсуву фаз">
+            <p class="caption">Рисунок 3.5.4</p>
+        </div>
+        <p>
+            Для визначення суми векторів напруг доцільно використати метод паралелограма (рис. 3.5.4). Таким чином, отримано результуючий вектор <i>U&#8594;</i>. Цей вектор утворює з вектором струму <i>I&#8594;</i> кут <i>φ</i>. 
+        </p>
+        <p>
+            У прямокутному трикутнику, який утворюють вектори <i>U<sub>R</sub>&#8594;</i>, <i>U<sub>L</sub>&#8594;</i> та <i>U&#8594;</i>, тангенс кута <i>φ</i> дорівнює відношенню:
+        </p>
+        <div class="formula">
+            <img src="Формулы/59.png" alt="Тангенс кута фазового зсуву через відношення напруг">
+        </div>
+        <p>
+            де величини <i>U<sub>L</sub>&#8594;</i> та <i>U<sub>R</sub>&#8594;</i> є модулями відповідних векторів.
+        </p>
+        <p>
+            Якщо дещо спростити вираз і скоротити силу струму, формула набуває вигляду:
+        </p>
+        <div class="formula">
+            <img src="Формулы/60.png" alt="Тангенс кута фазового зсуву через відношення опорів">
+        </div>
+        <p>
+            Отже, за допомогою методу векторних діаграм наочно підтверджується формула для визначення тангенса кута зсуву фаз між струмом і напругою в RL-колі.
+        </p>
+        <p>
+            З урахуванням визначення індуктивного опору та після певних перетворень формула для знаходження кута фазового зсуву має вигляд:
+        </p>
+        <div class="formula">
+            <img src="Формулы/61.png" alt="Формула кута фазового зсуву">
+        </div>
+        <p class="last">
+            Таким чином, величина фазового зсуву в RL-ланці залежить від значень опору <i>R</i>, індуктивності <i>L</i> та частоти змінного струму. Зі збільшенням індуктивності та/або частоти індуктивний опір котушки збільшується, отже, збільшується і кут фазового зсуву. Зі збільшенням значення активного опору фазовий зсув зменшуватиметься. Це підтверджує, що фазові властивості RL-ланки визначаються співвідношенням активної та реактивної складових опору кола. 
+        </p>
+        <canvas id="drawCanvas"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var container = document.getElementById('textContainer');
+
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        var ctx = canvas.getContext('2d');
+        var drawing = false; // малювання на канві активне
+        var lines = [];
+        var drawEnabled = false; // режим малювання, керуючи з форми
+        var currentTool = 'pen';
+        var currentColor = 'blue';
+        var currentWidth = 6;
+        var currentAlpha = 1;
+
+        function setDrawingEnabled(value) {
+            drawEnabled = value;
+            canvas.style.pointerEvents = value ? 'auto' : 'none';
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            if (tool === 'pen') {
+                currentAlpha = 1;
+            } else if (tool === 'marker') {
+                currentAlpha = 0.5;
+            } else if (tool === 'laser') {
+                currentAlpha = 1;
+            }
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setLineWidth(width) {
+            currentWidth = width;
+        }
+
+        function clearCanvas() {
+            lines = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // ===== Обробка рухів миші =====
+        canvas.addEventListener('mousedown', function (e) {
+            if (!drawEnabled) return;
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines.push({ color: currentColor, width: currentWidth, alpha: currentAlpha, points: [point] });
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (!drawing || !drawEnabled) return;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines[lines.length - 1].points.push(point);
+            redraw();
+        });
+
+        canvas.addEventListener('mouseup', function () { drawing = false; });
+        canvas.addEventListener('mouseleave', function () { drawing = false; });
+
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.globalAlpha = line.alpha;
+                ctx.lineWidth = line.width;
+                ctx.moveTo(line.points[0].x, line.points[0].y);
+                for (var j = 1; j < line.points.length; j++) {
+                    ctx.lineTo(line.points[j].x, line.points[j].y);
+                }
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+    </script>
+</body>
+</html>
