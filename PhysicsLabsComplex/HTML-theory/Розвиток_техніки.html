@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розвиток техніки, перші генератори заряду</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textContainer {
+            position: relative;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <h2>Розвиток техніки, перші генератори заряду</h2>
+        <div class="photo">
+            <img src="Фото/Рисунок 1-2-1 іст.jpg" alt="Генератор Хоуксбі">
+            <p class="caption">Рисунок 1.2.1. Генератор Хоуксбі</p>
+        </div>
+        <p>
+            Першим важливим досягненням у практичному застосуванні електростатики став прилад німецького фізика, інженера та винахідника Отто фон Геріке. У 1663 році він винайшов один із перших електростатичних генераторів. Пристрій являв собою великий шар із сірки, пронизаний залізною віссю. Принцип його роботи примітивний: обертаючи кулю, завдяки силі тертя виникали іскри електростатичного заряду.
+        </p>
+        <p>
+            Експеримент Геріке надихнув подальшу розробку декількох типів «тертєвих машин», які зробили значний внесок в дослідження електрики. Вже до кінця XVII століття дослідники розробили декілька практичних способів генерування електричного струму шляхом тертя електростатичного генератора. Серйозний розвиток електричних машин почався лише у XVIII столітті, коли вони стали основними інструментами в дослідженнях нової науки про електрику. Доречі, перше вживання слова «електрика» приписується серу Томасу Брауну – британському письменнику, філософу, лікарю – в його праці 1646 року <i>«Псевдодоксальна епідемія»</i>.
+        </p>
+        <p>
+            Близько 1705 року англійський винахідник, лаборант відомого Ісака Ньютона Френсіс Хоуксбі зацікавився експериментами з електрикою та вдосконалив електричну машину. Дослідник помітив, якщо сіркову кулю Геріке замінити на скляну, створити в ній низький вакуум (від 10<sup>5</sup> до 10<sup>2</sup> Па) і так само розкрутити, то при доторканні всередині кулі починали «танцювати блискавки». Це було найяскравішим доказом, що скляний шар сильно електризується.
+        </p>
+        <p>
+            Ці спостереження мали важливе значення для подальшого розвитку електростатики, оскільки довели можливість інтенсивної електризації скла та відкрили шлях до створення ефективніших електростатичних генераторів. Експерименти Хоуксбі привернули увагу науковців Європи й стимулювали пошук нових конструктивних рішень для підсилення електричних ефектів.
+        </p>
+        <div class="photo">
+            <img src="Фото/Рисунок 1-2-2 іст.jpg" alt="Генератор Рамсдена">
+            <p class="caption">Рисунок 1.2.2. Генератор Рамсдена</p>
+        </div>
+        <p>
+            Електростатичні генератори почали змінюватися насамперед у напрямку підвищення потужності та зручності використання. Професор Лейпцизького університету Йоганн Вінклер замінив скляну кулю Хоуксбі на скляний циліндр, який розкручувався за допомогою педального механізму, і тепер натирання здійснювалося не руками, а шкіряними подушечками. Такі модифікації дозволили генератору видавати такі сильні іскри, що вони могли підпалити ефір.
+        </p>
+        <p class="last">
+            Значно пізніше, у 1764 році, замість циліндра у генераторі були використані скляні пластини, обернуті з двох сторін у фольгу. Хоча і велися суперечки на тему першості цього винаходу між трьома вченими – Мартином Плантою, Яном Інґенхаузом та Джессе Рамсденом – така машина була названа іменем останнього, який, за офіційною версією, все ж таки перший її збудував.
+        </p>
+        <canvas id="drawCanvas"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var container = document.getElementById('textContainer');
+
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        var ctx = canvas.getContext('2d');
+        var drawing = false; // малювання на канві активне
+        var lines = [];
+        var drawEnabled = false; // режим малювання, керуючи з форми
+        var currentTool = 'pen';
+        var currentColor = 'blue';
+        var currentWidth = 6;
+        var currentAlpha = 1;
+
+        function setDrawingEnabled(value) {
+            drawEnabled = value;
+            canvas.style.pointerEvents = value ? 'auto' : 'none';
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            if (tool === 'pen') {
+                currentAlpha = 1;
+            } else if (tool === 'marker') {
+                currentAlpha = 0.5;
+            } else if (tool === 'laser') {
+                currentAlpha = 1;
+            }
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setLineWidth(width) {
+            currentWidth = width;
+        }
+
+        function clearCanvas() {
+            lines = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // ===== Обробка рухів миші =====
+        canvas.addEventListener('mousedown', function (e) {
+            if (!drawEnabled) return;
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines.push({
+                color: currentColor,
+                width: currentWidth,
+                alpha: currentAlpha,
+                points: [point],
+                tool: currentTool
+            });
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (!drawing || !drawEnabled) return;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines[lines.length - 1].points.push(point);
+            redraw();
+        });
+
+        canvas.addEventListener('mouseup', function () {
+            if (currentTool === 'laser') {
+                if (lines.length > 0 && lines[lines.length - 1].tool === 'laser') {
+                    lines.pop();
+                    redraw();
+                }
+            }
+            drawing = false;
+        });
+
+        canvas.addEventListener('mouseleave', function () { drawing = false; });
+
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.globalAlpha = line.alpha;
+                ctx.lineWidth = line.width;
+                ctx.moveTo(line.points[0].x, line.points[0].y);
+                for (var j = 1; j < line.points.length; j++) {
+                    ctx.lineTo(line.points[j].x, line.points[j].y);
+                }
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+    </script>
+</body>
+</html>

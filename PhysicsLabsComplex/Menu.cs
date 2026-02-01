@@ -29,7 +29,8 @@ namespace PhysicsLabsComplex
         {
             closing = true;
             this.Close();
-            var historyForm = new History();
+            var filePath = GetHtmlFilePath("Перші_уявлення.html");
+            var historyForm = new History(filePath);
             historyForm.Show();
         }
 

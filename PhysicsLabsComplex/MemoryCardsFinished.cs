@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace PhysicsLabsComplex
 {
@@ -21,6 +23,12 @@ namespace PhysicsLabsComplex
             InitializeComponent();
             label6.Text = resultCount.ToString();
             label5.Text = $"{time / 60}:{(time % 60):00}";
+
+            //setting cursor on active elements
+            {
+                CursorSetting.SetHandCursor(buttons1);
+                CursorSetting.SetHandCursor(buttons2);
+            }
         }
 
         private void buttons1_Click(object sender, EventArgs e)

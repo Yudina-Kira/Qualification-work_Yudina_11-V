@@ -20,6 +20,8 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 using static ChartsLib.ChartAnimator;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace PhysicsLabsComplex
 {
@@ -78,10 +80,25 @@ namespace PhysicsLabsComplex
             toolTip1.SetToolTip(pictureBox1, "Ознайомтеся з інструкцією до лабораторної роботи та порядком її виконання");
             toolTip1.SetToolTip(chart1, "Затисніть Ctrl для розтягування по вертикалі,\r\nЗатисніть Shift для розтягування по горизонталі\r\n");
 
-            CursorSetting.SetHandCursor(panel3);
-            CursorSetting.SetHandCursor(pictureBox1);
-
             dataGridView1.ContextMenuStrip = contextMenuStrip1;
+
+            //setting cursor on active elements
+            {
+                CursorSetting.SetHandCursor(panel3);
+                CursorSetting.SetHandCursor(pictureBox1);
+                CursorSetting.SetHandCursor(button1);
+                CursorSetting.SetHandCursor(button2);
+                CursorSetting.SetHandCursor(button3);
+                CursorSetting.SetHandCursor(button4);
+                CursorSetting.SetHandCursor(radioButton1);
+                CursorSetting.SetHandCursor(radioButton2);
+                CursorSetting.SetHandCursor(radioButton3);
+                CursorSetting.SetHandCursor(radioButton4);
+                CursorSetting.SetHandCursor(radioButton5);
+                CursorSetting.SetHandCursor(radioButton6);
+                CursorSetting.SetHandCursor(checkBox1);
+                CursorSetting.SetHandCursor(comboBox1);
+            }
         }
 
         private void Lab_1_Load(object sender, EventArgs e)
@@ -112,7 +129,7 @@ namespace PhysicsLabsComplex
                 {
                     foreach (Control ctrl in groupBox1.Controls)
                     {
-                        if (ctrl is RadioButton rb && rb.Checked)
+                        if (ctrl is System.Windows.Forms.RadioButton rb && rb.Checked)
                         {
                             anyChecked = true;
                             break;
@@ -378,7 +395,7 @@ namespace PhysicsLabsComplex
                 {
                     foreach (Control ctrl in groupBox5.Controls)
                     {
-                        if (ctrl is RadioButton rb && rb.Checked)
+                        if (ctrl is System.Windows.Forms.RadioButton rb && rb.Checked)
                         {
                             anyChecked = true;
                             break;

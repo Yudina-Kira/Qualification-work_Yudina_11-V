@@ -127,6 +127,9 @@
   <data name="666666" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\666666.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Рисунок 1-4-1 іст" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Рисунок 1-4-1 іст.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="3249740-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3249740-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -162,6 +165,9 @@
   </data>
   <data name="Рисунок 1-3-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Рисунок 1-3-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Untitled140" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Untitled140.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="432" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\432.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,7 +211,7 @@
   <data name="Іконка збільшення_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Іконка збільшення_.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Untitled140" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Untitled140.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Рисунок 3-4-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Рисунок 3-4-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

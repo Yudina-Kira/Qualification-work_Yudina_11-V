@@ -303,6 +303,26 @@ namespace PhysicsLabsComplex.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Рисунок_1_4_1_іст {
+            get {
+                object obj = ResourceManager.GetObject("Рисунок 1-4-1 іст", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Рисунок_3_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("Рисунок 3-4-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Схема_лаб_1 {
             get {
                 object obj = ResourceManager.GetObject("Схема-лаб-1", resourceCulture);

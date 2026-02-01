@@ -17,7 +17,7 @@ namespace PhysicsLabsComplex
 
         private TextBox widthTextBox;
         private Panel lineColorPanel;
-        private Panel saveStatusPanel;
+        //private Panel saveStatusPanel;
 
         private Color basicBackColor;
         private Color selectedBackColor;
@@ -28,7 +28,7 @@ namespace PhysicsLabsComplex
         private Color toolColor;
         private float toolWidth;
 
-        public DrawingModeHelper(Buttons[] tools, Buttons save, Buttons reset, TextBox width, Panel toolColor, Panel status)
+        public DrawingModeHelper(Buttons[] tools, Buttons save, Buttons reset, TextBox width, Panel toolColor)
         {
             this.toolButtons = tools;
             this.saveButton = save;
@@ -36,7 +36,6 @@ namespace PhysicsLabsComplex
 
             this.widthTextBox = width;
             this.lineColorPanel = toolColor;
-            this.saveStatusPanel = status;
 
             Initialize();
         }
@@ -111,8 +110,6 @@ namespace PhysicsLabsComplex
 
             UpdateColor(Color.Blue);
             UpdateWidth(6f);
-
-            saveStatusPanel.BackColor = Color.LimeGreen;
 
             DisableDrawingPanel();
         }

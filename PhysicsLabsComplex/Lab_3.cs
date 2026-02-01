@@ -82,10 +82,25 @@ namespace PhysicsLabsComplex
             toolTip1.SetToolTip(pictureBox1, "Ознайомтеся з інструкцією до лабораторної роботи та порядком її виконання");
             toolTip1.SetToolTip(chart1, "Затисніть Ctrl для розтягування по вертикалі,\r\nЗатисніть Shift для розтягування по горизонталі\r\n");
 
-            CursorSetting.SetHandCursor(panel3);
-            CursorSetting.SetHandCursor(pictureBox1);
-
             dataGridView1.ContextMenuStrip = contextMenuStrip1;
+
+            //setting cursor on active elements
+            {
+                CursorSetting.SetHandCursor(panel3);
+                CursorSetting.SetHandCursor(pictureBox1);
+                CursorSetting.SetHandCursor(button1);
+                CursorSetting.SetHandCursor(button2);
+                CursorSetting.SetHandCursor(button3);
+                CursorSetting.SetHandCursor(button4);
+                CursorSetting.SetHandCursor(radioButton1);
+                CursorSetting.SetHandCursor(radioButton2);
+                CursorSetting.SetHandCursor(radioButton3);
+                CursorSetting.SetHandCursor(radioButton4);
+                CursorSetting.SetHandCursor(radioButton5);
+                CursorSetting.SetHandCursor(radioButton6);
+                CursorSetting.SetHandCursor(checkBox1);
+                CursorSetting.SetHandCursor(comboBox1);
+            }
         }
 
         private void Lab_3_Load(object sender, EventArgs e)
@@ -117,7 +132,7 @@ namespace PhysicsLabsComplex
                 {
                     foreach (Control ctrl in groupBox1.Controls)
                     {
-                        if (ctrl is RadioButton rb && rb.Checked)
+                        if (ctrl is System.Windows.Forms.RadioButton rb && rb.Checked)
                         {
                             anyChecked = true;
                             break;
@@ -197,8 +212,8 @@ namespace PhysicsLabsComplex
             }
             else if (radioButton3.Checked)
             {
-                GraphicsBuilder.BuildUtRC(Ut, uMax, omega, phi, x0Max);
-                GraphicsBuilder.BuildItRC(It, iMax, omega, x0Max);
+                GraphicsBuilder.BuildUtRL(Ut, uMax, omega, x0Max);
+                GraphicsBuilder.BuildItRL(It, iMax, omega, phi, x0Max);
 
                 currentGraphMode = SettingsChart.GraphicsMode.UtIt;
 
@@ -213,6 +228,7 @@ namespace PhysicsLabsComplex
             chart1.Series.Add(It);
 
             chartManager.ApplyAxisMode(currentGraphMode);
+            
             ResetZoom();
 
             chart1.Invalidate();
@@ -387,7 +403,7 @@ namespace PhysicsLabsComplex
                 {
                     foreach (Control ctrl in groupBox4.Controls)
                     {
-                        if (ctrl is RadioButton rb && rb.Checked)
+                        if (ctrl is System.Windows.Forms.RadioButton rb && rb.Checked)
                         {
                             anyChecked = true;
                             break;

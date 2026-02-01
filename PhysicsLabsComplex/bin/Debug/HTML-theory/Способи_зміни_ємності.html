@@ -90,6 +90,7 @@
         <p class="last">
             Змішане з’єднання конденсаторів використовується для створення батарей конденсаторів із конкретними, необхідними значення загальної ємності та робочої напруги, яких неможливо досягти лише послідовним або паралельним підключенням.
         </p>
+        <canvas id="drawCanvas"></canvas>
     </div>
     <script>
         var canvas = document.getElementById('drawCanvas');
@@ -147,7 +148,13 @@
             drawing = true;
             var rect = canvas.getBoundingClientRect();
             var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
-            lines.push({ color: currentColor, width: currentWidth, alpha: currentAlpha, points: [point] });
+            lines.push({
+                color: currentColor,
+                width: currentWidth,
+                alpha: currentAlpha,
+                points: [point],
+                tool: currentTool
+            });
         });
 
         canvas.addEventListener('mousemove', function (e) {
@@ -158,7 +165,16 @@
             redraw();
         });
 
-        canvas.addEventListener('mouseup', function () { drawing = false; });
+        canvas.addEventListener('mouseup', function () {
+            if (currentTool === 'laser') {
+                if (lines.length > 0 && lines[lines.length - 1].tool === 'laser') {
+                    lines.pop();
+                    redraw();
+                }
+            }
+            drawing = false;
+        });
+
         canvas.addEventListener('mouseleave', function () { drawing = false; });
 
         function redraw() {

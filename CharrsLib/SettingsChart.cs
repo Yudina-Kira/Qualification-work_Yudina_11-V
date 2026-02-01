@@ -48,6 +48,22 @@ namespace ChartsLib
             1000
         };
 
+        private double[] sharpSteps =
+        {
+            1e-6, 2e-6, 5e-6,
+            1e-5, 2e-5, 5e-5,
+            1e-4, 2e-4, 5e-4,
+            1e-3, 2e-3, 5e-3,
+            1e-2, 2e-2, 5e-2,
+            1e-1, 2e-1, 5e-1,
+            1, 2, 5,
+            10, 15, 20, 
+            25, 30, 35, 40,
+            45, 50, 60, 70, 80, 90,
+            100, 125, 150, 200, 250, 500,
+            1000
+        };
+
         public SettingsChart(Chart chart)
         {
             this.chart = chart;
@@ -564,8 +580,12 @@ namespace ChartsLib
         {
             if (delta < 0) chartArea.AxisX.Maximum += chartArea.AxisX.Maximum * factor;
             else if (delta > 0) chartArea.AxisX.Maximum -= chartArea.AxisX.Maximum * factor;
-        
-            ApplyNiceGrid();
+
+            if (currentMode == GraphicsMode.UtIt)
+                ApplyStaticGridY(5);
+            else
+                ApplyNiceGrid();
+
             UpdateAnnotations();
 
             chart.Invalidate();
@@ -601,9 +621,47 @@ namespace ChartsLib
             axis.Minimum = center - halfRange;
             axis.Maximum = center + halfRange;
 
-            ApplyNiceGrid();
+            if (currentMode == GraphicsMode.UtIt)
+                ApplyStaticGridY(5);
+            else
+                ApplyNiceGrid();
+
             UpdateAnnotations();
 
+            chart.Invalidate();
+        }
+
+        public void ZoomActiveAxisYSharp(double delta)
+        {
+            if (activeAxisY == null) return;
+
+            double currentInterval = activeAxisY.Interval;
+            if (currentInterval <= 0) return;
+
+            int idx = 0;
+            for (int i = 0; i < sharpSteps.Length; i++)
+            {
+                if (sharpSteps[i] >= currentInterval)
+                {
+                    idx = i;
+                    break;
+                }
+            }
+
+            if (delta > 0 && idx > 0) idx--;        // zoom in – менший інтервал
+            else if (delta < 0 && idx < sharpSteps.Length - 1) idx++;
+
+            double newInterval = sharpSteps[idx];
+
+            // центр осі залишаємо
+            double center = (activeAxisY.Maximum + activeAxisY.Minimum) / 2;
+            double halfRange = newInterval * 5 / 2; // 5 клітинок
+
+            activeAxisY.Minimum = center - halfRange;
+            activeAxisY.Maximum = center + halfRange;
+            activeAxisY.Interval = newInterval;
+
+            UpdateAnnotations();
             chart.Invalidate();
         }
 
@@ -645,9 +703,48 @@ namespace ChartsLib
             UpdateAnnotations();
         }
 
-        public void ApplyStaticGrid(int xDivisions = 5, int yDivisions = 5)
+        public void ApplyStaticGrid()
         {
 
+        }
+
+        public void ApplyStaticGridY(int divisions = 5)
+        {
+            // Χ
+            double xRange = chartArea.AxisX.Maximum - chartArea.AxisX.Minimum;
+
+            if (xRange < 1e-3) { xUnit = "мкс"; xUnitFactor = 1e6; }
+            else if (xRange < 1) { xUnit = "мс"; xUnitFactor = 1e3; }
+            else { xUnit = "с"; xUnitFactor = 1; }
+
+            chartArea.AxisX.Interval = GetNiceInterval(xRange, divisions);
+
+            // Y
+            if (chartArea.AxisY.Enabled == AxisEnabled.True)
+            {
+                chartArea.AxisY.IntervalAutoMode = IntervalAutoMode.FixedCount;
+                chartArea.AxisY.IsMarginVisible = false;
+
+                double yRange = chartArea.AxisY.Maximum - chartArea.AxisY.Minimum;
+                chartArea.AxisY.Interval = yRange / divisions;
+            }
+
+            // Y2
+            if (chartArea.AxisY2.Enabled == AxisEnabled.True)
+            {
+                chartArea.AxisY2.IntervalAutoMode = IntervalAutoMode.FixedCount;
+                chartArea.AxisY2.IsMarginVisible = false;
+
+                double y2Range = chartArea.AxisY2.Maximum - chartArea.AxisY2.Minimum;
+
+                if (y2Range < 1e-3) { addyUnit = "мкА"; y2UnitFactor = 1e6; }
+                else if (y2Range < 1) { addyUnit = "мА"; y2UnitFactor = 1e3; }
+                else { addyUnit = "А"; y2UnitFactor = 1; }
+
+                chartArea.AxisY2.Interval = y2Range / divisions;
+            }
+
+            UpdateAnnotations();
         }
 
         #endregion

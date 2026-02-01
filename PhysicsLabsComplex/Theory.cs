@@ -22,8 +22,6 @@ namespace PhysicsLabsComplex
         private string currentHtmlPageName = "";
         private string currentNode = "";
 
-        private bool hasUnsavedChanges = false;
-
         private readonly string basePath = AppDomain.CurrentDomain.BaseDirectory;
 
         public Theory(string filePath)
@@ -34,11 +32,22 @@ namespace PhysicsLabsComplex
             NoteDataWorking.Initialize(basePath);
 
             Buttons[] toolButtons = new Buttons[] { penButton, markerButton, laserButton, colorButton };
-            drawingModeHelper = new DrawingModeHelper(toolButtons, saveButton, resetButton, widthTextBox, toolColorPanel, saveStatus);
+            drawingModeHelper = new DrawingModeHelper(toolButtons, saveButton, resetButton, widthTextBox, toolColorPanel);
 
             htmlFilePath = filePath;
             currentHtmlPageName = "Загальне_визначення.html";
             currentNode = "1.1. Загальне визначення";
+
+            //setting cursor on active elements
+            {
+                CursorSetting.SetHandCursor(toggleSwitch1);
+                CursorSetting.SetHandCursor(penButton);
+                CursorSetting.SetHandCursor(markerButton);
+                CursorSetting.SetHandCursor(laserButton);
+                CursorSetting.SetHandCursor(colorButton);
+                CursorSetting.SetHandCursor(saveButton);
+                CursorSetting.SetHandCursor(resetButton);
+            }
         }
 
         private void Theory_Load(object sender, EventArgs e)
@@ -51,6 +60,12 @@ namespace PhysicsLabsComplex
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            try
+            {
+                noteHelper.SaveNotes(currentNode);
+            }
+            catch { }
+
             switch (e.Node.Text)
             {
                 case "1.1. Загальне визначення змінного струму та його характеристики":
@@ -154,6 +169,12 @@ namespace PhysicsLabsComplex
             }
             else
             {
+                try 
+                { 
+                    noteHelper.SaveNotes(currentNode); 
+                } 
+                catch { }
+
                 noteHelper.SetDrawingEnabled(false);
                 drawingModeHelper.DisableDrawingMode();
             }
@@ -220,9 +241,6 @@ namespace PhysicsLabsComplex
             {
                 noteHelper.SaveNotes(currentNode);
 
-                //hasUnsavedChanges = false;
-                //saveStatus.BackColor = Color.LimeGreen;
-
                 string nodeFolder = NoteDataWorking.GetNodeFolder(currentNode);
                 var files = Directory.GetFiles(nodeFolder).OrderByDescending(f => File.GetLastWriteTime(f)).ToArray();
 
@@ -256,6 +274,12 @@ namespace PhysicsLabsComplex
 
         private void Theory_FormClosing(object sender, FormClosingEventArgs e)
         {
+            try
+            {
+                noteHelper.SaveNotes(currentNode);
+            }
+            catch { }
+
             var menuForm = new Menu();
             menuForm.Show();
         }        

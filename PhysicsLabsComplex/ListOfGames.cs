@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace PhysicsLabsComplex
 {
@@ -17,6 +19,12 @@ namespace PhysicsLabsComplex
         public ListOfGames()
         {
             InitializeComponent();
+
+            //setting cursor on active elements
+            {
+                CursorSetting.SetHandCursor(buttons1);
+                CursorSetting.SetHandCursor(buttons2);
+            }
         }
 
         private void ListOfGames_FormClosing(object sender, FormClosingEventArgs e)

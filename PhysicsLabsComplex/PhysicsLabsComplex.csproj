@@ -411,6 +411,9 @@
     <Content Include="HTML-theory\Види_резисторів.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="HTML-theory\Властивості_заряду.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="HTML-theory\Діюче_значення_змінного_струму.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -423,7 +426,13 @@
     <Content Include="HTML-theory\Конденсатор.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="HTML-theory\Лейденська_банка.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="HTML-theory\Переваги_змінного_струму.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Перші_уявлення.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="HTML-theory\Поведінка_RC-ланки.html">
@@ -432,7 +441,13 @@
     <Content Include="HTML-theory\Поведінка_RL-ланки.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="HTML-theory\Поява_струму.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="HTML-theory\Резистор.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Розвиток_техніки.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="HTML-theory\Способи_зміни_ємності.html">
@@ -648,7 +663,19 @@
     <Content Include="HTML-theory\Фото\Рисунок 1-1-1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 1-2-1 іст.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 1-2-2 іст.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 1-3-1 іст.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="HTML-theory\Фото\Рисунок 1-3-1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML-theory\Фото\Рисунок 1-4-1 іст.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="HTML-theory\Фото\Рисунок 2-1-1.jpg">
@@ -810,6 +837,8 @@
     <None Include="Resources\Схема лаб-3 мод.png" />
     <None Include="Resources\Схема лаб-3 експ.png" />
     <None Include="Resources\Схема лаб-3 експ1.png" />
+    <None Include="Resources\Рисунок 1-4-1 іст.jpg" />
+    <None Include="Resources\Рисунок 3-4-2.png" />
     <Content Include="Resources\Схема-лаб-1.jpg" />
     <None Include="Resources\RC-коло лаба2 експеримент_.png" />
   </ItemGroup>

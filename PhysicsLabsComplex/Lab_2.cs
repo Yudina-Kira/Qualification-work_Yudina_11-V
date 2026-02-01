@@ -82,10 +82,25 @@ namespace PhysicsLabsComplex
             toolTip1.SetToolTip(pictureBox1, "Ознайомтеся з інструкцією до лабораторної роботи та порядком її виконання");
             toolTip1.SetToolTip(chart1, "Затисніть Ctrl для розтягування по вертикалі,\r\nЗатисніть Shift для розтягування по горизонталі\r\n");
 
-            CursorSetting.SetHandCursor(panel3);
-            CursorSetting.SetHandCursor(pictureBox1);
-
             dataGridView1.ContextMenuStrip = contextMenuStrip1;
+
+            //setting cursor on active elements
+            {
+                CursorSetting.SetHandCursor(panel3);
+                CursorSetting.SetHandCursor(pictureBox1);
+                CursorSetting.SetHandCursor(button1);
+                CursorSetting.SetHandCursor(button2);
+                CursorSetting.SetHandCursor(button3);
+                CursorSetting.SetHandCursor(button4);
+                CursorSetting.SetHandCursor(radioButton1);
+                CursorSetting.SetHandCursor(radioButton2);
+                CursorSetting.SetHandCursor(radioButton3);
+                CursorSetting.SetHandCursor(radioButton4);
+                CursorSetting.SetHandCursor(radioButton5);
+                CursorSetting.SetHandCursor(radioButton6);
+                CursorSetting.SetHandCursor(checkBox1);
+                CursorSetting.SetHandCursor(comboBox1);
+            }
         }
 
         private void Lab_2_Load(object sender, EventArgs e)
@@ -117,7 +132,7 @@ namespace PhysicsLabsComplex
                 { 
                     foreach (Control ctrl in groupBox1.Controls)
                     {
-                        if (ctrl is RadioButton rb && rb.Checked)
+                        if (ctrl is System.Windows.Forms.RadioButton rb && rb.Checked)
                         {
                             anyChecked = true;
                             break;
@@ -387,7 +402,7 @@ namespace PhysicsLabsComplex
                 {
                     foreach (Control ctrl in groupBox4.Controls)
                     {
-                        if (ctrl is RadioButton rb && rb.Checked)
+                        if (ctrl is System.Windows.Forms.RadioButton rb && rb.Checked)
                         {
                             anyChecked = true;
                             break;
@@ -507,8 +522,20 @@ namespace PhysicsLabsComplex
             double y = uMax + 10;
             double y2 = iMax + 0.002;
 
+            //double y = Math.Ceiling(uMax) * 2;
+            //double y2 = iMax;
+
+            //if (iMax < 1e-3) y2 = UnitsToSI.RoundToStep(iMax, 0.0001);
+            //else if (iMax < 1) y2 = UnitsToSI.RoundToStep(iMax, 0.1);
+            //else y2 = UnitsToSI.RoundToStep(iMax, 1);
+
             chartManager.SetAxisLimits(0, xMax, -y, y, -y2, y2);
-            chartManager.ApplyNiceGrid();
+
+            if (currentGraphMode == SettingsChart.GraphicsMode.UtIt)
+                chartManager.ApplyStaticGridY(5);
+            else
+                chartManager.ApplyNiceGrid();
+
             UpdateSeriesForAxisX(xMax);
         }
 
@@ -531,7 +558,7 @@ namespace PhysicsLabsComplex
                     if (comboBox1.SelectedItem.ToString() == "IN2")
                         chartManager.SetActiveAxisY(chartArea.AxisY2);
 
-                    chartManager.ZoomActiveAxisY(e.Delta);
+                    chartManager.ZoomActiveAxisYSharp(e.Delta);
                 }
                 else
                 {

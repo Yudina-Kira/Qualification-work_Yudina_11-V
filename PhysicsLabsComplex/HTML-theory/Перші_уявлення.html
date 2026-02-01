@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перші уявлення про електрику</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textContainer {
+            position: relative;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <h2>Перші уявлення про електрику</h2>
+        <p>
+            Феномен електрики доволі довго залишався для людей дивом. Навіть звичайну блискавку сприймали як прояв гніву богів. Вивчати природу електрики намагалися ще з давніх часів, але її наукове дослідження розпочалося лише в XVII-XVIII століттях і з тих пір активно просувається вперед. Наприкінці ХІХ століття інженери вже змогли використати явище електрики для побутових і промислових потреб. Зручність та ефективність електричних технологій зумовили їх активний розвиток, тож сьогодні уявити сучасний індустріальний світ без електрики практично неможливо.
+        </p>
+        <p>
+            Здогадки про існування електричного струму почали з’являтися за стародавніх часів, коли люди намагалися дослідити ураження блискавкою. Стародавні письменники, такі як Пліній Старший та Скрибоній Ларг, описували ефект оніміння від електричних зарядів, що виробляли електричні риби у воді. Тоді древні запідозрили, що електричні удари можуть «подорожувати» вздовж декількох предметів або середовищ. Крім того, вони помітили певну закономірність: деякі матеріали особливо гарно пропускають через себе електричні заряди, на відміну від інших.
+        </p>
+        <p>
+            До кінця XVI століття знання про електрику обмежувалися лише міркуваннями античних учених. Проте з часом ситуація змінилася. Перший вагомий крок у вивченні електричних явищ здійснив англійський лікар Вільям Гілберт. У 1600 році він опублікував власну книгу «De Magnete», у якій, зокрема, використовував ідеї з праці італійського лікаря Джироламо Кардано «De Subtilitate» (1550). Попри це, саме Гілберта вважають першим, хто чітко відрізнив електричні явища від магнітних. Гілберт у своєму дослідженні провів безліч експериментів і виявив багато нюансів існування електричного заряду. По-перше, він установив, що багато інших матеріалів, окрім бурштину, таких як сірка, скло, віск та інші, здатні проявляти електричні властивості. По-друге, вчений виявив, що при нагріванні тіло втрачає здатність утримувати заряд, а волога заважає електрифікації і погіршує ізоляцію тіл. Також він зауважив, що наелектризовані речовини мають змогу притягувати будь-які дрібні тіла (пір’я, шматочки паперу), тоді як магніт притягує лише залізо. Завдяки цим та іншим подібним відкриттям в цій галузі Вільям Гілберт здобув звання засновника науки про електрику.
+        </p>
+        <p>
+            Пізніше, Гілберт детальніше зайнявся вивченням електростатики: працював над вдосконаленням точності компасів за замовленням королеви, класифікував матеріали на провідники та ізолятори, розробив перший в світі електроскоп. Одним із найважливіших його відкриттів для всієї планети стало те, що Земля є величезним магнітом. Саме завдяки цьому компаси працюють і їхні стрілки орієнтуються на полюси.
+        </p>
+        <p class="last">
+            Відкриття Гілберта та його наступників заклали основу для практичних експериментів з електрикою. Хоча тоді ще не було поняття електричного струму у сучасному розумінні, дослідники зрозуміли, що накопичений електричний заряд можна генерувати, контролювати та передавати на інші тіла. Це поступово привело до створення перших механізмів, здатних виробляти електричні заряди у більших масштабах, що, у свою чергу, стало передумовою для подальшого розвитку електричних машин та електричного струму.
+        </p>
+        <canvas id="drawCanvas"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var container = document.getElementById('textContainer');
+
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        var ctx = canvas.getContext('2d');
+        var drawing = false; // малювання на канві активне
+        var lines = [];
+        var drawEnabled = false; // режим малювання, керуючи з форми
+        var currentTool = 'pen';
+        var currentColor = 'blue';
+        var currentWidth = 6;
+        var currentAlpha = 1;
+
+        function setDrawingEnabled(value) {
+            drawEnabled = value;
+            canvas.style.pointerEvents = value ? 'auto' : 'none';
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            if (tool === 'pen') {
+                currentAlpha = 1;
+            } else if (tool === 'marker') {
+                currentAlpha = 0.5;
+            } else if (tool === 'laser') {
+                currentAlpha = 1;
+            }
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setLineWidth(width) {
+            currentWidth = width;
+        }
+
+        function clearCanvas() {
+            lines = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // ===== Обробка рухів миші =====
+        canvas.addEventListener('mousedown', function (e) {
+            if (!drawEnabled) return;
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines.push({
+                color: currentColor,
+                width: currentWidth,
+                alpha: currentAlpha,
+                points: [point],
+                tool: currentTool
+            });
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (!drawing || !drawEnabled) return;
+            var rect = canvas.getBoundingClientRect();
+            var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            lines[lines.length - 1].points.push(point);
+            redraw();
+        });
+
+        canvas.addEventListener('mouseup', function () {
+            if (currentTool === 'laser') {
+                if (lines.length > 0 && lines[lines.length - 1].tool === 'laser') {
+                    lines.pop();
+                    redraw();
+                }
+            }
+            drawing = false;
+        });
+
+        canvas.addEventListener('mouseleave', function () { drawing = false; });
+
+        function redraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                ctx.beginPath();
+                ctx.strokeStyle = line.color;
+                ctx.globalAlpha = line.alpha;
+                ctx.lineWidth = line.width;
+                ctx.moveTo(line.points[0].x, line.points[0].y);
+                for (var j = 1; j < line.points.length; j++) {
+                    ctx.lineTo(line.points[j].x, line.points[j].y);
+                }
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+    </script>
+</body>
+</html>

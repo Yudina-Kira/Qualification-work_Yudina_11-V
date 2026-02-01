@@ -80,15 +80,5 @@ namespace NotesLib
 
             return File.ReadAllText(files[0], Encoding.UTF8);
         }
-
-
-
-
-
-        //public static bool NodeHasNotes(string nodeName)
-        //{
-        //    string folder = GetExistingNodeFolder(nodeName);
-        //    return folder != null && Directory.GetFiles(folder, "*.json").Length > 0;
-        //}
     }
 }

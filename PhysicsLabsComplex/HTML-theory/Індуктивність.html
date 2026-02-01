@@ -69,7 +69,7 @@
         </p>
         <div class="photo">
             <img src="Фото/Рисунок 3-2-1.png" alt="Позначення котушки індуктивності в електричному колі">
-            <p class="caption">Рисунок 3.1.1. Умовне позначення котушки індуктивності</p>
+            <p class="caption">Рисунок 3.2.1. Умовне позначення котушки індуктивності</p>
         </div>
         <p>
             На практиці індуктивність зосереджена в спеціальному елементі електричного кола — <strong>котушці індуктивності</strong>, яка являє собою провідник, згорнутий у вигляді витків. У схемах здебільшого позначається як <i>L</i>, а її умовне графічне зображення наведено на рисунку 3.2.1. 
@@ -150,7 +150,13 @@
             drawing = true;
             var rect = canvas.getBoundingClientRect();
             var point = { x: e.clientX - rect.left, y: e.clientY - rect.top };
-            lines.push({ color: currentColor, width: currentWidth, alpha: currentAlpha, points: [point] });
+            lines.push({
+                color: currentColor,
+                width: currentWidth,
+                alpha: currentAlpha,
+                points: [point],
+                tool: currentTool
+            });
         });
 
         canvas.addEventListener('mousemove', function (e) {
@@ -161,7 +167,16 @@
             redraw();
         });
 
-        canvas.addEventListener('mouseup', function () { drawing = false; });
+        canvas.addEventListener('mouseup', function () {
+            if (currentTool === 'laser') {
+                if (lines.length > 0 && lines[lines.length - 1].tool === 'laser') {
+                    lines.pop();
+                    redraw();
+                }
+            }
+            drawing = false;
+        });
+
         canvas.addEventListener('mouseleave', function () { drawing = false; });
 
         function redraw() {

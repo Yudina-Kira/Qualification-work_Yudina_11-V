@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.cards4 = new PhysicsLabsComplex.Cards();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.buttons4 = new PhysicsLabsComplex.Buttons();
             this.cards3 = new PhysicsLabsComplex.Cards();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.buttons3 = new PhysicsLabsComplex.Buttons();
             this.cards2 = new PhysicsLabsComplex.Cards();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.buttons2 = new PhysicsLabsComplex.Buttons();
             this.cards1 = new PhysicsLabsComplex.Cards();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.buttons1 = new PhysicsLabsComplex.Buttons();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.cards4.SuspendLayout();
             this.cards3.SuspendLayout();
             this.cards2.SuspendLayout();
@@ -58,15 +58,6 @@
             this.cards4.Size = new System.Drawing.Size(338, 334);
             this.cards4.TabIndex = 14;
             this.cards4.TextHover = null;
-            // 
-            // panel4
-            // 
-            this.panel4.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources._432;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(19, 18);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(300, 221);
-            this.panel4.TabIndex = 10;
             // 
             // buttons4
             // 
@@ -96,15 +87,6 @@
             this.cards3.TabIndex = 13;
             this.cards3.TextHover = null;
             // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Screenshot_2025_10_27_160127;
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(20, 18);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(300, 221);
-            this.panel3.TabIndex = 9;
-            // 
             // buttons3
             // 
             this.buttons3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
@@ -132,15 +114,6 @@
             this.cards2.Size = new System.Drawing.Size(338, 334);
             this.cards2.TabIndex = 12;
             this.cards2.TextHover = null;
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Рисунок_1_1_1;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(20, 18);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(300, 221);
-            this.panel2.TabIndex = 9;
             // 
             // buttons2
             // 
@@ -170,16 +143,6 @@
             this.cards1.TabIndex = 11;
             this.cards1.TextHover = null;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(155)))), ((int)(((byte)(162)))));
-            this.panel1.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Andreas_Cunaeus_discovering_the_Leyden_jar;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(20, 18);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 221);
-            this.panel1.TabIndex = 8;
-            // 
             // buttons1
             // 
             this.buttons1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
@@ -194,6 +157,43 @@
             this.buttons1.Text = "Історична довідка";
             this.buttons1.TextHover = null;
             this.buttons1.Click += new System.EventHandler(this.buttons1_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources._432;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Location = new System.Drawing.Point(19, 18);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(300, 221);
+            this.panel4.TabIndex = 10;
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Рисунок_3_4_2;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Location = new System.Drawing.Point(20, 18);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(300, 221);
+            this.panel3.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Рисунок_1_1_1;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(20, 18);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(300, 221);
+            this.panel2.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(155)))), ((int)(((byte)(162)))));
+            this.panel1.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Рисунок_1_4_1_іст;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(20, 18);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(300, 221);
+            this.panel1.TabIndex = 8;
             // 
             // Menu
             // 
