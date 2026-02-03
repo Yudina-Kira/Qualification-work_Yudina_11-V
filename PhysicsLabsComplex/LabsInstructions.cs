@@ -12,9 +12,23 @@ namespace PhysicsLabsComplex
 {
     public partial class LabsInstructions : Form
     {
-        public LabsInstructions()
+        private readonly string labInstructionFilePath;
+
+        public LabsInstructions(string filePath)
         {
             InitializeComponent();
+            labInstructionFilePath = filePath;
+        }
+
+        private void LabsInstructions_Load(object sender, EventArgs e)
+        {
+            webBrowser1.ScriptErrorsSuppressed = true; 
+            webBrowser1.Navigate(labInstructionFilePath);
+        }
+
+        private void завантажитиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

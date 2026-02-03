@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
@@ -751,7 +752,8 @@ namespace PhysicsLabsComplex
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            var labInstructions = new LabsInstructions();
+            var instructionPath = Path.Combine(Application.StartupPath, "Labs instructions", "Інструкція до лабораторної роботи №1.pdf");
+            var labInstructions = new LabsInstructions(instructionPath);
             labInstructions.Show();
         }
 

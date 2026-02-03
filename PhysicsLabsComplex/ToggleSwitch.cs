@@ -130,5 +130,13 @@ namespace PhysicsLabsComplex
                 isAnimating = false;
             };
         }
+
+        public void SetChecked(bool value)
+        {
+            if (Checked == value) return;
+            if (isAnimating) return;
+
+            SwitchToggle();
+        }
     }
 }

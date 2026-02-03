@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -61,12 +61,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.connectStatus = new PhysicsLabsComplex.Cards();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.button4 = new System.Windows.Forms.Button();
+            this.dataStatus = new PhysicsLabsComplex.Cards();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -94,8 +96,6 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.connectStatus = new PhysicsLabsComplex.Cards();
-            this.dataStatus = new PhysicsLabsComplex.Cards();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -127,20 +127,20 @@
             // 
             // chart1
             // 
-            chartArea5.AxisX.LabelStyle.Enabled = false;
-            chartArea5.AxisX.Minimum = 0D;
-            chartArea5.AxisX2.LabelStyle.Enabled = false;
-            chartArea5.AxisY.LabelStyle.Enabled = false;
-            chartArea5.AxisY.Minimum = 0D;
-            chartArea5.AxisY2.LabelStyle.Enabled = false;
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
+            chartArea1.AxisX.LabelStyle.Enabled = false;
+            chartArea1.AxisX.Minimum = 0D;
+            chartArea1.AxisX2.LabelStyle.Enabled = false;
+            chartArea1.AxisY.LabelStyle.Enabled = false;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.AxisY2.LabelStyle.Enabled = false;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Location = new System.Drawing.Point(564, 12);
             this.chart1.Name = "chart1";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series5.Name = "Series1";
-            this.chart1.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(848, 593);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -414,6 +414,17 @@
             this.panel2.Size = new System.Drawing.Size(510, 227);
             this.panel2.TabIndex = 22;
             // 
+            // connectStatus
+            // 
+            this.connectStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(142)))));
+            this.connectStatus.Location = new System.Drawing.Point(379, 54);
+            this.connectStatus.Name = "connectStatus";
+            this.connectStatus.Rounding = 100;
+            this.connectStatus.RoundingEnable = true;
+            this.connectStatus.Size = new System.Drawing.Size(30, 30);
+            this.connectStatus.TabIndex = 17;
+            this.connectStatus.TextHover = null;
+            // 
             // panel3
             // 
             this.panel3.BackgroundImage = global::PhysicsLabsComplex.Properties.Resources.Іконка_збільшення_;
@@ -477,6 +488,17 @@
             this.button4.Text = "Побудувати";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // dataStatus
+            // 
+            this.dataStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(142)))));
+            this.dataStatus.Location = new System.Drawing.Point(214, 660);
+            this.dataStatus.Name = "dataStatus";
+            this.dataStatus.Rounding = 100;
+            this.dataStatus.RoundingEnable = true;
+            this.dataStatus.Size = new System.Drawing.Size(40, 40);
+            this.dataStatus.TabIndex = 25;
+            this.dataStatus.TextHover = null;
             // 
             // tabPage1
             // 
@@ -762,28 +784,6 @@
             this.tabControl1.Size = new System.Drawing.Size(540, 781);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-            // 
-            // connectStatus
-            // 
-            this.connectStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(142)))));
-            this.connectStatus.Location = new System.Drawing.Point(379, 54);
-            this.connectStatus.Name = "connectStatus";
-            this.connectStatus.Rounding = 100;
-            this.connectStatus.RoundingEnable = true;
-            this.connectStatus.Size = new System.Drawing.Size(30, 30);
-            this.connectStatus.TabIndex = 17;
-            this.connectStatus.TextHover = null;
-            // 
-            // dataStatus
-            // 
-            this.dataStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(142)))));
-            this.dataStatus.Location = new System.Drawing.Point(214, 660);
-            this.dataStatus.Name = "dataStatus";
-            this.dataStatus.Rounding = 100;
-            this.dataStatus.RoundingEnable = true;
-            this.dataStatus.Size = new System.Drawing.Size(40, 40);
-            this.dataStatus.TabIndex = 25;
-            this.dataStatus.TextHover = null;
             // 
             // Lab_1
             // 

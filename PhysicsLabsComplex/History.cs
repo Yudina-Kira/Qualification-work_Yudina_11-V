@@ -61,6 +61,19 @@ namespace PhysicsLabsComplex
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            try
+            {
+                noteHelper.SaveNotes(currentNode);
+            }
+            catch { }
+
+            if (toggleSwitch1.Checked)
+            {
+                toggleSwitch1.SetChecked(false);
+                noteHelper.SetDrawingEnabled(false);
+                drawingModeHelper.DisableDrawingMode();
+            }
+
             switch (e.Node.Text)
             {
                 case "1.1. Перші уявлення про електрику":
@@ -104,6 +117,12 @@ namespace PhysicsLabsComplex
             }
             else
             {
+                try
+                {
+                    noteHelper.SaveNotes(currentNode);
+                }
+                catch { }
+
                 noteHelper.SetDrawingEnabled(false);
                 drawingModeHelper.DisableDrawingMode();
             }
@@ -203,6 +222,12 @@ namespace PhysicsLabsComplex
 
         private void History_FormClosing(object sender, FormClosingEventArgs e)
         {
+            try
+            {
+                noteHelper.SaveNotes(currentNode);
+            }
+            catch { }
+
             var menuForm = new Menu();
             menuForm.Show();
         }

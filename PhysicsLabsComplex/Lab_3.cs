@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -759,7 +760,8 @@ namespace PhysicsLabsComplex
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            var labInstructions = new LabsInstructions();
+            var instructionPath = Path.Combine(Application.StartupPath, "Labs instructions", "Інструкція до лабораторної роботи №3.pdf");
+            var labInstructions = new LabsInstructions(instructionPath);
             labInstructions.Show();
         }
 

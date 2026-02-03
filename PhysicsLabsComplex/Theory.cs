@@ -66,6 +66,13 @@ namespace PhysicsLabsComplex
             }
             catch { }
 
+            if (toggleSwitch1.Checked)
+            {
+                toggleSwitch1.SetChecked(false);
+                noteHelper.SetDrawingEnabled(false);
+                drawingModeHelper.DisableDrawingMode();
+            }
+
             switch (e.Node.Text)
             {
                 case "1.1. Загальне визначення змінного струму та його характеристики":
