@@ -42,7 +42,7 @@ namespace PhysicsLabsComplex
                         break;
 
                     case "L":
-                        col.HeaderText = "Індуктивність, Гн";
+                        col.HeaderText = "Індуктивність, мГн";
                         break;
 
                     case "U":

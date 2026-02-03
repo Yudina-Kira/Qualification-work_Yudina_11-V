@@ -40,6 +40,7 @@ namespace PhysicsLabsComplex
 
         private ChartMode currentChartMode = ChartMode.None;
         private SettingsChart.GraphicsMode currentGraphMode = SettingsChart.GraphicsMode.SingleUt;
+        private SettingsChart.AnnotationsMode annotationsMode;
 
         private bool graphicsExisting = false;
         private bool isAnimating = false;
@@ -219,8 +220,6 @@ namespace PhysicsLabsComplex
 
                 currentGraphMode = SettingsChart.GraphicsMode.UtIt;
 
-                ///////////////
-
                 chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.UtIt);
                 interfaceHelper.SetSeriesSelector(comboBox1, new string[] { "IN1", "IN2" });
                 comboBox1.SelectedIndex = -1;
@@ -230,7 +229,6 @@ namespace PhysicsLabsComplex
             chart1.Series.Add(It);
 
             chartManager.ApplyAxisMode(currentGraphMode);
-            
             ResetZoom();
 
             chart1.Invalidate();
@@ -386,18 +384,6 @@ namespace PhysicsLabsComplex
         // Graph building
         private void button4_Click(object sender, EventArgs e)
         {
-            ///////////////////////////////
-            {
-                ch1 = new ushort[64];
-                ch2 = new ushort[64];
-
-                for (int i = 0; i < 64; i++)
-                {
-                    ch1[i] = (ushort)(i);
-                    ch2[i] = (ushort)(i + 1);
-                }
-            }
-
             graphicsExisting = false;
 
             {
@@ -442,17 +428,19 @@ namespace PhysicsLabsComplex
             It.Points.Clear();
             chartManager.ConfigureSeries(Ut, SettingsChart.SeriesMode.UtExp);
             chartManager.ConfigureSeries(It, SettingsChart.SeriesMode.ItExp);
+            chartManager.ApplyAxisMode(SettingsChart.GraphicsMode.UtIt);
             chart1.Series.Clear();
 
             if (radioButton5.Checked)
             {
                 GraphicsBuilder.BuildExperiment(Ut, ch1);
-                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleUt);
+                annotationsMode = SettingsChart.AnnotationsMode.SingleUt;
             }
             else if (radioButton6.Checked)
             {
                 GraphicsBuilder.BuildExperiment(It, ch2);
-                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleIt);
+                annotationsMode = SettingsChart.AnnotationsMode.SingleIt;
+                chartManager.ApplyAxisMode(SettingsChart.GraphicsMode.SingleIt);
             }
             else if (radioButton4.Checked)
             {
@@ -460,14 +448,22 @@ namespace PhysicsLabsComplex
                 chartManager.ConfigureAxisY2("Напруга (вхід 2)", "В");
 
                 GraphicsBuilder.BuildExperiment(Ut, ch1, It, ch2);
-                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.UtIt);
+                annotationsMode = SettingsChart.AnnotationsMode.UtIt;
             }
 
             chart1.Series.Add(Ut);
             chart1.Series.Add(It);
 
             chartManager.ResetAxes();
-            //chartManager.ApplyStaticGrid();
+            chartManager.ApplyStaticGrid4x4Experiment();
+            chartManager.DrawLineAnnotations(annotationsMode);
+
+
+            Console.WriteLine("yMin = " + chart1.ChartAreas[0].AxisY.Minimum);
+            Console.WriteLine("yMax = " + chart1.ChartAreas[0].AxisY.Maximum);
+            Console.WriteLine("y2Min = " + chart1.ChartAreas[0].AxisY2.Minimum);
+            Console.WriteLine("y2Max = " + chart1.ChartAreas[0].AxisY2.Maximum);
+
 
             graphicsExisting = true;
 
@@ -476,10 +472,12 @@ namespace PhysicsLabsComplex
             GridHelper.AddExperimentNumberColumn(dataTable);
             dataGridView1.DataSource = dataTable;
 
+            GridHelper.HideArrayColumns(dataGridView1);
             GridHelper.SetUpColumnHeaders(dataGridView1);
 
             string parametersValues = GridHelper.GetExperimentParametersToString(parameters);
             GridHelper.SelectCurrentExperiment(dataGridView1, parametersValues);
+
         }
 
         #endregion
@@ -523,10 +521,15 @@ namespace PhysicsLabsComplex
             double xMax = (1 / f) * cycles;
 
             double y = uMax + 10;
-            double y2 = iMax + 0.002;
+            double y2 = iMax + 0.1;
 
             chartManager.SetAxisLimits(0, xMax, -y, y, -y2, y2);
-            chartManager.ApplyNiceGrid();
+
+            if (currentGraphMode == SettingsChart.GraphicsMode.UtIt)
+                chartManager.ApplyStaticGridY(5);
+            else
+                chartManager.ApplyNiceGrid();
+
             UpdateSeriesForAxisX(xMax);
         }
 
@@ -549,7 +552,7 @@ namespace PhysicsLabsComplex
                     if (comboBox1.SelectedItem.ToString() == "IN2")
                         chartManager.SetActiveAxisY(chartArea.AxisY2);
 
-                    chartManager.ZoomActiveAxisY(e.Delta);
+                    chartManager.ZoomActiveAxisYSharp(e.Delta);
                 }
                 else
                 {
@@ -646,10 +649,20 @@ namespace PhysicsLabsComplex
 
             var dataRow = dataGridView1.Rows[e.RowIndex];
 
-            textBox1.Text = dataRow.Cells["R"].Value.ToString();
-            textBox2.Text = dataRow.Cells["L"].Value.ToString();
-            textBox3.Text = dataRow.Cells["Umax"].Value.ToString();
-            textBox4.Text = dataRow.Cells["f"].Value.ToString();
+            if (tabPageIndex == 0)
+            {
+                textBox1.Text = dataRow.Cells["R"].Value.ToString();
+                textBox2.Text = dataRow.Cells["L"].Value.ToString();
+                textBox3.Text = dataRow.Cells["Umax"].Value.ToString();
+                textBox4.Text = dataRow.Cells["f"].Value.ToString();
+            }
+            else if (tabPageIndex == 1)
+            {
+                textBox8.Text = dataRow.Cells["R"].Value.ToString();
+                textBox9.Text = dataRow.Cells["L"].Value.ToString();
+                textBox7.Text = dataRow.Cells["Umax"].Value.ToString();
+                textBox6.Text = dataRow.Cells["f"].Value.ToString();
+            }
         }
 
         private void видалитиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -796,6 +809,7 @@ namespace PhysicsLabsComplex
 
         private void Lab_3_FormClosing(object sender, FormClosingEventArgs e)
         {
+            chartAnimator.StopAnimation();
             var labsExitForm = new LabsExit(this);
             labsExitForm.ShowDialog();
             if (!LabsExit.closing)

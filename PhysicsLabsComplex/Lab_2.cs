@@ -220,8 +220,6 @@ namespace PhysicsLabsComplex
 
                 currentGraphMode = SettingsChart.GraphicsMode.UtIt;
 
-                //chartManager.SetAxisLimits(0, x0Max, -(uMax + 5), uMax + 5, -(iMax + 0.0001), iMax + 0.0001);
-
                 chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.UtIt);
                 interfaceHelper.SetSeriesSelector(comboBox1, new string[] { "IN1", "IN2" });
                 comboBox1.SelectedIndex = -1;
@@ -386,18 +384,6 @@ namespace PhysicsLabsComplex
         // Graph building
         private void button4_Click(object sender, EventArgs e)
         {
-            ///////////////////////////////
-            {
-                ch1 = new ushort[64];
-                ch2 = new ushort[64];
-
-                for (int i = 0; i < 64; i++)
-                {
-                    ch1[i] = (ushort)(i);
-                    ch2[i] = (ushort)(i + 1);
-                }
-            }
-
             graphicsExisting = false;
 
             {
@@ -454,6 +440,7 @@ namespace PhysicsLabsComplex
             {
                 GraphicsBuilder.BuildExperiment(It, ch2);
                 annotationsMode = SettingsChart.AnnotationsMode.SingleIt;
+                chartManager.ApplyAxisMode(SettingsChart.GraphicsMode.SingleIt);
             }
             else if (radioButton4.Checked)
             {
@@ -527,13 +514,6 @@ namespace PhysicsLabsComplex
 
             double y = uMax + 10;
             double y2 = iMax + 0.002;
-
-            //double y = Math.Ceiling(uMax) * 2;
-            //double y2 = iMax;
-
-            //if (iMax < 1e-3) y2 = UnitsToSI.RoundToStep(iMax, 0.0001);
-            //else if (iMax < 1) y2 = UnitsToSI.RoundToStep(iMax, 0.1);
-            //else y2 = UnitsToSI.RoundToStep(iMax, 1);
 
             chartManager.SetAxisLimits(0, xMax, -y, y, -y2, y2);
 
@@ -661,10 +641,20 @@ namespace PhysicsLabsComplex
 
             var dataRow = dataGridView1.Rows[e.RowIndex];
 
-            textBox8.Text = dataRow.Cells["R"].Value.ToString();
-            textBox9.Text = dataRow.Cells["C"].Value.ToString();
-            textBox7.Text = dataRow.Cells["Umax"].Value.ToString();
-            textBox6.Text = dataRow.Cells["f"].Value.ToString();
+            if (tabPageIndex == 0)
+            {
+                textBox1.Text = dataRow.Cells["R"].Value.ToString();
+                textBox2.Text = dataRow.Cells["C"].Value.ToString();
+                textBox3.Text = dataRow.Cells["Umax"].Value.ToString();
+                textBox4.Text = dataRow.Cells["f"].Value.ToString();
+            }
+            else if (tabPageIndex == 1)
+            {
+                textBox8.Text = dataRow.Cells["R"].Value.ToString();
+                textBox9.Text = dataRow.Cells["C"].Value.ToString();
+                textBox7.Text = dataRow.Cells["Umax"].Value.ToString();
+                textBox6.Text = dataRow.Cells["f"].Value.ToString();
+            }
         }
 
         private void видалитиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -811,6 +801,7 @@ namespace PhysicsLabsComplex
 
         private void Lab_2_FormClosing(object sender, FormClosingEventArgs e)
         {
+            chartAnimator.StopAnimation();
             var labsExitForm = new LabsExit(this);
             labsExitForm.ShowDialog();
             if (!LabsExit.closing)

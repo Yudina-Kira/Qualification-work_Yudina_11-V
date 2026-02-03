@@ -379,18 +379,6 @@ namespace PhysicsLabsComplex
         // Graph building
         private void button4_Click(object sender, EventArgs e)
         {
-            //////////////////////
-            {
-                ch1 = new ushort[64];
-                ch2 = new ushort[64];
-
-                for (int i = 0; i < 64; i++)
-                {
-                    ch1[i] = (ushort)(i);
-                    ch2[i] = (ushort)(i + 1);
-                }
-            }
-
             graphicsExisting = false;
 
             {
@@ -625,11 +613,22 @@ namespace PhysicsLabsComplex
 
             var dataRow = dataGridView1.Rows[e.RowIndex];
 
-            textBox1.Text = dataRow.Cells["R"].Value.ToString();
-            textBox2.Text = dataRow.Cells["C"].Value.ToString();
-            textBox3.Text = dataRow.Cells["U"].Value.ToString();
-            textBox4.Text = dataRow.Cells["T"].Value.ToString();
-            textBox5.Text = dataRow.Cells["D"].Value.ToString();
+            if (tabPageIndex == 0)
+            {
+                textBox1.Text = dataRow.Cells["R"].Value.ToString();
+                textBox2.Text = dataRow.Cells["C"].Value.ToString();
+                textBox3.Text = dataRow.Cells["U"].Value.ToString();
+                textBox4.Text = dataRow.Cells["T"].Value.ToString();
+                textBox5.Text = dataRow.Cells["D"].Value.ToString();
+            }
+            else if (tabPageIndex == 1)
+            {
+                textBox10.Text = dataRow.Cells["R"].Value.ToString();
+                textBox11.Text = dataRow.Cells["C"].Value.ToString();
+                textBox9.Text = dataRow.Cells["U"].Value.ToString();
+                textBox7.Text = dataRow.Cells["T"].Value.ToString();
+                textBox6.Text = dataRow.Cells["D"].Value.ToString();
+            }
         }
 
         private void видалитиToolStripMenuItem_Click(object sender, EventArgs e)

@@ -50,14 +50,14 @@ namespace ChartsLib
 
         private double[] sharpSteps =
         {
-            1e-6, 2e-6, 5e-6,
-            1e-5, 2e-5, 5e-5,
-            1e-4, 2e-4, 5e-4,
-            1e-3, 2e-3, 5e-3,
-            1e-2, 2e-2, 5e-2,
-            1e-1, 2e-1, 5e-1,
-            1, 2, 5,
-            10, 15, 20, 
+            1e-6, 2e-6, 3e-6, 4e-6, 5e-6, 6e-6, 7e-6, 8e-6, 9e-6,
+            1e-5, 2e-5, 3e-5, 4e-5, 5e-5, 6e-5, 7e-5, 8e-5, 9e-5,
+            1e-4, 2e-4, 3e-4, 4e-4, 5e-4, 6e-4, 7e-4, 8e-4, 9e-4,
+            1e-3, 2e-3, 3e-3, 4e-3, 5e-3, 6e-3, 7e-3, 8e-3, 9e-3,
+            1e-2, 2e-2, 3e-2, 4e-2, 5e-2, 6e-2, 7e-2, 8e-2, 9e-2,
+            1e-1, 2e-1, 3e-1, 4e-1, 5e-1, 6e-1, 7e-1, 8e-1, 9e-1,
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
+            12, 15, 20, 
             25, 30, 35, 40,
             45, 50, 60, 70, 80, 90,
             100, 125, 150, 200, 250, 500,
@@ -715,6 +715,11 @@ namespace ChartsLib
 
             chartArea.AxisY.Interval = (yMax - yMin) / 4;
 
+            double y2Max = chartArea.AxisY2.Maximum;
+            double y2Min = chartArea.AxisY2.Minimum;
+
+            chartArea.AxisY2.Interval = (y2Max - y2Min) / 4;
+
             SetStaticAnnotations();
         }
 
@@ -783,11 +788,10 @@ namespace ChartsLib
                     if (currentMode == GraphicsMode.SingleIt)
                     {
                         yAnnotation.Text = $"{activeAxisY.Interval * mainFactor:0.###} {mainUnit} / 1 под.";
-                        //addyAnnotation.Text = $"{activeAxisY.Interval * secondFactor:0.###} {secondUnit} / 1 под.";
                     }
                     else if (currentMode == GraphicsMode.UtIt)
                     {
-                        //yAnnotation.Text = $"{activeAxisY.Interval * mainFactor:0.###} {mainUnit} / 1 под.";
+                        yAnnotation.Text = $"{chartArea.AxisY.Interval * mainFactor:0.###} {mainUnit} / 1 под.";
                         addyAnnotation.Text = $"{activeAxisY.Interval * secondFactor:0.###} {secondUnit} / 1 под.";
                     }
                 }
