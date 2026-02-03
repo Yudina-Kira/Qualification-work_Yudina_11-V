@@ -96,12 +96,6 @@
     <Compile Include="LabsExit.Designer.cs">
       <DependentUpon>LabsExit.cs</DependentUpon>
     </Compile>
-    <Compile Include="LabsInstructions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LabsInstructions.Designer.cs">
-      <DependentUpon>LabsInstructions.cs</DependentUpon>
-    </Compile>
     <Compile Include="Lab_1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,9 +197,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LabsExit.resx">
       <DependentUpon>LabsExit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LabsInstructions.resx">
-      <DependentUpon>LabsInstructions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lab_1.resx">
       <DependentUpon>Lab_1.cs</DependentUpon>
@@ -850,6 +841,12 @@
     <None Include="Resources\1111111111111.png" />
     <None Include="Resources\432.png" />
     <None Include="Resources\Untitled140.png" />
+    <None Include="Resources\загрузка.jpg" />
+    <None Include="Resources\загрузка-иконка.png" />
+    <None Include="Resources\загрузка-иконка1.png" />
+    <None Include="Resources\загрузка-иконка.jpg" />
+    <None Include="Resources\загрузка-иконка2.png" />
+    <None Include="Resources\загрузка-иконка-123.png" />
     <Content Include="Resources\Зарядка-розрядка лаба1 експеримент.png" />
     <None Include="Resources\Иконка книги-fotor-bg-remover-20260111174715.png" />
     <None Include="Resources\Схема лаб-3 мод.png" />

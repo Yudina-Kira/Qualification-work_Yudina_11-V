@@ -703,9 +703,19 @@ namespace ChartsLib
             UpdateAnnotations();
         }
 
-        public void ApplyStaticGrid()
+        public void ApplyStaticGrid4x4Experiment()
         {
+            double xMax = chartArea.AxisX.Maximum;
+            double xMin = chartArea.AxisX.Minimum;
 
+            chartArea.AxisX.Interval = (xMax - xMin) / 4;
+
+            double yMax = chartArea.AxisY.Maximum;
+            double yMin = chartArea.AxisY.Minimum;
+
+            chartArea.AxisY.Interval = (yMax - yMin) / 4;
+
+            SetStaticAnnotations();
         }
 
         public void ApplyStaticGridY(int divisions = 5)

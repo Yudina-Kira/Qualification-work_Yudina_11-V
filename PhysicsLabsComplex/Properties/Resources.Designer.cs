@@ -243,6 +243,66 @@ namespace PhysicsLabsComplex.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap загрузка {
+            get {
+                object obj = ResourceManager.GetObject("загрузка", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap загрузка_иконка {
+            get {
+                object obj = ResourceManager.GetObject("загрузка-иконка", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap загрузка_иконка_123 {
+            get {
+                object obj = ResourceManager.GetObject("загрузка-иконка-123", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap загрузка_иконка1 {
+            get {
+                object obj = ResourceManager.GetObject("загрузка-иконка1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap загрузка_иконка2 {
+            get {
+                object obj = ResourceManager.GetObject("загрузка-иконка2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap загрузка_иконка3 {
+            get {
+                object obj = ResourceManager.GetObject("загрузка-иконка3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Зарядка_розрядка_лаба1_експеримент {
             get {
                 object obj = ResourceManager.GetObject("Зарядка-розрядка лаба1 експеримент", resourceCulture);

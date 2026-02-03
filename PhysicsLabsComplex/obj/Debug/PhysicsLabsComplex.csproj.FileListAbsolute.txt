@@ -344,7 +344,6 @@ D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-wo
 D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.History.resources
 D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.ImageView.resources
 D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.LabsExit.resources
-D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.LabsInstructions.resources
 D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.Lab_1.resources
 D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.Lab_2.resources
 D:\Users\Kira\11 класс хззз\Выпускная новая\Graduation-work_Yudina_11-V (1)\Graduation-work_Yudina_11-V\PhysicsLabsComplex\obj\Debug\PhysicsLabsComplex.Lab_3.resources

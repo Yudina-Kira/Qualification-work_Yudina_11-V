@@ -40,6 +40,7 @@ namespace PhysicsLabsComplex
 
         private ChartMode currentChartMode = ChartMode.None;
         private SettingsChart.GraphicsMode currentGraphMode = SettingsChart.GraphicsMode.SingleUt;
+        private SettingsChart.AnnotationsMode annotationsMode;
 
         private bool graphicsExisting = false;
         private bool isAnimating = false;
@@ -89,6 +90,7 @@ namespace PhysicsLabsComplex
             {
                 CursorSetting.SetHandCursor(panel3);
                 CursorSetting.SetHandCursor(pictureBox1);
+                CursorSetting.SetHandCursor(pictureBox2);
                 CursorSetting.SetHandCursor(button1);
                 CursorSetting.SetHandCursor(button2);
                 CursorSetting.SetHandCursor(button3);
@@ -440,17 +442,18 @@ namespace PhysicsLabsComplex
             It.Points.Clear();
             chartManager.ConfigureSeries(Ut, SettingsChart.SeriesMode.UtExp);
             chartManager.ConfigureSeries(It, SettingsChart.SeriesMode.ItExp);
+            chartManager.ApplyAxisMode(SettingsChart.GraphicsMode.UtIt);
             chart1.Series.Clear();
 
             if (radioButton5.Checked)
             {
                 GraphicsBuilder.BuildExperiment(Ut, ch1);
-                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleUt);
+                annotationsMode = SettingsChart.AnnotationsMode.SingleUt;
             }
             else if (radioButton6.Checked)
             {
                 GraphicsBuilder.BuildExperiment(It, ch2);
-                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.SingleIt);
+                annotationsMode = SettingsChart.AnnotationsMode.SingleIt;
             }
             else if (radioButton4.Checked)
             {
@@ -458,14 +461,15 @@ namespace PhysicsLabsComplex
                 chartManager.ConfigureAxisY2("Напруга (вхід 2)", "В");
 
                 GraphicsBuilder.BuildExperiment(Ut, ch1, It, ch2);
-                chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.UtIt);
+                annotationsMode = SettingsChart.AnnotationsMode.UtIt;
             }
 
             chart1.Series.Add(Ut);
             chart1.Series.Add(It);
 
             chartManager.ResetAxes();
-            chartManager.ApplyStaticGrid();
+            chartManager.ApplyStaticGrid4x4Experiment();
+            chartManager.DrawLineAnnotations(annotationsMode);
 
             graphicsExisting = true;
 
@@ -474,6 +478,7 @@ namespace PhysicsLabsComplex
             GridHelper.AddExperimentNumberColumn(dataTable);
             dataGridView1.DataSource = dataTable;
 
+            GridHelper.HideArrayColumns(dataGridView1);
             GridHelper.SetUpColumnHeaders(dataGridView1);
 
             string parametersValues = GridHelper.GetExperimentParametersToString(parameters);
@@ -656,10 +661,10 @@ namespace PhysicsLabsComplex
 
             var dataRow = dataGridView1.Rows[e.RowIndex];
 
-            textBox1.Text = dataRow.Cells["R"].Value.ToString();
-            textBox2.Text = dataRow.Cells["C"].Value.ToString();
-            textBox3.Text = dataRow.Cells["Umax"].Value.ToString();
-            textBox4.Text = dataRow.Cells["f"].Value.ToString();
+            textBox8.Text = dataRow.Cells["R"].Value.ToString();
+            textBox9.Text = dataRow.Cells["C"].Value.ToString();
+            textBox7.Text = dataRow.Cells["Umax"].Value.ToString();
+            textBox6.Text = dataRow.Cells["f"].Value.ToString();
         }
 
         private void видалитиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -772,8 +777,34 @@ namespace PhysicsLabsComplex
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             var instructionPath = Path.Combine(Application.StartupPath, "Labs instructions", "Інструкція до лабораторної роботи №2.pdf");
-            var labInstructions = new LabsInstructions(instructionPath);
-            labInstructions.Show();
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = instructionPath,
+                UseShellExecute = true
+            });
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            string sourcePath = Path.Combine(Application.StartupPath, "Labs instructions", "Інструкція до лабораторної роботи №2.docx");
+
+            if (!File.Exists(sourcePath))
+            {
+                MessageBox.Show("Файл Word не знайдено", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Word document (*.docx)|*.docx";
+                sfd.FileName = "Інструкція до лабораторної роботи №2.docx";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    File.Copy(sourcePath, sfd.FileName, true);
+                    MessageBox.Show("Документ успішно збережено!", "Збережено", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         #endregion

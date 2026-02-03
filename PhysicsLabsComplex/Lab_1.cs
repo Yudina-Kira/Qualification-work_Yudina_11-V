@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -87,6 +88,7 @@ namespace PhysicsLabsComplex
             {
                 CursorSetting.SetHandCursor(panel3);
                 CursorSetting.SetHandCursor(pictureBox1);
+                CursorSetting.SetHandCursor(pictureBox2);
                 CursorSetting.SetHandCursor(button1);
                 CursorSetting.SetHandCursor(button2);
                 CursorSetting.SetHandCursor(button3);
@@ -440,13 +442,11 @@ namespace PhysicsLabsComplex
             if (radioButton5.Checked)
             {
                 GraphicsBuilder.BuildExperiment(chargeAndDischarge, ch1);
-                //chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeExpSingle);
                 annotationsMode = SettingsChart.AnnotationsMode.ChargeDischargeExpSingle;
             }
             else if (radioButton6.Checked)
             {
                 GraphicsBuilder.BuildExperiment(uGenerator, ch2);
-                //chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.GeneratorSingle);
                 annotationsMode = SettingsChart.AnnotationsMode.GeneratorSingle;
             }
             else if (radioButton4.Checked)
@@ -455,7 +455,6 @@ namespace PhysicsLabsComplex
                 chartManager.ConfigureAxisY2("Напруга (вхід 2)", "В");
 
                 GraphicsBuilder.BuildExperiment(chargeAndDischarge, ch1, uGenerator, ch2);
-                //chartManager.DrawLineAnnotations(SettingsChart.AnnotationsMode.ChargeDischargeGenerator);
                 annotationsMode = SettingsChart.AnnotationsMode.ChargeDischargeGenerator;
             }
 
@@ -463,7 +462,7 @@ namespace PhysicsLabsComplex
             chart1.Series.Add(uGenerator);
 
             chartManager.ResetAxes();
-            ApplyStaticGrid4x4();
+            chartManager.ApplyStaticGrid4x4Experiment();
             chartManager.DrawLineAnnotations(annotationsMode);
 
             graphicsExisting = true;
@@ -589,23 +588,6 @@ namespace PhysicsLabsComplex
             {
                 GraphicsBuilder.BuildChargeDischarge(chargeAndDischarge, u, tau, T, D, newXMax);
             }
-        }
-
-        private void ApplyStaticGrid4x4()
-        {
-            var area = chart1.ChartAreas[0];
-
-            double xMax = area.AxisX.Maximum;
-            double xMin = area.AxisX.Minimum;
-
-            area.AxisX.Interval = (xMax - xMin) / 4;
-
-            double yMax = area.AxisY.Maximum;
-            double yMin = area.AxisY.Minimum;
-
-            area.AxisY.Interval = (yMax - yMin) / 4;
-
-            chartManager.SetStaticAnnotations();
         }
 
         private void ChartAnimator_AnimationFinished(object sender, EventArgs e)
@@ -753,8 +735,34 @@ namespace PhysicsLabsComplex
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             var instructionPath = Path.Combine(Application.StartupPath, "Labs instructions", "Інструкція до лабораторної роботи №1.pdf");
-            var labInstructions = new LabsInstructions(instructionPath);
-            labInstructions.Show();
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = instructionPath,
+                UseShellExecute = true
+            });
+        }
+        
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            string sourcePath = Path.Combine(Application.StartupPath, "Labs instructions", "Інструкція до лабораторної роботи №1.docx");
+
+            if (!File.Exists(sourcePath))
+            {
+                MessageBox.Show("Файл Word не знайдено", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Word document (*.docx)|*.docx";
+                sfd.FileName = "Інструкція до лабораторної роботи №1.docx";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    File.Copy(sourcePath, sfd.FileName, true);
+                    MessageBox.Show("Документ успішно збережено!", "Збережено", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         #endregion

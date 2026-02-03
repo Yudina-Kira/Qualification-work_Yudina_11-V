@@ -89,6 +89,7 @@ namespace PhysicsLabsComplex
             {
                 CursorSetting.SetHandCursor(panel3);
                 CursorSetting.SetHandCursor(pictureBox1);
+                CursorSetting.SetHandCursor(pictureBox2);
                 CursorSetting.SetHandCursor(button1);
                 CursorSetting.SetHandCursor(button2);
                 CursorSetting.SetHandCursor(button3);
@@ -466,7 +467,7 @@ namespace PhysicsLabsComplex
             chart1.Series.Add(It);
 
             chartManager.ResetAxes();
-            chartManager.ApplyStaticGrid();
+            //chartManager.ApplyStaticGrid();
 
             graphicsExisting = true;
 
@@ -761,8 +762,34 @@ namespace PhysicsLabsComplex
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             var instructionPath = Path.Combine(Application.StartupPath, "Labs instructions", "Інструкція до лабораторної роботи №3.pdf");
-            var labInstructions = new LabsInstructions(instructionPath);
-            labInstructions.Show();
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = instructionPath,
+                UseShellExecute = true
+            });
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            string sourcePath = Path.Combine(Application.StartupPath, "Labs instructions", "Інструкція до лабораторної роботи №3.docx");
+
+            if (!File.Exists(sourcePath))
+            {
+                MessageBox.Show("Файл Word не знайдено", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Word document (*.docx)|*.docx";
+                sfd.FileName = "Інструкція до лабораторної роботи №3.docx";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    File.Copy(sourcePath, sfd.FileName, true);
+                    MessageBox.Show("Документ успішно збережено!", "Збережено", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         #endregion
