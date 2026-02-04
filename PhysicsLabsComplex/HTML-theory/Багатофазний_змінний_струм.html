@@ -57,11 +57,13 @@
         var currentWidth = 6;
         var currentAlpha = 1;
 
+        // активація режиму малювання
         function setDrawingEnabled(value) {
             drawEnabled = value;
             canvas.style.pointerEvents = value ? 'auto' : 'none';
         }
 
+        // встановлення активного інструменту, налаштування прозорості
         function setTool(tool) {
             currentTool = tool;
             if (tool === 'pen') {
@@ -73,20 +75,36 @@
             }
         }
 
+        // встановлення кольору
         function setColor(color) {
             currentColor = color;
         }
 
+        // встановлення товщини лінії
         function setLineWidth(width) {
             currentWidth = width;
         }
 
+        // очистка канви
         function clearCanvas() {
             lines = [];
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
 
+        // збереження графіки в JSON
+        function saveDrawing() {
+            return JSON.stringify(lines);
+        }
+
+        // завантаження JSON на канву
+        function loadDrawing(json) {
+            lines = JSON.parse(json);
+            redraw();
+        }
+
         // ===== Обробка рухів миші =====
+
+        // обробник події натискання клавіші миші, додавання лінії у масив
         canvas.addEventListener('mousedown', function (e) {
             if (!drawEnabled) return;
             drawing = true;
@@ -101,6 +119,7 @@
             });
         });
 
+        // обробник події руху миші по канві, додавання точки у поточну лінію
         canvas.addEventListener('mousemove', function (e) {
             if (!drawing || !drawEnabled) return;
             var rect = canvas.getBoundingClientRect();
@@ -109,6 +128,8 @@
             redraw();
         });
 
+        // обробник події відпускання клавіші миші, завершення процесу малювання
+        // якщо лазерна вказівка - лінія видаляється
         canvas.addEventListener('mouseup', function () {
             if (currentTool === 'laser') {
                 if (lines.length > 0 && lines[lines.length - 1].tool === 'laser') {
@@ -119,8 +140,10 @@
             drawing = false;
         });
 
+        // обробник події виходу курсору за межі канва, завершення процесу малювання
         canvas.addEventListener('mouseleave', function () { drawing = false; });
 
+        // малювання збережених ліній на канві
         function redraw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (var i = 0; i < lines.length; i++) {
@@ -136,15 +159,6 @@
                 ctx.stroke();
             }
             ctx.globalAlpha = 1;
-        }
-
-        function saveDrawing() {
-            return JSON.stringify(lines);
-        }
-
-        function loadDrawing(json) {
-            lines = JSON.parse(json);
-            redraw();
         }
 
         function onUserDraw() {

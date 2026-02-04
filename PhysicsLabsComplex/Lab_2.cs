@@ -287,12 +287,13 @@ namespace PhysicsLabsComplex
             {
                 try
                 {
-                    dvm.Open(portName);
+                    dvm.Open(portName); // відкриття порту
                     Console.WriteLine("Порт відкрито.");
 
+                    // індикатор
                     interfaceHelper.SetIndicator(connectStatus, Color.LimeGreen, "З'єднання встановлено!");
 
-                    bool sent = dvm.SendSimpleCmd(0x84);
+                    bool sent = dvm.SendSimpleCmd(0x84); // запит на перевірку обміну даними
                     if (!sent)
                     {
                         Console.WriteLine("Не вдалося відправити команду.");
@@ -310,14 +311,16 @@ namespace PhysicsLabsComplex
                     bool run = true;
                     while (run)
                     {
+                        // отримання відповіді у вигляді масиву даних та їх типу
                         bool ok = dvm.ReadFrame(out type, out payload);
 
-                        if (!ok)
+                        if (!ok) // якщо дані непрочитані або пошкоджені - очікуємо і пробуємо ще раз
                         {
                             Thread.Sleep(100);
                             continue;
                         }
 
+                        // виведення в консоль отриманої інформації
                         Console.WriteLine("\n=== Відповідь отримано ===");
                         Console.WriteLine("Тип: 0x" + type.ToString("X2"));
                         Console.WriteLine("Розмір payload: " + (payload != null ? payload.Length : 0));
@@ -359,11 +362,11 @@ namespace PhysicsLabsComplex
         {
             using (var dvm = new DvmProtocol("COM5"))
             {
-                if (dvm.StartSingleAndWaitForData(dvm, out var payload))
+                if (dvm.StartSingleAndWaitForData(dvm, out var payload)) // запит на одиночне вимірювання
                 {
                     Console.WriteLine("Отримав DATA!");
-                    Console.WriteLine($"Payload size: {payload.Length}");
-                    dvm.SeparateChannels(payload, out ch1, out ch2);
+                    Console.WriteLine($"Payload size: {payload.Length}"); // довжина отриманого масиву даних
+                    dvm.SeparateChannels(payload, out ch1, out ch2); // метод розділення масиву на канали
                     button4.Enabled = true;
                     interfaceHelper.SetIndicator(dataStatus, Color.LimeGreen, "Дані отримані, готові до обробки ✔️");
                     interfaceHelper.ShowTimedTooltip(dataStatus, "Дані отримані, готові до обробки ✔️");
