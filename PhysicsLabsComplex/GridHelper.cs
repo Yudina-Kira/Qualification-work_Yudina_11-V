@@ -120,34 +120,34 @@ namespace PhysicsLabsComplex
             }
         }
 
-        public static void SelectCurrentExperiment(DataGridView dgv, IReadOnlyDictionary<string, double> parameters)
-        {
-            var values = new List<string>();
-            foreach (var value in parameters.Values)
-            {
-                values.Add(value.ToString(CultureInfo.InvariantCulture));
-            }
-            string newLine = string.Join("|", values);
+        //public static void SelectCurrentExperiment(DataGridView dgv, IReadOnlyDictionary<string, double> parameters)
+        //{
+        //    var values = new List<string>();
+        //    foreach (var value in parameters.Values)
+        //    {
+        //        values.Add(value.ToString(CultureInfo.InvariantCulture));
+        //    }
+        //    string newLine = string.Join("|", values);
 
-            dgv.ClearSelection();
-            foreach (DataGridViewRow row in dgv.Rows)
-            {
-                var rowValues = new List<string>();
-                string[] keys = parameters.Keys.ToArray();
-                for (int i = 0; i < keys.Length; i++)
-                {
-                    rowValues.Add(Convert.ToString(row.Cells[i + 1].Value, CultureInfo.InvariantCulture));
-                }
-                string currentRow = string.Join("|", rowValues);
+        //    dgv.ClearSelection();
+        //    foreach (DataGridViewRow row in dgv.Rows)
+        //    {
+        //        var rowValues = new List<string>();
+        //        string[] keys = parameters.Keys.ToArray();
+        //        for (int i = 0; i < keys.Length; i++)
+        //        {
+        //            rowValues.Add(Convert.ToString(row.Cells[i + 1].Value, CultureInfo.InvariantCulture));
+        //        }
+        //        string currentRow = string.Join("|", rowValues);
 
-                if (currentRow == newLine)
-                {
-                    row.Selected = true;
-                    dgv.CurrentCell = row.Cells[0];
-                    break;
-                }
-            }
-        }
+        //        if (currentRow == newLine)
+        //        {
+        //            row.Selected = true;
+        //            dgv.CurrentCell = row.Cells[0];
+        //            break;
+        //        }
+        //    }
+        //}
 
         public static string GetModelParametersToString(IReadOnlyDictionary<string, double> parameters)
         {
@@ -159,14 +159,15 @@ namespace PhysicsLabsComplex
             return string.Join("|", values);
         }
 
-        public static string GetExperimentParametersToString(IReadOnlyDictionary<string, string> parameters)
+        public static string GetParametersToString(IReadOnlyDictionary<string, string> parameters, params string[] orderedKeys)
         {
             var values = new List<string>();
-            foreach (var p in parameters)
+
+            foreach (var key in orderedKeys)
             {
-                if (p.Key != "ch1" && p.Key != "ch2")
-                    values.Add(p.Value);
+                values.Add(parameters[key]);
             }
+
             return string.Join("|", values);
         }
 

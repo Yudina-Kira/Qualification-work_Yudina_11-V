@@ -720,7 +720,7 @@ namespace ChartsLib
 
             chartArea.AxisY2.Interval = (y2Max - y2Min) / 4;
 
-            SetStaticAnnotations();
+            //SetStaticAnnotations();
         }
 
         public void ApplyStaticGridY(int divisions = 5)
@@ -831,6 +831,13 @@ namespace ChartsLib
             xAnnotation.Text = $"320 мкс / 1 под.";
             yAnnotation.Text = $"1 В / 1 под.";
             addyAnnotation.Text = $"1 В / 1 под.";
+        }
+
+        public void SetStaticAnnotationsRCRL()
+        {
+            xAnnotation.Text = $"320 мкс / 1 под.";
+            yAnnotation.Text = $"2 В / 1 под.";
+            addyAnnotation.Text = $"2 В / 1 под.";
         }
 
         #endregion

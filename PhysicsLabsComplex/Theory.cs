@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -227,7 +228,7 @@ namespace PhysicsLabsComplex
                 widthTextBox.Text = noteHelper.lineWidth.ToString();
             }
 
-            if (float.TryParse(widthTextBox.Text, out float width))
+            if (float.TryParse(widthTextBox.Text, NumberStyles.Float, CultureInfo.CurrentCulture, out float width) && width > 0 && width <= 100)
             {
                 drawingModeHelper.UpdateWidth(width); // спочатку перевірка на нуль
                 noteHelper.SetLineWidth(width); // потім запис

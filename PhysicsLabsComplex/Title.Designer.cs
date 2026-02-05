@@ -83,11 +83,12 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(12, 45);
+            this.label7.Location = new System.Drawing.Point(12, 33);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(1053, 36);
+            this.label7.Size = new System.Drawing.Size(1053, 69);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Дніпровський науковий ліцей інформаційних технологій ДМР\r\n";
+            this.label7.Text = "Дніпровський науковий ліцей інформаційних технологій\r\nДніпровської міської ради\r\n" +
+    "";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label8

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,19 +43,6 @@ namespace PhysicsLabsComplex
             toolTip.SetToolTip(indicator, tooltipText);
         }
 
-        //public void SetOneOption(ComboBox cmb, Label lbl, string labelText)
-        //{
-        //    if (invoker.InvokeRequired)
-        //    {
-        //        invoker.Invoke(new Action(() => SetOneOption(cmb, lbl, labelText)));
-        //        return;
-        //    }
-
-        //    cmb.Visible = false;
-        //    lbl.Visible = true;
-        //    lbl.Text = labelText;
-        //}
-
         public void SetSeriesSelector(ComboBox cmb, params string[] comboItems)
         {
             if (invoker.InvokeRequired)
@@ -74,6 +62,22 @@ namespace PhysicsLabsComplex
             cmb.Items.AddRange(comboItems);
             cmb.SelectedIndex = 0;
             cmb.Visible = true;
+        }
+
+        public bool TryGetPositiveDouble(TextBox textBox, string name, out double value, double min = 0, double max = 1000)
+        {
+            if (!double.TryParse(textBox.Text, NumberStyles.Float, CultureInfo.CurrentCulture, out value) || value <= min || value > max)
+            {
+                MessageBox.Show($"Некоректне значення параметра «{name}».","Помилка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                textBox.Focus();
+                textBox.SelectAll();
+                return false;
+            }
+
+            return true;
         }
     }
 }

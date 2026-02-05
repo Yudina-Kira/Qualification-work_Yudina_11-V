@@ -147,11 +147,31 @@ namespace PhysicsLabsComplex
                 }
             }
 
-            r = double.Parse(textBox1.Text); //кОм
-            c = double.Parse(textBox2.Text); //мкФ
-            u = double.Parse(textBox3.Text); //В
-            T = double.Parse(textBox4.Text); //мс
-            D = double.Parse(textBox5.Text); //%
+            if (!interfaceHelper.TryGetPositiveDouble(textBox1, "R (кОм)", out r))
+            {
+                MessageBox.Show("Опір R повинен бути в межах (0; 1000] кОм");
+                return;
+            }
+            if (!interfaceHelper.TryGetPositiveDouble(textBox2, "C (мкФ)", out c, 0, 10000))
+            {
+                MessageBox.Show("Ємність С повинна бути в межах (0; 10000] мкФ");
+                return;
+            }
+            if (!interfaceHelper.TryGetPositiveDouble(textBox3, "U (В)", out u, 0, 100))
+            {
+                MessageBox.Show("Напруга U повинна бути в межах (0; 100] В");
+                return;
+            }
+            if (!interfaceHelper.TryGetPositiveDouble(textBox4, "T (мс)", out T, 0, 10000))
+            {
+                MessageBox.Show("Період Т повинен бути в межах (0; 10000] мс");
+                return;
+            }
+            if (!interfaceHelper.TryGetPositiveDouble(textBox5, "D (%)", out D, 0, 99))
+            {
+                MessageBox.Show("Коефіцієнт заповнення D повинен бути в межах (0; 99] %");
+                return;
+            }
 
             var parameters = new Dictionary<string, double>
             {
@@ -401,11 +421,31 @@ namespace PhysicsLabsComplex
                 }
             }
 
-            r = double.Parse(textBox10.Text); //кОм
-            c = double.Parse(textBox11.Text); //мкФ
-            u = double.Parse(textBox9.Text); //В
-            T = double.Parse(textBox7.Text); //мс
-            D = double.Parse(textBox6.Text); //%
+            if (!interfaceHelper.TryGetPositiveDouble(textBox10, "R (кОм)", out r))
+            {
+                MessageBox.Show("Опір R повинен бути в межах (0; 1000] кОм");
+                return;
+            }
+            if (!interfaceHelper.TryGetPositiveDouble(textBox11, "C (мкФ)", out c, 0, 10000))
+            {
+                MessageBox.Show("Ємність С повинна бути в межах (0; 10000] мкФ");
+                return;
+            }
+            if (!interfaceHelper.TryGetPositiveDouble(textBox9, "U (В)", out u, 0, 100))
+            {
+                MessageBox.Show("Напруга U повинна бути в межах (0; 100] В");
+                return;
+            }
+            if (!interfaceHelper.TryGetPositiveDouble(textBox7, "T (мс)", out T, 0, 10000))
+            {
+                MessageBox.Show("Період Т повинен бути в межах (0; 10000] мс");
+                return;
+            }
+            if (!interfaceHelper.TryGetPositiveDouble(textBox6, "D (%)", out D, 0, 99))
+            {
+                MessageBox.Show("Коефіцієнт заповнення D повинен бути в межах (0; 99] %");
+                return;
+            }
 
             var parameters = new Dictionary<string, string>
             {
@@ -450,12 +490,19 @@ namespace PhysicsLabsComplex
             chart1.Series.Add(uGenerator);
 
             chartManager.ResetAxes();
+
+            chart1.ChartAreas[0].AxisY2.Maximum = 700;
+            chart1.ChartAreas[0].AxisY2.Minimum = 0;
+            chart1.ChartAreas[0].AxisY.Maximum = chart1.ChartAreas[0].AxisY2.Maximum;
+            chart1.ChartAreas[0].AxisY.Minimum = chart1.ChartAreas[0].AxisY2.Minimum;
+
             chartManager.ApplyStaticGrid4x4Experiment();
+            chartManager.SetStaticAnnotations();
             chartManager.DrawLineAnnotations(annotationsMode);
 
             graphicsExisting = true;
 
-            DataWorking.AppendData(labNumber, DataWorking.DataKind.Experiment, parameters);
+            DataWorking.AppendData(labNumber, DataWorking.DataKind.Experiment, parameters, "R", "C", "U", "T", "D");
             dataTable = DataWorking.LoadData(labNumber, DataWorking.DataKind.Experiment);
             GridHelper.AddExperimentNumberColumn(dataTable);
             dataGridView1.DataSource = dataTable;
@@ -463,7 +510,7 @@ namespace PhysicsLabsComplex
             GridHelper.HideArrayColumns(dataGridView1);
             GridHelper.SetUpColumnHeaders(dataGridView1);
 
-            string parametersValues = GridHelper.GetExperimentParametersToString(parameters);
+            string parametersValues = GridHelper.GetParametersToString(parameters, "R", "C", "U", "T", "D");
             GridHelper.SelectCurrentExperiment(dataGridView1, parametersValues);
         }
 

@@ -97,17 +97,18 @@ namespace LabDataLib
             }
         }
 
-        public static void AppendData(int labNumber, DataKind kind, IReadOnlyDictionary<string, string> parameters)
+        public static void AppendData(int labNumber, DataKind kind, IReadOnlyDictionary<string, string> parameters, params string[] identityKeys)
         {
             string path = GetLabFilePath(labNumber, kind);
 
-            EnsureFileExists(path, parameters.Keys);
+            EnsureFileExists(path, identityKeys);
 
             var values = new List<string>();
-            foreach (var value in parameters.Values)
+            foreach (var key in identityKeys)
             {
-                values.Add(value ?? "");
+                values.Add(parameters[key] ?? "");
             }
+
             string newLine = string.Join("|", values);
 
             var existingLines = File.ReadAllLines(path);
