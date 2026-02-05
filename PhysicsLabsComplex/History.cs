@@ -176,7 +176,7 @@ namespace PhysicsLabsComplex
             }
             else
             {
-                MessageBox.Show("Значення товщини лінії введено некоректно. \n"
+                MessageBox.Show("Значення товщини лінії введено некоректно (потрібне значення в межах [1; 100]). \n"
                     + "Спробуйте, будь ласка, ще раз.", "Помилка",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
